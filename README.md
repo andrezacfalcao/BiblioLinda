@@ -1,2 +1,2 @@
 # BiblioLinda
-  Projeto de gerenciamento da biblioteca.
+  Projeto de gerenciamento da biblioteca qqqqqq
