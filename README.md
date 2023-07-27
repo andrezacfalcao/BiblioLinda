@@ -36,4 +36,4 @@
 * **REQ5** - O cliente poderá fazer o empréstimo apenas de um livro por vez.
 * **REQ6** - O sistema deve permitir o gerenciamento (CRUD) de usuários, empréstimos, quitação de multa e essa ação deve ser feita pelo usuário admnistador.
 * **REQ7** - O cliente só poderá alugar um livro se não tiver nenhuma pendência.
-* //questionar sobre a necessidade de histórico e interface de pagamento.
+* **REQ8** - O usuário administrador poderá acessar o histórico de pagamentos e consultar um subtotal de apurados de multas em dado período de tempo.
