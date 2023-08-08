@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="21b7dac9-484c-4e76-8610-2fa4f9fb59ce" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioLinda/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioLinda/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/mvnw" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioLinda/mvnw" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/mvnw.cmd" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioLinda/mvnw.cmd" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioLinda/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/src/main/java/br/ufrpe/bibliolinda/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioLinda/src/main/java/br/ufrpe/bibliolinda/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/src/main/java/br/ufrpe/bibliolinda/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioLinda/src/main/java/br/ufrpe/bibliolinda/HelloController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioLinda/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioLinda/src/main/resources/br/ufrpe/bibliolinda/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioLinda/src/main/resources/br/ufrpe/bibliolinda/hello-view.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/BiblioLinda/src/main/java/br/ufrpe/bibliolinda/HelloApplication.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2TgIQgS1XQRztiEfukoVlZRIYx3" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/camil/OneDrive/Documents/GitHub/BiblioLinda/BiblioLinda&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21b7dac9-484c-4e76-8610-2fa4f9fb59ce" name="Changes" comment="" />
+      <created>1691458282556</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1691458282556</updated>
+      <workItem from="1691458283789" duration="999000" />
+      <workItem from="1691459357328" duration="2821000" />
+      <workItem from="1691462256626" duration="369000" />
+      <workItem from="1691462714042" duration="251000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
