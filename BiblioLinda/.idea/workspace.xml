@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50d6140c-1fec-4687-8520-0abaac20ef44" name="Changes" comment="Get e set da classe Emprestimo" />
+    <list default="true" id="50d6140c-1fec-4687-8520-0abaac20ef44" name="Changes" comment="Get e set da classe Livro" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +92,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691537272329</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Get e set da classe Livro">
+      <option name="closed" value="true" />
+      <created>1691537550904</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691537550904</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -104,7 +112,8 @@
     <MESSAGE value="Get e set da classe Usuario" />
     <MESSAGE value="Get e set da classe Cliente" />
     <MESSAGE value="Get e set da classe Emprestimo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Get e set da classe Emprestimo" />
+    <MESSAGE value="Get e set da classe Livro" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get e set da classe Livro" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

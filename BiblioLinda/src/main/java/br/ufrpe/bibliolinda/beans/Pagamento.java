@@ -11,4 +11,28 @@ public class Pagamento {
         this.statusPagamento = statusPagamento;
     }
 
+    public Emprestimo getEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimo(Emprestimo emprestimo) {
+        this.emprestimo = emprestimo;
+    }
+
+    public float getMulta() {
+        return multa;
+    }
+
+    public void setMulta(float multa) {
+        this.multa = multa;
+    }
+
+    public boolean isStatusPagamento() {
+        return statusPagamento;
+    }
+    public void setStatusPagamento(boolean statusPagamento) {
+        this.statusPagamento = statusPagamento;
+    }
+
+
 }
