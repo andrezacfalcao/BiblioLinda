@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="50d6140c-1fec-4687-8520-0abaac20ef44" name="Changes" comment="Criando RepositorioUsuario">
+    <list default="true" id="50d6140c-1fec-4687-8520-0abaac20ef44" name="Changes" comment="Repositorio cliente">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dados/RepositorioUsuario.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Cliente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dados/RepositorioCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dados/RepositorioCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dados/RepositorioCliente.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +128,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691542130862</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Repositorio cliente">
+      <option name="closed" value="true" />
+      <created>1691544706443</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1691544706443</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -143,7 +151,8 @@
     <MESSAGE value="Get e set da classe Livro" />
     <MESSAGE value="Get e set da classe Pagamento" />
     <MESSAGE value="Criando RepositorioUsuario" />
-    <option name="LAST_COMMIT_MESSAGE" value="Criando RepositorioUsuario" />
+    <MESSAGE value="Repositorio cliente" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repositorio cliente" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
