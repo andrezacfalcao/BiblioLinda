@@ -1,6 +1,7 @@
 package dados;
 
 import java.util.ArrayList;
+import br.ufrpe.bibliolinda.beans.Cliente;
 
 public class RepositorioCliente {
     public ArrayList<Cliente> listaCliente = new ArrayList<Cliente>();

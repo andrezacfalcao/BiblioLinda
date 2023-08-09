@@ -1,5 +1,7 @@
 package br.ufrpe.bibliolinda.beans;
 
+import java.util.Objects;
+
 public class Cliente extends Usuario {
     private int id;
 
@@ -18,5 +20,13 @@ public class Cliente extends Usuario {
         this.id = id;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Cliente && ((Cliente) o).getId() == this.id && ((Cliente) o).getLogin().equals(this.getLogin());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }
