@@ -1,9 +1,8 @@
-package dados;
+package br.ufrpe.bibliolinda.dados;
 
-import br.ufrpe.bibliolinda.beans.Cliente;
+import br.ufrpe.bibliolinda.beans.Usuario;
+import java.util.List;
 
-import java.util.ArrayList;
-import java.util.ListIterator;
 
 public class RepositorioUsuario {
     private List<Usuario> listaUsuario;
@@ -11,7 +10,6 @@ public class RepositorioUsuario {
     public RepositorioUsuario(List<Usuario> listaUsuario){
         this.listaUsuario = listaUsuario;
     }
-
 
     public void adicionarUsuario(Usuario u) {
         this.listaUsuario.add(u);
@@ -21,9 +19,8 @@ public class RepositorioUsuario {
         this.listaUsuario.remove(u);
     }
 
-    public List<Usuario> listarUsuarios(){}
-
-
-
+    public List<Usuario> listarUsuarios(){
+        return listaUsuario;
+    }
 
 }
