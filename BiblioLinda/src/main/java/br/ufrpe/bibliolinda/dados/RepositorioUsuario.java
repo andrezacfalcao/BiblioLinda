@@ -1,14 +1,16 @@
 package br.ufrpe.bibliolinda.dados;
 
 import br.ufrpe.bibliolinda.beans.Usuario;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
 public class RepositorioUsuario {
-    private List<Usuario> listaUsuario;
+    private final List<Usuario> listaUsuario;
 
-    public RepositorioUsuario(List<Usuario> listaUsuario){
-        this.listaUsuario = listaUsuario;
+    public RepositorioUsuario(){
+        this.listaUsuario = new ArrayList<>();
     }
 
     public void adicionarUsuario(Usuario u) {
