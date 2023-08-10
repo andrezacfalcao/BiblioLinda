@@ -45,4 +45,8 @@ public class Livro {
     public void setNumeroDeCopias(int numeroDeCopias){
         this.numeroDeCopias = numeroDeCopias;
     }
+
+    public String getNomeAutor() {
+        return nomeAutor;
+    }
 }
