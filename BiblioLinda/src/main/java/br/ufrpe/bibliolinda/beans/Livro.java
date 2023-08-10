@@ -1,7 +1,7 @@
 package br.ufrpe.bibliolinda.beans;
 
 import java.time.LocalDate;
-import java.util.Locale;
+import java.util.Objects;
 
 public class Livro {
     private String nomeLivro;
@@ -48,5 +48,15 @@ public class Livro {
 
     public String getNomeAutor() {
         return nomeAutor;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Livro && ((Livro) o).getNomeLivro().equals(this.nomeLivro);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nomeLivro);
     }
 }

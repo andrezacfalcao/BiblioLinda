@@ -1,35 +1,71 @@
 package br.ufrpe.bibliolinda.dados;
 
+import br.ufrpe.bibliolinda.beans.Cliente;
 import br.ufrpe.bibliolinda.beans.Emprestimo;
 import br.ufrpe.bibliolinda.beans.Livro;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RepositorioEmprestimo {
 
-    private List<Emprestimo> listaDeEmprestimos;
+    private final List<Emprestimo> listaDeEmprestimos;
 
     //construtor
-    public RepositorioEmprestimo(List<Emprestimo> listaDeEmprestimos) {
-        this.listaDeEmprestimos = listaDeEmprestimos;
+    public RepositorioEmprestimo() {
+        this.listaDeEmprestimos = new ArrayList<>();
     }
 
-    public List<Emprestimo> listarLivros() {
+    public List<Emprestimo> listarEmprestimos() {
         return listaDeEmprestimos;
     }
 
-    public void adicionarLivro(Emprestimo emprestimo){
+    public void adicionarEmprestimo(Emprestimo emprestimo){
         this.listaDeEmprestimos.add(emprestimo);
     }
 
-    public void removerLivro(Emprestimo emprestimo){
+    public void removerEmprestimo(Emprestimo emprestimo){
         this.listaDeEmprestimos.remove(emprestimo);
     }
 
-    public void editarLivro(Emprestimo emprestimo, Emprestimo novoEmprestimo){
+    public void editarEmprestimo(Emprestimo emprestimo, Emprestimo novoEmprestimo){
         if(this.listaDeEmprestimos.contains(emprestimo)){
             int i = this.listaDeEmprestimos.indexOf(emprestimo);
             this.listaDeEmprestimos.set(i,novoEmprestimo);
         }
+    }
+
+    public List<Emprestimo> listarEmprestimosPorCliente(Cliente cliente) {
+        List<Emprestimo> resultado = new ArrayList<>();
+
+        for (Emprestimo emprestimo : listaDeEmprestimos)
+            if (emprestimo.getCliente().equals(cliente))
+                resultado.add(emprestimo);
+
+        return resultado;
+    }
+
+    public List<Emprestimo> listarEmprestimosPorLivro(Livro livro) {
+        List<Emprestimo> resultado = new ArrayList<>();
+
+        for (Emprestimo emprestimo : listaDeEmprestimos)
+            if (emprestimo.getLivro().equals(livro))
+                resultado.add(emprestimo);
+
+        return resultado;
+    }
+
+    public List<Emprestimo> listarEmprestimosEntrePeriodo(LocalDate inicio, LocalDate fim) {
+        List<Emprestimo> resultado = new ArrayList<>();
+        LocalDate dataEmprestimo;
+
+        for (Emprestimo emprestimo : listaDeEmprestimos) {
+            dataEmprestimo = emprestimo.getData_emprestimo();
+            if (dataEmprestimo.isAfter(inicio) && dataEmprestimo.isBefore(fim))
+                resultado.add(emprestimo);
+        }
+
+        return resultado;
     }
 }
