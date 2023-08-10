@@ -1,17 +1,18 @@
 package br.ufrpe.bibliolinda.dados;
 
-import br.ufrpe.bibliolinda.beans.Livro;
+import br.ufrpe.bibliolinda.beans.Cliente;
 import br.ufrpe.bibliolinda.beans.Pagamento;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class RepositorioPagamento {
 
-        private List<Pagamento> listaDePagamentos;
+    private final List<Pagamento> listaDePagamentos;
 
     //construtor
-    public RepositorioPagamento(List<Pagamento> listaDePagamentos) {
-        this.listaDePagamentos = listaDePagamentos;
+    public RepositorioPagamento() {
+        this.listaDePagamentos = new ArrayList<>();
     }
 
     public List<Pagamento> listarPagamentos() {
@@ -32,4 +33,15 @@ public class RepositorioPagamento {
             this.listaDePagamentos.set(i,novoPagamento);
         }
     }
+
+    public List<Pagamento> listarPagamentosPorCliente(Cliente cliente) {
+        List<Pagamento> resultado = new ArrayList<>();
+
+        for (Pagamento pagamento : listaDePagamentos)
+            if (pagamento.getEmprestimo().getCliente().equals(cliente))
+                resultado.add(pagamento);
+
+        return resultado;
+    }
+
 }
