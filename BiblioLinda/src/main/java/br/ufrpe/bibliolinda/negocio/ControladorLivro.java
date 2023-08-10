@@ -13,7 +13,7 @@ public class ControladorLivro {
     private final RepositorioLivro repositorioLivro;
 
     private ControladorLivro() {
-        this.repositorioLivro = new RepositorioLivro();
+        this.repositorioLivro = RepositorioLivro.getInstancia();
     }
 
     public ControladorLivro getInstancia() {

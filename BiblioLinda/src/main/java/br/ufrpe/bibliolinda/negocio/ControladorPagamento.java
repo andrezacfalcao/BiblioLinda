@@ -31,7 +31,7 @@ public class ControladorPagamento {
     }
 
     public void removerPagamento(Pagamento pagamento) {
-        repositorioPagamento.removerPagamento(pagamento);
+        repositorioPagamento.removerPendencia(pagamento);
     }
 
     public void editarPagamento(Pagamento pagamento, Pagamento novoPagamento) {

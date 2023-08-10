@@ -10,11 +10,19 @@ import java.util.List;
 
 public class RepositorioEmprestimo {
 
+    private static RepositorioEmprestimo instancia;
+
     private final List<Emprestimo> listaDeEmprestimos;
 
     //construtor
-    public RepositorioEmprestimo() {
+    private RepositorioEmprestimo() {
         this.listaDeEmprestimos = new ArrayList<>();
+    }
+
+    public static RepositorioEmprestimo getInstancia() {
+        if (instancia == null)
+            instancia = new RepositorioEmprestimo();
+        return instancia;
     }
 
     public List<Emprestimo> listarEmprestimos() {

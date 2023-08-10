@@ -19,12 +19,11 @@ public class RepositorioPagamento {
         return listaDePagamentos;
     }
 
+    public void removerPendencia(Pagamento pagamento){
+        this.listaDePagamentos.remove(pagamento);
+    }
     public void adicionarPagamento(Pagamento pagamento){
         this.listaDePagamentos.add(pagamento);
-    }
-
-    public void removerPagamento(Pagamento pagamento){
-        this.listaDePagamentos.remove(pagamento);
     }
 
     public void editarPagamento(Pagamento pagamento, Pagamento novoPagamento){

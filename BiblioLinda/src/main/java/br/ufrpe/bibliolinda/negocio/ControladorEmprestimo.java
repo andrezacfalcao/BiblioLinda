@@ -4,6 +4,7 @@ import br.ufrpe.bibliolinda.beans.Cliente;
 import br.ufrpe.bibliolinda.beans.Emprestimo;
 import br.ufrpe.bibliolinda.beans.Livro;
 import br.ufrpe.bibliolinda.dados.RepositorioEmprestimo;
+import br.ufrpe.bibliolinda.dados.RepositorioLivro;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,9 +16,11 @@ public class ControladorEmprestimo {
     private static ControladorEmprestimo instancia;
 
     private final RepositorioEmprestimo repositorioEmprestimo;
+    private final RepositorioLivro repositorioLivro;
 
     private ControladorEmprestimo() {
-        this.repositorioEmprestimo = new RepositorioEmprestimo();
+        repositorioEmprestimo = RepositorioEmprestimo.getInstancia();
+        repositorioLivro = RepositorioLivro.getInstancia();
     }
 
     public ControladorEmprestimo getInstancia() {

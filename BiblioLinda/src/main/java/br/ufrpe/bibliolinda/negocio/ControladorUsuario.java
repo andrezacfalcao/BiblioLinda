@@ -22,10 +22,13 @@ public class ControladorUsuario {
     }
 
     public void cadastrarUsuario(Usuario u) {
-        repositorioUsuario.adicionarUsuario(u);
-    }
 
+        if (u != null) {
+            repositorioUsuario.adicionarUsuario(u);
+        }
+    }
     public void removerUsuario(Usuario u) {
+
         repositorioUsuario.removerUsuario(u);
     }
 

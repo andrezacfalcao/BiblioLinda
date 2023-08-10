@@ -7,15 +7,15 @@ public class Livro {
     private String nomeLivro;
     private Categoria categoriaLivro;
     private String nomeAutor;
-    private LocalDate anoDeLancamento;
-    private int numeroDeCopias;
+    private int anoDeLancamento;
+    private int totalDeCopias;
 
-    public Livro(String nomeLivro, Categoria categoriaLivro, String nomeAutor, LocalDate anoDeLancamento, int numeroDeCopias) {
+    public Livro(String nomeLivro, Categoria categoriaLivro, String nomeAutor, int anoDeLancamento, int numeroTotalDeCopias) {
         this.nomeLivro = nomeLivro;
         this.categoriaLivro = categoriaLivro;
         this.nomeAutor = nomeAutor;
         this.anoDeLancamento = anoDeLancamento;
-        this.numeroDeCopias = numeroDeCopias;
+        this.totalDeCopias = numeroTotalDeCopias;
     }
 
     public String getNomeLivro() {
@@ -32,18 +32,18 @@ public class Livro {
         this.categoriaLivro = categoriaLivro;
     }
 
-    public LocalDate getAnoDeLancamento() {
+    public int getAnoDeLancamento() {
         return anoDeLancamento;
     }
 
-    public void setAnoDeLancamento(LocalDate anoDeLancamento) {
+    public void setAnoDeLancamento(int anoDeLancamento) {
         this.anoDeLancamento = anoDeLancamento;
     }
     public int getNumeroDeCopias(){
-        return numeroDeCopias;
+        return totalDeCopias;
     }
     public void setNumeroDeCopias(int numeroDeCopias){
-        this.numeroDeCopias = numeroDeCopias;
+        this.totalDeCopias = numeroDeCopias;
     }
 
     public String getNomeAutor() {

@@ -9,9 +9,19 @@ import java.util.List;
 public class RepositorioLivro {
     private List<Livro> listaDeLivros;
 
+    private static RepositorioLivro instancia;
+
+
     //construtor
-    public RepositorioLivro() {
+    private RepositorioLivro() {
         this.listaDeLivros = new ArrayList<>();
+    }
+
+    public static RepositorioLivro getInstancia() {
+        if(instancia == null){
+            instancia = new RepositorioLivro();
+        }
+        return instancia;
     }
 
     public List<Livro> listarLivros() {
@@ -23,7 +33,15 @@ public class RepositorioLivro {
     }
 
     public void removerLivro(Livro livro){
-        this.listaDeLivros.remove(livro);
+
+        if(listaDeLivros.contains(livro)){
+            if(livro.getNumeroDeCopias() > 1){
+                livro.setNumeroDeCopias(livro.getNumeroDeCopias()-1);
+            }
+            else{
+                listaDeLivros.remove(this.listaDeLivros.indexOf(livro));
+            }
+        }
     }
     
     public void editarLivro(Livro livro, Livro livroNovo){
@@ -35,7 +53,6 @@ public class RepositorioLivro {
 
     public List<Livro> listarLivrosPorCategoria(Categoria categoria) {
         List<Livro> resultado = new ArrayList<>();
-
         for (Livro livro : listaDeLivros)
             if (livro.getCategoriaLivro().equals(categoria))
                 resultado.add(livro);
