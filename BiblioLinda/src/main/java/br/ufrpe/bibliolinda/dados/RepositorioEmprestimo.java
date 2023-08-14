@@ -37,6 +37,16 @@ public class RepositorioEmprestimo {
         this.listaDeEmprestimos.remove(emprestimo);
     }
 
+    public void removerEmprestimoPorId (int id){
+        for (Emprestimo emprestimo : listaDeEmprestimos){
+            if (emprestimo.getCliente().getId() == id) {
+                listaDeEmprestimos.remove(emprestimo);
+            }
+        }
+
+    }
+
+
     public void editarEmprestimo(Emprestimo emprestimo, Emprestimo novoEmprestimo){
         if(this.listaDeEmprestimos.contains(emprestimo)){
             int i = this.listaDeEmprestimos.indexOf(emprestimo);
@@ -76,4 +86,60 @@ public class RepositorioEmprestimo {
 
         return resultado;
     }
+
+    public Emprestimo obterEmprestimoId(int id) {
+        for ( Emprestimo emprestimo : listaDeEmprestimos){
+            if (emprestimo.getCliente().getId() == id) {
+                return emprestimo;
+            }
+        }
+        return null;
+    }
+
+    public List<Emprestimo> obterEmprestimosAtivos(){ //pERA n sei se t aok
+        List<Emprestimo> emprestimosAtivos = new ArrayList<>();
+        LocalDate hoje = LocalDate.now();
+
+        for(Emprestimo emprestimo : listaDeEmprestimos){
+            if(emprestimo.getData_devolucao().isAfter(hoje)){
+                emprestimosAtivos.add(emprestimo);
+            }
+        }
+        return emprestimosAtivos;
+    }
+
+
+    public List<Emprestimo> obterEmprestimosAtivosEmRelacaoAData(LocalDate data){
+        List<Emprestimo> emprestimosPendentes = new ArrayList<>();
+        for(Emprestimo emprestimo : listaDeEmprestimos){
+            LocalDate dataDevolucao = emprestimo.getData_devolucao();
+            if(dataDevolucao.isAfter(data)){
+                emprestimosPendentes.add(emprestimo);
+            }
+        }
+        return emprestimosPendentes;
+    }
+
+    public boolean checarLivroDisponivel (Livro livro){
+        for( Emprestimo emprestimo : listaDeEmprestimos){
+            if(emprestimo.getLivro().equals(livro) ){ // && como faço pra falar tipo "nao tem data de devolucao"?
+            return false; //pois o livro vai estar emprestado
+            } else{
+                return true;
+            }
+        }
+        return false; // ? tava dando erro
+    }
+
+
+        public boolean checarUsuarioJaEstaComLivro(Cliente cliente, Livro livro) {
+            for (Emprestimo emprestimo : listaDeEmprestimos) {
+                if (emprestimo.getCliente().equals(cliente) && emprestimo.getLivro().equals(livro)) {
+                    return true;
+                }
+
+            }
+            return false;
+        }
+
 }
