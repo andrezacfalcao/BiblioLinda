@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Alteração do projeto em Repositorio emprestimos" />
+    <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Controlador e repositorio de usuario conforme padrão">
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,6 +112,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Alteração do projeto" />
     <MESSAGE value="Alteração do projeto em Repositorio emprestimos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Alteração do projeto em Repositorio emprestimos" />
+    <MESSAGE value="Controlador e repositorio de usuario conforme padrão" />
+    <option name="LAST_COMMIT_MESSAGE" value="Controlador e repositorio de usuario conforme padrão" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java</url>
+          <line>148</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
