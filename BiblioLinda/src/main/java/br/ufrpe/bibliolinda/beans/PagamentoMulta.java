@@ -30,15 +30,16 @@ public class PagamentoMulta {
         this.multa = multa;
     }
 
-    public boolean isStatusPagamento() {
+    public boolean getStatusPagamento() {
         return statusPagamento;
     }
-    public LocalDate getDataDePagamento() {
-        return dataDePagamento;
-    }
+
     public void setStatusPagamento(boolean statusPagamento) {
         this.statusPagamento = statusPagamento;
     }
 
+    public LocalDate getDataDePagamento() {
+        return dataDePagamento;
+    }
 
 }

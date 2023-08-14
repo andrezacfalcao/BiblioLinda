@@ -32,7 +32,7 @@ public class ControladorLivro {
 
     public void adicionarLivro(Livro livro) {
         if(!repositorioLivro.listarLivros().contains(livro) && livro != null){
-            if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null &!livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
+            if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null && !livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
                 repositorioLivro.adicionarLivro(livro);
             }
             else{
@@ -52,8 +52,8 @@ public class ControladorLivro {
     }
 
     public void editarLivro(Livro livro, Livro novoLivro) {
-        if(livrosDisponiveis().contains(livro)){
-            if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null &!livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
+        if(livrosDisponiveis().contains(livro) && novoLivro != null){
+            if(!novoLivro.getNomeLivro().isEmpty() && novoLivro.getCategoriaLivro() != null && !novoLivro.getNomeAutor().isEmpty() &&  novoLivro.getAnoDeLancamento() != 0 && novoLivro.getNumeroDeCopias() != 0){
                 repositorioLivro.editarLivro(livro, novoLivro);
             }
             else{
@@ -63,7 +63,6 @@ public class ControladorLivro {
         else{
             // a excessão será lançada aqui caso objeto não esteja no repositório ou seja nulo
         }
-
     }
 
     public List<Livro> listarLivrosPorCategoria(Categoria categoria) {
