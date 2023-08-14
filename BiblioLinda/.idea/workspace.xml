@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" afterDir="false" />
-    </list>
+    <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Alteração do projeto em Repositorio emprestimos" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +80,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691700988563</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Alteração do projeto em Repositorio emprestimos">
+      <option name="closed" value="true" />
+      <created>1691980621518</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691980621518</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,6 +107,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Alteração do projeto" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Alteração do projeto em Repositorio emprestimos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Alteração do projeto em Repositorio emprestimos" />
   </component>
 </project>
