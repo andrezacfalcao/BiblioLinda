@@ -52,45 +52,67 @@ public class ControladorLivro {
     }
 
     public void editarLivro(Livro livro, Livro novoLivro) {
-        if(livrosDisponiveis().contains(livro) && novoLivro != null){
-            if(!novoLivro.getNomeLivro().isEmpty() && novoLivro.getCategoriaLivro() != null && !novoLivro.getNomeAutor().isEmpty() &&  novoLivro.getAnoDeLancamento() != 0 && novoLivro.getNumeroDeCopias() != 0){
-                repositorioLivro.editarLivro(livro, novoLivro);
+        if(livro != null && novoLivro != null){
+            if(livrosDisponiveis().contains(livro)){
+                if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null &!livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
+                    repositorioLivro.editarLivro(livro, novoLivro);
+                }
+                else{
+                    // a excessão será lançada informando que um dos atributos está inválido
+                }
             }
             else{
-                // a excessão será lançada informando que um dos atributos está inválido
+                // a excessão será lançada aqui caso objeto não esteja no repositório ou seja nulo
             }
-        }
-        else{
-            // a excessão será lançada aqui caso objeto não esteja no repositório ou seja nulo
         }
     }
 
     public List<Livro> listarLivrosPorCategoria(Categoria categoria) {
-        List<Livro> resultado = new ArrayList<>();
-        for (Livro livro : repositorioLivro.listarLivros())
-            if (livro.getCategoriaLivro().equals(categoria))
-                resultado.add(livro);
 
-        return resultado;
+        List<Livro> resultado = new ArrayList<>();
+        if(categoria != null){
+            for (Livro livro : repositorioLivro.listarLivros()) {
+                if (livro.getCategoriaLivro().equals(categoria)){
+                    resultado.add(livro);
+                }
+            }
+            return resultado;
+        }else{
+            return null;
+        }
     }
 
     public List<Livro> buscarLivrosPorAutor(String autor) {
+
         List<Livro> lista = new ArrayList<>();
+        if(!autor.isEmpty()){
+            for (Livro livro : repositorioLivro.listarLivros()) {
+                if (livro.getNomeAutor().equalsIgnoreCase(autor)) {
+                    lista.add(livro);
+                }
+            }
+            return lista;
 
-        for (Livro livro : repositorioLivro.listarLivros())
-            if (livro.getNomeAutor().equalsIgnoreCase(autor))
-                lista.add(livro);
-
-        return lista;
+        }else{
+            return null;
+        }
     }
 
     public List<Livro> buscarLivrosPorTitulo(String busca) {
         List<Livro> lista = new ArrayList<>();
-        for (Livro livro : repositorioLivro.listarLivros())
-            if (livro.getNomeLivro().toLowerCase().contains(busca.toLowerCase()))
-                lista.add(livro);
 
-        return lista;
+        if(!busca.isEmpty()){
+            for (Livro livro : repositorioLivro.listarLivros()) {
+                if (livro.getNomeLivro().toLowerCase().contains(busca.toLowerCase())){
+                    lista.add(livro);
+
+                }
+            }
+            return lista;
+
+        }else{
+            return null;
+        }
     }
 
     public int numeroTotalDeLivros() {
@@ -116,13 +138,20 @@ public class ControladorLivro {
     }
 
     private int contarCopiasEmprestadas(Livro livro) {
+
         int copiasEmprestadas = 0;
+        if(livro != null){
+            for (Emprestimo emprestimo : RepositorioEmprestimo.getInstancia().listarEmprestimos()) {
+                if (emprestimo.getLivro().equals(livro) && emprestimo.getData_devolucao().isAfter(LocalDate.now())) {
+                    copiasEmprestadas++;
+                }
+            }
+            return copiasEmprestadas;
+        }else{
+            //retorna uma exceção, exemplo: parâmetro inválido
+            return 0;
+        }
 
-        for (Emprestimo emprestimo : RepositorioEmprestimo.getInstancia().listarEmprestimos())
-            if (emprestimo.getLivro().equals(livro) && emprestimo.getData_devolucao().isAfter(LocalDate.now()))
-                copiasEmprestadas++;
-
-        return copiasEmprestadas;
     }
 
 

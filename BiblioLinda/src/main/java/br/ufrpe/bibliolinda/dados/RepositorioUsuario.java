@@ -19,10 +19,12 @@ public class RepositorioUsuario {
             listaUsuario.add(u);
         }
         else{
-            // a exceção será criada posteriormente
+            // a excessão será lançada aqui caso objeto já exista no repositório
+            //print teste
             System.out.println("O usuário já existe");
         }
     }
+
     public void removerUsuario(Usuario u) {
         if(listaUsuario.contains(u)){
             listaUsuario.remove(this.listaUsuario.indexOf(u));
