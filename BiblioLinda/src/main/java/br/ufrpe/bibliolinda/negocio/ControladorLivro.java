@@ -30,32 +30,77 @@ public class ControladorLivro {
         return repositorioLivro.listarLivros();
     }
 
-    public void adicionarLivro(Livro l) {
-        repositorioLivro.adicionarLivro(l);
+    public void adicionarLivro(Livro livro) {
+        if(!repositorioLivro.listarLivros().contains(livro) && livro != null){
+            if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null &!livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
+                repositorioLivro.adicionarLivro(livro);
+            }
+            else{
+                // a excessão será lançada informando que um dos atributos está inválido
+            }
+        }
+
     }
 
-    public void removerLivro(Livro l) {
-        repositorioLivro.removerLivro(l);
+    public void removerLivro(Livro livro) {
+        if(livrosDisponiveis().contains(livro) && livro != null){
+            repositorioLivro.removerLivro(livro);
+        }
+        else{
+            // a excessão será lançada aqui caso objeto não esteja disponível ou ele for nulo
+        }
     }
 
     public void editarLivro(Livro livro, Livro novoLivro) {
-        repositorioLivro.editarLivro(livro, novoLivro);
+        if(livrosDisponiveis().contains(livro)){
+            if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null &!livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
+                repositorioLivro.editarLivro(livro, novoLivro);
+            }
+            else{
+                // a excessão será lançada informando que um dos atributos está inválido
+            }
+        }
+        else{
+            // a excessão será lançada aqui caso objeto não esteja no repositório ou seja nulo
+        }
+
     }
 
     public List<Livro> listarLivrosPorCategoria(Categoria categoria) {
-        return repositorioLivro.listarLivrosPorCategoria(categoria);
+        List<Livro> resultado = new ArrayList<>();
+        for (Livro livro : repositorioLivro.listarLivros())
+            if (livro.getCategoriaLivro().equals(categoria))
+                resultado.add(livro);
+
+        return resultado;
     }
 
     public List<Livro> buscarLivrosPorAutor(String autor) {
-        return repositorioLivro.buscarLivrosPorAutor(autor);
+        List<Livro> lista = new ArrayList<>();
+
+        for (Livro livro : repositorioLivro.listarLivros())
+            if (livro.getNomeAutor().equalsIgnoreCase(autor))
+                lista.add(livro);
+
+        return lista;
     }
 
     public List<Livro> buscarLivrosPorTitulo(String busca) {
-        return repositorioLivro.buscarLivrosPorTitulo(busca);
+        List<Livro> lista = new ArrayList<>();
+        for (Livro livro : repositorioLivro.listarLivros())
+            if (livro.getNomeLivro().toLowerCase().contains(busca.toLowerCase()))
+                lista.add(livro);
+
+        return lista;
     }
 
     public int numeroTotalDeLivros() {
-        return repositorioLivro.numeroTotalLivros();
+        int total = 0;
+
+        for (Livro livro : repositorioLivro.listarLivros())
+            total += livro.getNumeroDeCopias();
+
+        return total;
     }
 
     public List<Livro> livrosDisponiveis() {

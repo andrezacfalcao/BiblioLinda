@@ -8,4 +8,6 @@ module br.ufrpe.bibliolinda {
 
     opens br.ufrpe.bibliolinda to javafx.fxml;
     exports br.ufrpe.bibliolinda;
+    exports br.ufrpe.bibliolinda.gui;
+    opens br.ufrpe.bibliolinda.gui to javafx.fxml;
 }

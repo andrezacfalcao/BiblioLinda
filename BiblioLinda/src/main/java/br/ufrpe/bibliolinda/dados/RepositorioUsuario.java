@@ -23,13 +23,11 @@ public class RepositorioUsuario {
             System.out.println("O usuário já existe");
         }
     }
-
     public void removerUsuario(Usuario u) {
         if(listaUsuario.contains(u)){
             listaUsuario.remove(this.listaUsuario.indexOf(u));
         }
     }
-
     public List<Usuario> listarUsuarios(){
         return listaUsuario;
     }

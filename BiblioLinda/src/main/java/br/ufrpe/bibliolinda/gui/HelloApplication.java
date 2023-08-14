@@ -1,4 +1,4 @@
-package br.ufrpe.bibliolinda;
+package br.ufrpe.bibliolinda.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

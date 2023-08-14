@@ -1,4 +1,4 @@
-package br.ufrpe.bibliolinda;
+package br.ufrpe.bibliolinda.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
