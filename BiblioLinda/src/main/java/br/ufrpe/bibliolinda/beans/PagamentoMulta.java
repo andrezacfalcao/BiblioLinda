@@ -6,8 +6,7 @@ public class PagamentoMulta {
     private Emprestimo emprestimo;
     private float multa;
     private boolean statusPagamento;
-
-    private LocalDate dataDePagamennto;
+    private LocalDate dataDePagamento;
 
     public PagamentoMulta(Emprestimo emprestimo, float multa, boolean statusPagamento) {
         this.emprestimo = emprestimo;
@@ -33,6 +32,9 @@ public class PagamentoMulta {
 
     public boolean isStatusPagamento() {
         return statusPagamento;
+    }
+    public LocalDate getDataDePagamento() {
+        return dataDePagamento;
     }
     public void setStatusPagamento(boolean statusPagamento) {
         this.statusPagamento = statusPagamento;
