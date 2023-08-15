@@ -3,6 +3,10 @@ package br.ufrpe.bibliolinda.negocio;
 import br.ufrpe.bibliolinda.beans.Cliente;
 import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.dados.RepositorioUsuario;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
+import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
+import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
+import br.ufrpe.bibliolinda.exception.SenhaIncorretaException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,24 +27,40 @@ public class ControladorUsuario {
         return instancia;
     }
 
-    public void cadastrarUsuario(Usuario u) {
+    public boolean login(String login, String senha) throws SenhaIncorretaException,ObjetoInvalidoException {
+        List<Usuario> usuarios = this.listarUsuarios();
+        for (Usuario usuario : usuarios) {
+            if (usuario.getLogin().equals(login)) {
+                if (usuario.getSenha().equals(senha)) {
+                    //ControladorSessao.getInstancia().abrirSessao(usuario);
+                    return true;
+                }
+                else {
+                    throw new SenhaIncorretaException();
+                }
+            }
+        }
+        throw new ObjetoInvalidoException(login);
+    }
+
+    public void cadastrarUsuario(Usuario u) throws ObjetoJaExisteException, ObjetoInvalidoException {
 
         if (!repositorioUsuario.listarUsuarios().contains(u) && u != null) {
             if(u.getNome().isEmpty() && u.getLogin().isEmpty() && u.getSenha().isEmpty() && u.getTipo() !=0 || u.getTipo() != 1){
                 repositorioUsuario.adicionarUsuario(u);
-            }   else{
-                // a excessão será lançada informando que um dos atributos está inválido
+            }
+            else{
+                throw new ObjetoInvalidoException();
             }
         }
     }
-    public void removerUsuario(Usuario u) {
+    public void removerUsuario(Usuario u) throws ObjetoInvalidoException {
 
         if(listarUsuarios().contains(u) && u != null){
             repositorioUsuario.removerUsuario(u);
 
         } else{
-            // a exeção será lançada aqui
-            System.out.println("usuario já existe");
+            throw new ObjetoInvalidoException();
         }
 
     }
@@ -49,7 +69,7 @@ public class ControladorUsuario {
         return repositorioUsuario.listarUsuarios();
     }
 
-    public List<Usuario> buscarUsuarioPorId(int id){
+    public List<Usuario> buscarUsuarioPorId(int id) throws ParametroInvalidoException{
         List<Usuario> resultado = new ArrayList<>();
         if(id != 0){
             for(Usuario usuario: repositorioUsuario.listarUsuarios()){
@@ -61,12 +81,28 @@ public class ControladorUsuario {
             }
             return resultado;
         }
-        return null;
+        throw new ParametroInvalidoException(id);
     }
 
-    //buscar pelo nome
-    // no controlar emprestimo, fazer trazer os empréstimos de um período estabelecido
-    // fazer exceção
+
+    public List<Usuario> buscarUsuarioPeloNome(String nome) throws ParametroInvalidoException{
+        List<Usuario> resultado = new ArrayList<>();
+        if(!nome.isEmpty()){
+            for(Usuario usuario: repositorioUsuario.listarUsuarios()){
+                if(usuario.getNome().equalsIgnoreCase(nome)){
+                    resultado.add(usuario);
+                }
+            }
+            return resultado;
+
+        }else{
+            throw new ParametroInvalidoException();
+        }
+    }
+
+
+
+
 
 
 

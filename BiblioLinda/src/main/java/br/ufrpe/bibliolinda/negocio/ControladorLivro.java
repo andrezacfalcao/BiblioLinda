@@ -5,6 +5,9 @@ import br.ufrpe.bibliolinda.beans.Emprestimo;
 import br.ufrpe.bibliolinda.beans.Livro;
 import br.ufrpe.bibliolinda.dados.RepositorioEmprestimo;
 import br.ufrpe.bibliolinda.dados.RepositorioLivro;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
+import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
+import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -30,44 +33,44 @@ public class ControladorLivro {
         return repositorioLivro.listarLivros();
     }
 
-    public void adicionarLivro(Livro livro) {
+    public void adicionarLivro(Livro livro) throws ObjetoInvalidoException, ObjetoJaExisteException {
         if(!repositorioLivro.listarLivros().contains(livro) && livro != null){
             if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null && !livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
                 repositorioLivro.adicionarLivro(livro);
             }
             else{
-                // a excessão será lançada informando que um dos atributos está inválido
+                throw new ObjetoInvalidoException();
             }
         }
 
     }
 
-    public void removerLivro(Livro livro) {
+    public void removerLivro(Livro livro) throws ObjetoInvalidoException{
         if(livrosDisponiveis().contains(livro) && livro != null){
             repositorioLivro.removerLivro(livro);
         }
         else{
-            // a excessão será lançada aqui caso objeto não esteja disponível ou ele for nulo
+            throw new ObjetoInvalidoException();
         }
     }
 
-    public void editarLivro(Livro livro, Livro novoLivro) {
+    public void editarLivro(Livro livro, Livro novoLivro) throws ObjetoInvalidoException, ObjetoJaExisteException{
         if(livro != null && novoLivro != null){
             if(livrosDisponiveis().contains(livro)){
                 if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null &!livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
                     repositorioLivro.editarLivro(livro, novoLivro);
                 }
                 else{
-                    // a excessão será lançada informando que um dos atributos está inválido
+                    throw new ObjetoInvalidoException();
                 }
             }
             else{
-                // a excessão será lançada aqui caso objeto não esteja no repositório ou seja nulo
+                throw new ObjetoJaExisteException(novoLivro);
             }
         }
     }
 
-    public List<Livro> listarLivrosPorCategoria(Categoria categoria) {
+    public List<Livro> listarLivrosPorCategoria(Categoria categoria) throws ParametroInvalidoException{
 
         List<Livro> resultado = new ArrayList<>();
         if(categoria != null){
@@ -78,11 +81,11 @@ public class ControladorLivro {
             }
             return resultado;
         }else{
-            return null;
+            throw new ParametroInvalidoException();
         }
     }
 
-    public List<Livro> buscarLivrosPorAutor(String autor) {
+    public List<Livro> buscarLivrosPorAutor(String autor) throws ParametroInvalidoException{
 
         List<Livro> lista = new ArrayList<>();
         if(!autor.isEmpty()){
@@ -94,7 +97,7 @@ public class ControladorLivro {
             return lista;
 
         }else{
-            return null;
+            throw new ParametroInvalidoException();
         }
     }
 
@@ -155,7 +158,7 @@ public class ControladorLivro {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ObjetoJaExisteException {
 
         // Teste do método para listar livros disponíveis
 

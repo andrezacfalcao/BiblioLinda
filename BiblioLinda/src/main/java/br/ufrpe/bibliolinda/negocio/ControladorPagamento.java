@@ -77,7 +77,7 @@ public class ControladorPagamento {
         List<PagamentoMulta> resultado = new ArrayList<>();
 
         for (PagamentoMulta pagamento : repositorioPagamento.listarPagamentos())
-            if (!pagamento.isStatusPagamento())
+            if (!pagamento.getStatusPagamento())
                 resultado.add(pagamento);
 
         return resultado;
