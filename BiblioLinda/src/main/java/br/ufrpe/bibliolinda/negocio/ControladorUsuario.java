@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControladorUsuario {
-
     private static ControladorUsuario instancia;
 
     private final RepositorioUsuario repositorioUsuario;
