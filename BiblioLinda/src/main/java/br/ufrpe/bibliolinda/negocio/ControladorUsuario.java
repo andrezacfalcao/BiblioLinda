@@ -1,6 +1,5 @@
 package br.ufrpe.bibliolinda.negocio;
 
-import br.ufrpe.bibliolinda.beans.Cliente;
 import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.dados.RepositorioUsuario;
 import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
@@ -45,7 +44,7 @@ public class ControladorUsuario {
     public void cadastrarUsuario(Usuario u) throws ObjetoJaExisteException, ObjetoInvalidoException {
 
         if (!repositorioUsuario.listarUsuarios().contains(u) && u != null) {
-            if(u.getNome().isEmpty() && u.getLogin().isEmpty() && u.getSenha().isEmpty() && u.getTipo() !=0 || u.getTipo() != 1){
+            if(u.getNome().isEmpty() && u.getLogin().isEmpty() && u.getSenha().isEmpty() && u.getTipo() != null){
                 repositorioUsuario.adicionarUsuario(u);
             }
             else{
@@ -61,7 +60,6 @@ public class ControladorUsuario {
         } else{
             throw new ObjetoInvalidoException();
         }
-
     }
 
     public List<Usuario> listarUsuarios() {
@@ -72,10 +70,8 @@ public class ControladorUsuario {
         List<Usuario> resultado = new ArrayList<>();
         if(id != 0){
             for(Usuario usuario: repositorioUsuario.listarUsuarios()){
-                if(usuario instanceof Cliente){
-                    if(((Cliente) usuario).getId() == id){
-                        resultado.add(usuario);
-                    }
+                if(usuario.getId() == id){
+                    resultado.add(usuario);
                 }
             }
             return resultado;

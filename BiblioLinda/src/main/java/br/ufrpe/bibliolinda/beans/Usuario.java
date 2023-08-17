@@ -1,16 +1,22 @@
 package br.ufrpe.bibliolinda.beans;
 
+import java.util.Objects;
+
 public abstract class Usuario {
     private String nome;
     private String login;
     private String senha;
-    private int tipo;
+    private TipoDeUsuario tipo;
+    private int id;
+    private static int contador = 0;
 
-    public Usuario(String nome, String login, String senha, int tipo) {
+    public Usuario(String nome, String login, String senha, TipoDeUsuario tipo) {
         this.nome = nome;
         this.login = login;
         this.senha = senha;
         this.tipo = tipo;
+        this.id = contador++;
+
     }
 
     public String getNome() {
@@ -37,11 +43,29 @@ public abstract class Usuario {
         this.senha = senha;
     }
 
-    public int getTipo() {
+    public TipoDeUsuario getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(TipoDeUsuario tipo) {
         this.tipo = tipo;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        return o instanceof Usuario && ((Usuario) o).getId() == this.id && ((Usuario) o).getLogin().equals(this.getLogin());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

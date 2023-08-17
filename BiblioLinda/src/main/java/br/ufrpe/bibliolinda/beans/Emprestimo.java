@@ -3,24 +3,23 @@ package br.ufrpe.bibliolinda.beans;
 import java.time.LocalDate;
 
 public class Emprestimo {
-    private Cliente cliente;
+    private Usuario usuario;
     private Livro livro;
-    private LocalDate data_emprestimo;
-    private LocalDate data_devolucao;
+    private LocalDate dataEmprestimo;
+    private LocalDate dataDevolucao;
 
-    public Emprestimo(Cliente cliente, Livro livro, LocalDate data_emprestimo, LocalDate data_devolucao) {
-        this.cliente = cliente;
+    public Emprestimo(Usuario usuario, Livro livro, LocalDate dataEmprestimo) {
+        this.usuario = usuario;
         this.livro = livro;
-        this.data_emprestimo = data_emprestimo;
-        this.data_devolucao = data_devolucao;
+        this.dataEmprestimo = dataEmprestimo;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setCliente(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Livro getLivro() {
@@ -31,19 +30,19 @@ public class Emprestimo {
         this.livro = livro;
     }
 
-    public LocalDate getData_emprestimo() {
-        return data_emprestimo;
+    public LocalDate getDataEmprestimo() {
+        return dataEmprestimo;
     }
 
-    public void setData_emprestimo(LocalDate data_emprestimo) {
-        this.data_emprestimo = data_emprestimo;
+    public void setData_emprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
     }
 
-    public LocalDate getData_devolucao() {
-        return data_devolucao;
+    public LocalDate getDataDevolucao() {
+        return dataDevolucao;
     }
 
-    public void setData_devolucao(LocalDate data_devolucao) {
-        this.data_devolucao = data_devolucao;
+    public void setData_devolucao(LocalDate dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
     }
 }

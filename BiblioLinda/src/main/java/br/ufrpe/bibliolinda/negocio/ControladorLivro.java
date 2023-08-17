@@ -143,7 +143,7 @@ public class ControladorLivro {
         int copiasEmprestadas = 0;
         if (livro != null) {
             for (Emprestimo emprestimo : RepositorioEmprestimo.getInstancia().listarEmprestimos()) {
-                if (emprestimo.getLivro().equals(livro) && emprestimo.getData_devolucao().isAfter(LocalDate.now())) {
+                if (emprestimo.getLivro().equals(livro) && emprestimo.getDataDevolucao().isAfter(LocalDate.now())) {
                     copiasEmprestadas++;
                 }
             }
@@ -169,8 +169,8 @@ public class ControladorLivro {
         RepositorioLivro.getInstancia().adicionarLivro(livro3);
         RepositorioLivro.getInstancia().adicionarLivro(livro4);
 
-        Emprestimo emprestimo1 = new Emprestimo(null, livro1, null, LocalDate.of(2023, 12, 12));
-        Emprestimo emprestimo2 = new Emprestimo(null, livro3, null, LocalDate.of(2023, 12, 12));
+        Emprestimo emprestimo1 = new Emprestimo(null, livro1, null);
+        Emprestimo emprestimo2 = new Emprestimo(null, livro3, null);
 
         RepositorioEmprestimo.getInstancia().adicionarEmprestimo(emprestimo1);
         RepositorioEmprestimo.getInstancia().adicionarEmprestimo(emprestimo2);

@@ -1,7 +1,7 @@
 package br.ufrpe.bibliolinda.negocio;
 
-import br.ufrpe.bibliolinda.beans.Cliente;
 import br.ufrpe.bibliolinda.beans.PagamentoMulta;
+import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.dados.RepositorioPagamento;
 import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
 import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
@@ -63,12 +63,12 @@ public class ControladorPagamento {
         }
     }
 
-    public List<PagamentoMulta> listarPagamentosPorCliente(Cliente cliente) throws ObjetoInvalidoException {
+    public List<PagamentoMulta> listarPagamentosPorCliente(Usuario usuario) throws ObjetoInvalidoException {
         List<PagamentoMulta> resultado = new ArrayList<>();
 
-        if (cliente != null)
+        if (usuario != null)
             for (PagamentoMulta pagamento : repositorioPagamento.listarPagamentos())
-                if (pagamento.getEmprestimo().getCliente().equals(cliente))
+                if (pagamento.getEmprestimo().getUsuario().equals(usuario))
                     resultado.add(pagamento);
         else
             throw new ObjetoInvalidoException();
@@ -134,10 +134,29 @@ public class ControladorPagamento {
 
         for (PagamentoMulta pagamento : pagamentos) {
             relatorio.append("Data: ").append(pagamento.getDataDePagamento()).append("\n");
-            relatorio.append("Cliente: ").append(pagamento.getEmprestimo().getCliente().getNome()).append("\n");
+            relatorio.append("Cliente: ").append(pagamento.getEmprestimo().getUsuario().getNome()).append("\n");
             relatorio.append("Valor: ").append(pagamento.getMulta()).append("\n\n");
         }
 
         return relatorio.toString();
+    }
+
+
+    public void calcularMulta (PagamentoMulta pagamento){
+        List<PagamentoMulta> pagamentos = repositorioPagamento.listarPagamentos();
+        float multa = 0;
+
+        for (PagamentoMulta pag : pagamentos){
+            if(pag.equals(pagamento)){
+                LocalDate dataPagamento = pag.getEmprestimo().getDataEmprestimo().plusDays(31);
+                if (dataPagamento.isBefore(LocalDate.now())){
+                    multa = 10;
+                    if (dataPagamento.plusDays(7).isBefore(LocalDate.now())){
+                        multa += 5;
+                    }
+                }
+                pag.setMulta(multa);
+            }
+        }
     }
 }

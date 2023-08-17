@@ -1,12 +1,9 @@
 package br.ufrpe.bibliolinda.dados;
 
-import br.ufrpe.bibliolinda.beans.Cliente;
 import br.ufrpe.bibliolinda.beans.Emprestimo;
-import br.ufrpe.bibliolinda.beans.Livro;
 import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
 import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
