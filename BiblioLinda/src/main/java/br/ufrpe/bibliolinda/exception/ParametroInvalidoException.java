@@ -11,6 +11,10 @@ public class ParametroInvalidoException extends Exception{
         this.objeto = obj;
     }
 
+    public ParametroInvalidoException(String message) {
+        super(message);
+    }
+
     public Object getObjeto(){
         return objeto;
     }

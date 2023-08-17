@@ -3,6 +3,8 @@ package br.ufrpe.bibliolinda.dados;
 import br.ufrpe.bibliolinda.beans.Cliente;
 import br.ufrpe.bibliolinda.beans.Emprestimo;
 import br.ufrpe.bibliolinda.beans.Livro;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
+import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -29,31 +31,28 @@ public class RepositorioEmprestimo {
         return listaDeEmprestimos;
     }
 
-    public void adicionarEmprestimo(Emprestimo emprestimo){
-        if(!listaDeEmprestimos.contains(emprestimo)){
+    public void adicionarEmprestimo(Emprestimo emprestimo) throws ObjetoJaExisteException {
+        if (!listaDeEmprestimos.contains(emprestimo)) {
             this.listaDeEmprestimos.add(emprestimo);
-        }
-        else{
-            // Substitui pela excessão de ObjetoJáExiste
+        } else {
+            throw new ObjetoJaExisteException(emprestimo);
         }
     }
 
-    public void removerEmprestimo(Emprestimo emprestimo){
+    public void removerEmprestimo(Emprestimo emprestimo) throws ObjetoInvalidoException {
         if(listaDeEmprestimos.contains(emprestimo)){
             this.listaDeEmprestimos.remove(emprestimo);
-        }
-        else{
-            // Substitui pela excessão de ObjetoNãoExiste
+        } else {
+            throw new ObjetoInvalidoException(emprestimo);
         }
     }
 
-    public void editarEmprestimo(Emprestimo emprestimo, Emprestimo novoEmprestimo){
-        if(this.listaDeEmprestimos.contains(emprestimo)){
+    public void editarEmprestimo(Emprestimo emprestimo, Emprestimo novoEmprestimo) throws ObjetoInvalidoException {
+        if(this.listaDeEmprestimos.contains(emprestimo)) {
             int i = this.listaDeEmprestimos.indexOf(emprestimo);
             this.listaDeEmprestimos.set(i,novoEmprestimo);
-        }
-        else{
-            // Substitui pela excessão de ObjetoNãoExiste
+        } else {
+            throw new ObjetoInvalidoException(emprestimo);
         }
     }
 }

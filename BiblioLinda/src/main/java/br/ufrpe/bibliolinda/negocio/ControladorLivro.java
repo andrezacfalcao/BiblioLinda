@@ -45,7 +45,7 @@ public class ControladorLivro {
 
     }
 
-    public void removerLivro(Livro livro) throws ObjetoInvalidoException{
+    public void removerLivro(Livro livro) throws ObjetoInvalidoException, ParametroInvalidoException {
         if(livrosDisponiveis().contains(livro) && livro != null){
             repositorioLivro.removerLivro(livro);
         }
@@ -54,23 +54,23 @@ public class ControladorLivro {
         }
     }
 
-    public void editarLivro(Livro livro, Livro novoLivro) throws ObjetoInvalidoException, ObjetoJaExisteException{
-        if(livro != null && novoLivro != null){
-            if(livrosDisponiveis().contains(livro)){
+    public void editarLivro(Livro livro, Livro novoLivro) throws ObjetoInvalidoException, ObjetoJaExisteException, ParametroInvalidoException {
+        if(livro != null && novoLivro != null) {
+            if(livrosDisponiveis().contains(livro)) {
                 if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null &!livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
                     repositorioLivro.editarLivro(livro, novoLivro);
                 }
-                else{
+                else {
                     throw new ObjetoInvalidoException();
                 }
             }
-            else{
+            else {
                 throw new ObjetoJaExisteException(novoLivro);
             }
         }
     }
 
-    public List<Livro> listarLivrosPorCategoria(Categoria categoria) throws ParametroInvalidoException{
+    public List<Livro> listarLivrosPorCategoria(Categoria categoria) throws ParametroInvalidoException {
 
         List<Livro> resultado = new ArrayList<>();
         if(categoria != null){
@@ -80,15 +80,15 @@ public class ControladorLivro {
                 }
             }
             return resultado;
-        }else{
-            throw new ParametroInvalidoException();
+        } else {
+            throw new ParametroInvalidoException("A categoria fornecida é inválida!");
         }
     }
 
     public List<Livro> buscarLivrosPorAutor(String autor) throws ParametroInvalidoException{
 
         List<Livro> lista = new ArrayList<>();
-        if(!autor.isEmpty()){
+        if (!autor.isEmpty()) {
             for (Livro livro : repositorioLivro.listarLivros()) {
                 if (livro.getNomeAutor().equalsIgnoreCase(autor)) {
                     lista.add(livro);
@@ -96,25 +96,23 @@ public class ControladorLivro {
             }
             return lista;
 
-        }else{
-            throw new ParametroInvalidoException();
+        } else {
+            throw new ParametroInvalidoException("Nome de autor vazio!");
         }
     }
 
-    public List<Livro> buscarLivrosPorTitulo(String busca) {
+    public List<Livro> buscarLivrosPorTitulo(String busca) throws ParametroInvalidoException {
         List<Livro> lista = new ArrayList<>();
 
-        if(!busca.isEmpty()){
+        if (!busca.isEmpty()) {
             for (Livro livro : repositorioLivro.listarLivros()) {
                 if (livro.getNomeLivro().toLowerCase().contains(busca.toLowerCase())){
                     lista.add(livro);
-
                 }
             }
             return lista;
-
-        }else{
-            return null;
+        } else {
+            throw new ParametroInvalidoException(busca);
         }
     }
 
@@ -127,7 +125,7 @@ public class ControladorLivro {
         return total;
     }
 
-    public List<Livro> livrosDisponiveis() {
+    public List<Livro> livrosDisponiveis() throws ParametroInvalidoException {
         List<Livro> livrosDisponiveis = new ArrayList<>();
 
         for (Livro livro : listarLivros()) {
@@ -140,19 +138,18 @@ public class ControladorLivro {
         return livrosDisponiveis;
     }
 
-    private int contarCopiasEmprestadas(Livro livro) {
+    private int contarCopiasEmprestadas(Livro livro) throws ParametroInvalidoException {
 
         int copiasEmprestadas = 0;
-        if(livro != null){
+        if (livro != null) {
             for (Emprestimo emprestimo : RepositorioEmprestimo.getInstancia().listarEmprestimos()) {
                 if (emprestimo.getLivro().equals(livro) && emprestimo.getData_devolucao().isAfter(LocalDate.now())) {
                     copiasEmprestadas++;
                 }
             }
             return copiasEmprestadas;
-        }else{
-            //retorna uma exceção, exemplo: parâmetro inválido
-            return 0;
+        } else {
+            throw new ParametroInvalidoException("O livro fornecido não pode ser nulo!");
         }
 
     }
@@ -181,7 +178,12 @@ public class ControladorLivro {
         ControladorLivro controlador = ControladorLivro.getInstancia();
 
         // Deve imprimir apenas o livro2 e o livro4
-        for (Livro livro : controlador.livrosDisponiveis())
-            System.out.println(livro.getNomeLivro());
+        try {
+            for (Livro livro : controlador.livrosDisponiveis())
+                System.out.println(livro.getNomeLivro());
+        } catch (ParametroInvalidoException e) {
+            e.printStackTrace();
+        }
+
     }
 }
