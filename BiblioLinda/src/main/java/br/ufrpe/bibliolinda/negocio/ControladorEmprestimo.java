@@ -1,10 +1,13 @@
 package br.ufrpe.bibliolinda.negocio;
 
-import br.ufrpe.bibliolinda.beans.Cliente;
 import br.ufrpe.bibliolinda.beans.Emprestimo;
 import br.ufrpe.bibliolinda.beans.Livro;
+import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.dados.RepositorioEmprestimo;
 import br.ufrpe.bibliolinda.dados.RepositorioLivro;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
+import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
+import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -34,52 +37,50 @@ public class ControladorEmprestimo {
         return repositorioEmprestimo.listarEmprestimos();
     }
 
-    public void adicionarEmprestimo(Emprestimo emprestimo) {
+    public void adicionarEmprestimo(Emprestimo emprestimo) throws ObjetoJaExisteException, ParametroInvalidoException {
         if(!repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
-            if(emprestimo.getCliente() != null && emprestimo.getLivro() != null && emprestimo.getData_emprestimo() != null && emprestimo.getData_devolucao() != null){
+            if(emprestimo.getUsuario() != null && emprestimo.getLivro() != null && emprestimo.getData_emprestimo() != null && emprestimo.getData_devolucao() != null){
                 repositorioEmprestimo.adicionarEmprestimo(emprestimo);
             }
             else{
-                // a excessão será lançada informando que um dos atributos está inválido
+                throw new ParametroInvalidoException(emprestimo);
             }
         }
     }
 
-    public void removerEmprestimo(Emprestimo emprestimo) {
+    public void removerEmprestimo(Emprestimo emprestimo) throws ObjetoInvalidoException {
         if(repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
             repositorioEmprestimo.removerEmprestimo(emprestimo);
         }
         else{
             // a excessão será lançada aqui caso objeto não esteja disponível ou ele for nulo
+            throw new IllegalArgumentException();
         }
     }
 
-    public void editarEmprestimo(Emprestimo emprestimo, Emprestimo novoEmprestimo) {
+    public void editarEmprestimo(Emprestimo emprestimo, Emprestimo novoEmprestimo) throws ObjetoInvalidoException, ParametroInvalidoException {
         if(repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
-            if(novoEmprestimo.getCliente() != null && novoEmprestimo.getLivro() != null && novoEmprestimo.getData_emprestimo() != null && novoEmprestimo.getData_devolucao() != null ){
+            if(novoEmprestimo.getUsuario() != null && novoEmprestimo.getLivro() != null && novoEmprestimo.getData_emprestimo() != null && novoEmprestimo.getData_devolucao() != null ){
                 repositorioEmprestimo.editarEmprestimo(emprestimo, novoEmprestimo);
+            } else {
+                throw new ParametroInvalidoException("O empréstimo fornecido é inválido!");
             }
-            else{
-                // a excessão será lançada informando que um dos atributos está inválido
-            }
-        }
-        else{
-            // a excessão será lançada aqui caso objeto não esteja no repositório ou seja nulo
+        } else {
+            throw new ObjetoInvalidoException();
         }
     }
 
-    public List<Emprestimo> listarEmprestimosPorCliente(Cliente cliente) {
+    public List<Emprestimo> listarEmprestimosPorCliente(Usuario usuario) throws ParametroInvalidoException {
         List<Emprestimo> resultado = new ArrayList<>();
 
-        if(cliente != null){
+        if (usuario != null) {
             for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos())
-                if (emprestimo.getCliente().equals(cliente))
+                if (emprestimo.getUsuario().equals(usuario))
                     resultado.add(emprestimo);
 
             return resultado;
-        }
-        else{
-            return null; // Substitui pela execessão de ParametroInvalido
+        } else {
+            throw new ParametroInvalidoException("O usuário não pode ser nulo!");
         }
     }
 
@@ -95,87 +96,75 @@ public class ControladorEmprestimo {
         return emprestimosAtivos;
     }
 
-    public List<Emprestimo> listarEmprestimosPorLivro(Livro livro) {
+    public List<Emprestimo> listarEmprestimosPorLivro(Livro livro) throws ParametroInvalidoException {
         List<Emprestimo> resultado = new ArrayList<>();
 
-        if(livro != null){
+        if (livro != null) {
             for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {
                 if (emprestimo.getLivro().equals(livro)) {
                     resultado.add(emprestimo);
                 }
             }
             return resultado;
-        }
-        else{
-            return null; // Substitui pela execessão de ParametroInvalido
+        } else {
+            throw new ParametroInvalidoException("O livro não pode ser nulo!");
         }
     }
 
-    public Emprestimo obterEmprestimoIdCliente(int id) {
-        if(id != 0){
-            for ( Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()){
-                if (emprestimo.getCliente().getId() == id) {
+    public Emprestimo obterEmprestimoIdCliente(int id) throws ParametroInvalidoException {
+        if (id != 0) {
+            for ( Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {
+                if (emprestimo.getUsuario().getId() == id) {
                     return emprestimo;
-                }
-                else{
-                    return null; // Substitui pela excessão de ObjetoNãoExiste
                 }
             }
         }
         else {
-            return null; // Substitui pela execessão de ParametroInvalido
+            throw new ParametroInvalidoException("O ID fornecido deve ser diferente de 0!");
         }
         return null; // Não sei pq, mas tava dando erro :(
     }
 
-    public void removerEmprestimoPorId (int id){
-        if(id != 0){
-            for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()){
-                if (emprestimo.getCliente().getId() == id) {
-                    repositorioEmprestimo.listarEmprestimos().remove(emprestimo);
-                }
-            }
-        }
-        else{
-            // Substitui pela execessão de ParametroInvalido
-        }
+    public void removerEmprestimoPorId (int id) throws ParametroInvalidoException {
+        if (id != 0)
+            repositorioEmprestimo.listarEmprestimos().removeIf(emprestimo -> emprestimo.getUsuario().getId() == id);
+        else
+            throw new ParametroInvalidoException("O ID fornecido deve ser diferente de 0!");
     }
 
-    public List<Emprestimo> listarEmprestimosEntrePeriodo(LocalDate inicio, LocalDate fim) {
+    public List<Emprestimo> listarEmprestimosEntrePeriodo(LocalDate inicio, LocalDate fim) throws ParametroInvalidoException {
         List<Emprestimo> resultado = new ArrayList<>();
         LocalDate dataEmprestimo;
 
-        if(inicio != null && fim != null){
+        if (inicio != null && fim != null) {
             for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {
                 dataEmprestimo = emprestimo.getData_emprestimo();
                 if (dataEmprestimo.isAfter(inicio) && dataEmprestimo.isBefore(fim))
                     resultado.add(emprestimo);
             }
             return resultado;
-        }
-        else{
-            return null; // Substitui pela execessão de ParametroInvalido
+        } else{
+            throw new ParametroInvalidoException("As datas fornecidas são inválidas!");
         }
     }
 
-    public boolean checarLivroDisponivel (Livro livro){
+    public boolean checarLivroDisponivel (Livro livro) throws ParametroInvalidoException {
         List<Livro> livrosDisp = ControladorLivro.getInstancia().livrosDisponiveis();
-        if(livro != null){
-            if(livrosDisp.contains(livro)){
-                return true; // Livro está disponível
-            } else{
-                return false;
-            }
+        if (livro != null) {
+            return livrosDisp.contains(livro); // Livro está disponível
         }
-        return false; // Substitui pela execessão de ParametroInvalido
+        throw new ParametroInvalidoException("O livro não pode ser nulo!");
     }
 
-    public boolean checarUsuarioJaEstaComLivro(Cliente cliente, Livro livro) {
-        for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {
-            if (emprestimo.getCliente().equals(cliente) && emprestimo.getLivro().equals(livro)) {
-                return true;
+    public boolean checarUsuarioJaEstaComLivro(Usuario usuario, Livro livro) throws ParametroInvalidoException {
+        if (usuario != null && livro != null) {
+            for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {
+                if (emprestimo.getUsuario().equals(usuario) && emprestimo.getLivro().equals(livro)) {
+                    return true;
+                }
             }
-        }
+        } else
+            throw new ParametroInvalidoException("Os parâmetros fornecidos são inválidos!");
         return false;
     }
 }

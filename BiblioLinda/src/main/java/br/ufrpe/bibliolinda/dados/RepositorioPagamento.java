@@ -1,6 +1,8 @@
 package br.ufrpe.bibliolinda.dados;
 
 import br.ufrpe.bibliolinda.beans.PagamentoMulta;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
+import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,27 +20,24 @@ public class RepositorioPagamento {
         return listaDePagamentos;
     }
 
-    public void removerPendencia(PagamentoMulta pagamento){
+    public void removerPendencia(PagamentoMulta pagamento) throws ObjetoInvalidoException {
         if (listaDePagamentos.contains(pagamento))
             this.listaDePagamentos.remove(pagamento);
-        else {
-            // exceção informando que o pagamento não existe na lista
-        }
+        else
+            throw new ObjetoInvalidoException(pagamento);
     }
-    public void adicionarPagamento(PagamentoMulta pagamento){
+    public void adicionarPagamento(PagamentoMulta pagamento) throws ObjetoJaExisteException {
         if (!listaDePagamentos.contains(pagamento))
             this.listaDePagamentos.add(pagamento);
-        else {
-            // exceção informando que o pagamento já existe na lista
-        }
+        else
+            throw new ObjetoJaExisteException(pagamento);
     }
 
-    public void editarPagamento(PagamentoMulta pagamento, PagamentoMulta novoPagamento){
+    public void editarPagamento(PagamentoMulta pagamento, PagamentoMulta novoPagamento) throws ObjetoInvalidoException {
         if (this.listaDePagamentos.contains(pagamento)) {
             int i = this.listaDePagamentos.indexOf(pagamento);
             this.listaDePagamentos.set(i,novoPagamento);
-        } else {
-            // exceção informando que o pagamento não existe na lista
-        }
+        } else
+            throw new ObjetoInvalidoException(pagamento);
     }
 }

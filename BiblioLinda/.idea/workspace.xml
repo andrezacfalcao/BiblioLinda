@@ -6,10 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Controlador e repositorio de usuario conforme padrão">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/CadastroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/CadastroController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/cadastro-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/cadastro-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-de-login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-de-login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Administrador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Cliente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Emprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Emprestimo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorPagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorPagamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +26,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -87,11 +93,8 @@
       <option name="presentableId" value="Default" />
       <updated>1691695731589</updated>
       <workItem from="1691695775866" duration="13355000" />
-      <workItem from="1692032323901" duration="12104000" />
-      <workItem from="1692061508267" duration="4196000" />
-      <workItem from="1692291305935" duration="82000" />
-      <workItem from="1692291406274" duration="3028000" />
-      <workItem from="1692294466548" duration="9198000" />
+      <workItem from="1692032323901" duration="11863000" />
+      <workItem from="1692298593834" duration="7394000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração do projeto">
       <option name="closed" value="true" />
@@ -131,17 +134,6 @@
     <MESSAGE value="Alteração do projeto em Repositorio emprestimos" />
     <MESSAGE value="Controlador e repositorio de usuario conforme padrão" />
     <option name="LAST_COMMIT_MESSAGE" value="Controlador e repositorio de usuario conforme padrão" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java</url>
-          <line>148</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -2,6 +2,8 @@ package br.ufrpe.bibliolinda.dados;
 
 import br.ufrpe.bibliolinda.beans.Categoria;
 import br.ufrpe.bibliolinda.beans.Livro;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
+import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,31 +30,31 @@ public class RepositorioLivro {
         return listaDeLivros;
     }
 
-    public void adicionarLivro(Livro livro){
+    public void adicionarLivro(Livro livro) throws ObjetoJaExisteException {
         if(!this.listaDeLivros.contains(livro)){
             this.listaDeLivros.add(livro);
         }
         else{
-            // a excessão será lançada aqui caso objeto já exista no repositório
+            throw new ObjetoJaExisteException(livro);
         }
     }
 
-    public void removerLivro(Livro livro){
+    public void removerLivro(Livro livro) throws ObjetoInvalidoException{
         if(this.listaDeLivros.contains(livro)){
             listaDeLivros.remove(this.listaDeLivros.indexOf(livro));
         }
         else{
-            // a excessão será lançada aqui caso objeto não esteja no repositório
+            throw new ObjetoInvalidoException(livro);
         }
     }
     
-    public void editarLivro(Livro livro, Livro livroNovo){
+    public void editarLivro(Livro livro, Livro livroNovo) throws ObjetoInvalidoException{
         if(this.listaDeLivros.contains(livro)){
             int i = this.listaDeLivros.indexOf(livro);
             this.listaDeLivros.set(i,livroNovo);
         }
         else{
-            // a excessão será lançada aqui caso objeto não esteja no repositório
+            throw new ObjetoInvalidoException(livro);
         }
     }
 }
