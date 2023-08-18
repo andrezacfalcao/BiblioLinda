@@ -2,7 +2,7 @@ package br.ufrpe.bibliolinda.beans;
 
 import java.util.Objects;
 
-public abstract class Usuario {
+public class Usuario {
     private String nome;
     private String login;
     private String senha;
