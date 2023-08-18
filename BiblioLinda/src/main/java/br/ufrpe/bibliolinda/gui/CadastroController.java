@@ -1,6 +1,11 @@
 package br.ufrpe.bibliolinda.gui;
 
+import br.ufrpe.bibliolinda.beans.TipoDeUsuario;
+import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.exception.CamposVaziosException;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
+import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
+import br.ufrpe.bibliolinda.negocio.ControladorUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class CadastroController {
 
@@ -23,9 +29,9 @@ public class CadastroController {
         String nome = NomeCadastro.getText();
         String login = LoginCadastro.getText();
         String senha = SenhaCadastro.getText();
-        String tipo = TipoCadastro.getText();
+        TipoDeUsuario tipo = TipoCadastro.getValue();
 
-        if (nome.isEmpty() || login.isEmpty() || senha.isEmpty() || tipo.isEmpty()) {
+        if (nome.isEmpty() || login.isEmpty() || senha.isEmpty() || tipo == null) {
             try {
                 throw new CamposVaziosException("Nenhum campo pode estar vazio");
             } catch (CamposVaziosException e) {
@@ -33,23 +39,25 @@ public class CadastroController {
                 ExcecaoVazio.setText(e.getMessage());
                 return;
             }
-        }
-        int tipoInt;
+        } else {
+            Usuario novoUsuario = new Usuario(nome, login, senha, tipo);
 
-        try {
-            tipoInt = Integer.parseInt(tipo);
-            if (tipoInt != 1 && tipoInt != 2) {
-                ExcecaoVazio2.setTextFill(Color.RED);
-                ExcecaoVazio2.setText("O tipo deve ser 1 (Administrador) ou 2 (Cliente)");
-                return;
+            // Chamar o método cadastrarUsuario do ControladorUsuario para adicionar o usuário ao RepositorioUsuario
+            try {
+                ControladorUsuario.getInstancia().cadastrarUsuario(novoUsuario);
+                // Cadastro bem-sucedido, você pode mostrar uma mensagem ou realizar outras ações
+            } catch (ObjetoJaExisteException e) {
+                // Usuário já existe, você pode mostrar uma mensagem de erro ou tratar de outra forma
+            } catch (ObjetoInvalidoException e) {
+                // Dados inválidos, você pode mostrar uma mensagem de erro ou tratar de outra forma
             }
-        } catch (NumberFormatException ex) {
-            ExcecaoVazio2.setTextFill(Color.RED);
-            ExcecaoVazio2.setText("O tipo deve ser 1 (Administrador) ou 2 (Cliente)");
-            return;
-        }
 
+            // Limpar mensagens de erro anteriores (caso tenham sido exibidas)
+            ExcecaoVazio3.setTextFill(Color.PURPLE);
+            ExcecaoVazio3.setText("Conta criada com sucesso");
+        }
     }
+
 
     @FXML
     private void limparMensagemErro() {
@@ -62,19 +70,16 @@ public class CadastroController {
         LoginCadastro.setOnMouseClicked(event -> limparMensagemErro());
         SenhaCadastro.setOnMouseClicked(event -> limparMensagemErro());
         TipoCadastro.setOnMouseClicked(event -> limparMensagemErro());
+        NomeCadastro.setOnMouseClicked(event -> limparMensagemErro3());
+        LoginCadastro.setOnMouseClicked(event -> limparMensagemErro3());
+        SenhaCadastro.setOnMouseClicked(event -> limparMensagemErro3());
+        TipoCadastro.setOnMouseClicked(event -> limparMensagemErro3());
+        TipoCadastro.getItems().addAll(Arrays.asList(TipoDeUsuario.ADMIN, TipoDeUsuario.CLIENTE));
     }
 
     @FXML
-    private void limparMensagemErro2() {
+    private void limparMensagemErro3() {
         ExcecaoVazio2.setText("");
-    }
-
-    @FXML
-    private void initialize2() {
-        NomeCadastro.setOnMouseClicked(event -> limparMensagemErro2());
-        LoginCadastro.setOnMouseClicked(event -> limparMensagemErro2());
-        SenhaCadastro.setOnMouseClicked(event -> limparMensagemErro2());
-        TipoCadastro.setOnMouseClicked(event -> limparMensagemErro2());
     }
 
     @FXML
@@ -82,6 +87,9 @@ public class CadastroController {
 
     @FXML
     private Label ExcecaoVazio2;
+
+    @FXML
+    private Label ExcecaoVazio3;
 
     @FXML
     private TextField LoginCadastro;
@@ -93,7 +101,7 @@ public class CadastroController {
     private PasswordField SenhaCadastro;
 
     @FXML
-    private TextField TipoCadastro;
+    ChoiceBox<TipoDeUsuario> TipoCadastro = new ChoiceBox<>();
 
     @FXML
     private Button levarTelaLogin;
