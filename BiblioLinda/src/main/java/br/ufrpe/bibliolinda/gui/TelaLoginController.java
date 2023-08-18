@@ -1,5 +1,6 @@
 package br.ufrpe.bibliolinda.gui;
 
+import br.ufrpe.bibliolinda.beans.TipoDeUsuario;
 import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
 import br.ufrpe.bibliolinda.exception.SenhaIncorretaException;
@@ -38,6 +39,36 @@ public class TelaLoginController {
         String login = LoginLogin.getText();
         String senha = SenhaLogin.getText();
         controladorUsuario.login(login, senha);
+    }
+
+    void levarTelaPrincipalADMIN(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-ADMIN.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    void levarTelaPrincipalCLIENTE(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
