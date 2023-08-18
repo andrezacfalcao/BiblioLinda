@@ -25,6 +25,33 @@ public class CadastroController {
     private Button cadastrar;
 
     @FXML
+    private Button levarTelaLogin;
+
+    @FXML
+    private void limparMensagemErro() {
+        ExcecaoVazio1.setText("");
+        ExcecaoVazio.setText("");
+    }
+
+    @FXML
+    private Label ExcecaoVazio;
+
+    @FXML
+    private Label ExcecaoVazio1;
+
+    @FXML
+    private TextField LoginCadastro;
+
+    @FXML
+    private TextField NomeCadastro;
+
+    @FXML
+    private PasswordField SenhaCadastro;
+
+    @FXML
+    ComboBox<TipoDeUsuario> TipoCadastro = new ComboBox<>();
+
+    @FXML
     void onCadastrarClick(ActionEvent event) {
         String nome = NomeCadastro.getText();
         String login = LoginCadastro.getText();
@@ -53,15 +80,9 @@ public class CadastroController {
             }
 
             // Limpar mensagens de erro anteriores (caso tenham sido exibidas)
-            ExcecaoVazio3.setTextFill(Color.PURPLE);
-            ExcecaoVazio3.setText("Conta criada com sucesso");
+            ExcecaoVazio1.setTextFill(Color.PURPLE);
+            ExcecaoVazio1.setText("Conta criada com sucesso");
         }
-    }
-
-
-    @FXML
-    private void limparMensagemErro() {
-        ExcecaoVazio.setText("");
     }
 
     @FXML
@@ -70,41 +91,8 @@ public class CadastroController {
         LoginCadastro.setOnMouseClicked(event -> limparMensagemErro());
         SenhaCadastro.setOnMouseClicked(event -> limparMensagemErro());
         TipoCadastro.setOnMouseClicked(event -> limparMensagemErro());
-        NomeCadastro.setOnMouseClicked(event -> limparMensagemErro3());
-        LoginCadastro.setOnMouseClicked(event -> limparMensagemErro3());
-        SenhaCadastro.setOnMouseClicked(event -> limparMensagemErro3());
-        TipoCadastro.setOnMouseClicked(event -> limparMensagemErro3());
         TipoCadastro.getItems().addAll(Arrays.asList(TipoDeUsuario.ADMIN, TipoDeUsuario.CLIENTE));
     }
-
-    @FXML
-    private void limparMensagemErro3() {
-        ExcecaoVazio2.setText("");
-    }
-
-    @FXML
-    private Label ExcecaoVazio;
-
-    @FXML
-    private Label ExcecaoVazio2;
-
-    @FXML
-    private Label ExcecaoVazio3;
-
-    @FXML
-    private TextField LoginCadastro;
-
-    @FXML
-    private TextField NomeCadastro;
-
-    @FXML
-    private PasswordField SenhaCadastro;
-
-    @FXML
-    ChoiceBox<TipoDeUsuario> TipoCadastro = new ChoiceBox<>();
-
-    @FXML
-    private Button levarTelaLogin;
 
     @FXML
     void onLevarTelaLoginClick(ActionEvent event) {
