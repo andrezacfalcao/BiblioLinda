@@ -159,4 +159,26 @@ public class ControladorPagamento {
             }
         }
     }
+
+    public boolean pagarMulta(PagamentoMulta pag, float valor) throws ParametroInvalidoException {
+        if(pag != null && valor != 0){
+            for(PagamentoMulta pagMulta: listarPagamentosEmAtraso()){
+                if(pagMulta.equals(pag)){
+                    if(pagMulta.getMulta() == valor){
+                        pagMulta.setMulta(0);
+                        pagMulta.setStatusPagamento(true);
+                        return true;
+                    }
+                }
+            }
+        } else {
+
+            throw new ParametroInvalidoException();
+        }
+        return false;
+
+    }
+
+
+
 }

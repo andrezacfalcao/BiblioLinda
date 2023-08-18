@@ -6,15 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Controlador e repositorio de usuario conforme padrão">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Administrador.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Emprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Emprestimo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/PagamentoMulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/PagamentoMulta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/CadastroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/CadastroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/CamposVaziosException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/exception/CamposVaziosException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorPagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorPagamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +68,7 @@
       <module name="BiblioLinda" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="br.ufrpe.bibliolinda.gui.*" />
+          <option name="PATTERN" value="br.ufrpe.bibliolinda.exception.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,7 +92,7 @@
       <updated>1691695731589</updated>
       <workItem from="1691695775866" duration="13355000" />
       <workItem from="1692032323901" duration="11863000" />
-      <workItem from="1692298593834" duration="7394000" />
+      <workItem from="1692298593834" duration="12510000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração do projeto">
       <option name="closed" value="true" />

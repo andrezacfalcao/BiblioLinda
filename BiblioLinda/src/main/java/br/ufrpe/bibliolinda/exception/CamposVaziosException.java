@@ -1,4 +1,4 @@
-package br.ufrpe.bibliolinda.gui;
+package br.ufrpe.bibliolinda.exception;
 
 public class CamposVaziosException extends Exception {
     public CamposVaziosException(String message) {
