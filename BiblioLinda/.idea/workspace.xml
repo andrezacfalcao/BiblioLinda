@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Controlador e repositorio de usuario conforme padrão">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Administrador.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Emprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Emprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorPagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorPagamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" afterDir="false" />
-    </list>
+    <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Controlador e repositorio de usuario conforme padrão" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

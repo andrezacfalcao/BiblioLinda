@@ -39,7 +39,7 @@ public class ControladorEmprestimo {
 
     public void adicionarEmprestimo(Emprestimo emprestimo) throws ObjetoJaExisteException, ParametroInvalidoException {
         if(!repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
-            if(emprestimo.getUsuario() != null && emprestimo.getLivro() != null && emprestimo.getData_emprestimo() != null && emprestimo.getData_devolucao() != null){
+            if(emprestimo.getUsuario() != null && emprestimo.getLivro() != null && emprestimo.getDataEmprestimo() != null && emprestimo.getDataDevolucao() != null){
                 repositorioEmprestimo.adicionarEmprestimo(emprestimo);
             }
             else{
@@ -60,7 +60,7 @@ public class ControladorEmprestimo {
 
     public void editarEmprestimo(Emprestimo emprestimo, Emprestimo novoEmprestimo) throws ObjetoInvalidoException, ParametroInvalidoException {
         if(repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
-            if(novoEmprestimo.getUsuario() != null && novoEmprestimo.getLivro() != null && novoEmprestimo.getData_emprestimo() != null && novoEmprestimo.getData_devolucao() != null ){
+            if(novoEmprestimo.getUsuario() != null && novoEmprestimo.getLivro() != null && novoEmprestimo.getDataEmprestimo() != null && novoEmprestimo.getDataDevolucao() != null ){
                 repositorioEmprestimo.editarEmprestimo(emprestimo, novoEmprestimo);
             } else {
                 throw new ParametroInvalidoException("O empréstimo fornecido é inválido!");
@@ -89,7 +89,7 @@ public class ControladorEmprestimo {
         LocalDate hoje = LocalDate.now();
 
         for(Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()){
-            if(emprestimo.getData_devolucao().isAfter(hoje)){
+            if(emprestimo.getDataDevolucao().isAfter(hoje)){
                 emprestimosAtivos.add(emprestimo);
             }
         }
@@ -138,7 +138,7 @@ public class ControladorEmprestimo {
 
         if (inicio != null && fim != null) {
             for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {
-                dataEmprestimo = emprestimo.getData_emprestimo();
+                dataEmprestimo = emprestimo.getDataEmprestimo();
                 if (dataEmprestimo.isAfter(inicio) && dataEmprestimo.isBefore(fim))
                     resultado.add(emprestimo);
             }
