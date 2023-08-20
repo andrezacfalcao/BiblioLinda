@@ -140,7 +140,7 @@ public class TelaLoginController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    } // Apagar comentário
 
     @FXML
     private Button EntrarCliente;
