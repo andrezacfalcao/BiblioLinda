@@ -19,12 +19,12 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label layoutX="496.0" layoutY="206.0" text="LOGIN">
+      <Label layoutX="506.0" layoutY="206.0" text="LOGIN">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
-      <Button fx:id="EntrarLogin" layoutX="441.0" layoutY="340.0" mnemonicParsing="false" onAction="#onEntrarLoginClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Entrar" textFill="WHITE">
+      <Button fx:id="EntrarLogin" layoutX="451.0" layoutY="336.0" mnemonicParsing="false" onAction="#onEntrarLoginClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Entrar" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -32,7 +32,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="levarTelaCadastro" layoutX="441.0" layoutY="390.0" mnemonicParsing="false" onAction="#onLevarTelaCadastroClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Não tem conta?" textFill="WHITE">
+      <Button fx:id="levarTelaCadastro" layoutX="451.0" layoutY="386.0" mnemonicParsing="false" onAction="#onLevarTelaCadastroClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Não tem conta?" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -40,12 +40,15 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="LoginLogin" focusTraversable="false" layoutX="441.0" layoutY="256.0" prefHeight="25.0" prefWidth="215.0" promptText="Login" />
-      <PasswordField fx:id="SenhaLogin" layoutX="441.0" layoutY="296.0" prefHeight="25.0" prefWidth="215.0" promptText="Senha" />
+      <TextField fx:id="LoginLogin" focusTraversable="false" layoutX="451.0" layoutY="256.0" prefHeight="25.0" prefWidth="215.0" promptText="Login" />
+      <PasswordField fx:id="SenhaLogin" layoutX="451.0" layoutY="296.0" prefHeight="25.0" prefWidth="215.0" promptText="Senha" />
       <Label fx:id="ExcecaoUoSIncorretos" layoutX="436.0" layoutY="440.0" prefHeight="35.0" prefWidth="225.0" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
+      <Button fx:id="EntrarAdmin" layoutX="325.0" layoutY="561.0" mnemonicParsing="false" onAction="#onEntrarAdminClick" text="EntrarADM" />
+      <Button fx:id="EntrarCliente" layoutX="414.0" layoutY="561.0" mnemonicParsing="false" onAction="#onEntrarClienteClick" text="EntrarCLIENTE" />
+      <Button fx:id="ListarUsuarios" layoutX="519.0" layoutY="561.0" mnemonicParsing="false" onAction="#onListarUsuariosClick" text="ListarUsuarios" />
    </children>
 </AnchorPane>

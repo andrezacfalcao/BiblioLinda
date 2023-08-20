@@ -44,7 +44,7 @@ public class ControladorUsuario {
     public void cadastrarUsuario(Usuario u) throws ObjetoJaExisteException, ObjetoInvalidoException {
 
         if (!repositorioUsuario.listarUsuarios().contains(u) && u != null) {
-            if(u.getNome().isEmpty() && u.getLogin().isEmpty() && u.getSenha().isEmpty() && u.getTipo() != null){
+            if(!u.getNome().isEmpty() && !u.getLogin().isEmpty() && !u.getSenha().isEmpty() && u.getTipo() != null){
                 repositorioUsuario.adicionarUsuario(u);
             }
             else{

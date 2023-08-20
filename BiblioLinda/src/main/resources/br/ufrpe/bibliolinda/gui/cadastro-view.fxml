@@ -49,16 +49,21 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="ExcecaoVazio2" layoutX="365.0" layoutY="495.0" prefHeight="35.0" prefWidth="405.0" textAlignment="CENTER">
+      <Label fx:id="ExcecaoVazio2" layoutX="441.0" layoutY="495.0" prefHeight="35.0" prefWidth="215.0" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="ExcecaoVazio1" layoutX="446.0" layoutY="495.0" prefHeight="35.0" prefWidth="243.0" textAlignment="CENTER">
+      <Label fx:id="ExcecaoVazio1" layoutX="441.0" layoutY="495.0" prefHeight="35.0" prefWidth="215.0" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
       <ComboBox fx:id="TipoCadastro" layoutX="441.0" layoutY="355.0" prefHeight="25.0" prefWidth="215.0" promptText="Tipo" style="-fx-border-color: #CCCCCC; -fx-background-color: white;" />
+      <Label fx:id="ExcecaoVazio3" layoutX="482.0" layoutY="495.0" prefHeight="35.0" prefWidth="133.0" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

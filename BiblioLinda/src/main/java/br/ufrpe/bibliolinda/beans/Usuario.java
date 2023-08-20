@@ -8,7 +8,7 @@ public class Usuario {
     private String senha;
     private TipoDeUsuario tipo;
     private int id;
-    private static int contador = 0;
+    private static int contador = 1;
 
     public Usuario(String nome, String login, String senha, TipoDeUsuario tipo) {
         this.nome = nome;

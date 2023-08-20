@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.ControladorTelaPrincipalCLIENTE">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.TelaPrincipalCLIENTEController">
     <children>
         <AnchorPane layoutX="-12.0" prefHeight="600.0" prefWidth="325.0" style="-fx-background-color: purple;">
             <children>
@@ -15,10 +17,42 @@
                 </Label>
             </children>
         </AnchorPane>
-        <Label fx:id="LoginIncorreto" layoutX="436.0" layoutY="440.0" prefHeight="35.0" prefWidth="225.0" textAlignment="CENTER">
-            <font>
-                <Font size="18.0" />
-            </font>
-        </Label>
+      <Button fx:id="BuscarLivros" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Buscar livros" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="492.0" layoutY="206.0" text="CLIENTE">
+         <font>
+            <Font name="System Bold" size="34.0" />
+         </font>
+      </Label>
+      <Button fx:id="EmprestimosAtivos" layoutX="451.0" layoutY="306.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Empréstimos ativos" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="Pendencias" layoutX="451.0" layoutY="356.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Pendências" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="HistoricoLeitura" layoutX="451.0" layoutY="406.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Histórico de leitura" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

@@ -31,6 +31,8 @@ public class CadastroController {
     private void limparMensagemErro() {
         ExcecaoVazio1.setText("");
         ExcecaoVazio.setText("");
+        ExcecaoVazio2.setText("");
+        ExcecaoVazio3.setText("");
     }
 
     @FXML
@@ -38,6 +40,12 @@ public class CadastroController {
 
     @FXML
     private Label ExcecaoVazio1;
+
+    @FXML
+    private Label ExcecaoVazio2;
+
+    @FXML
+    private Label ExcecaoVazio3;
 
     @FXML
     private TextField LoginCadastro;
@@ -51,37 +59,50 @@ public class CadastroController {
     @FXML
     ComboBox<TipoDeUsuario> TipoCadastro = new ComboBox<>();
 
-    @FXML
-    void onCadastrarClick(ActionEvent event) {
-        String nome = NomeCadastro.getText();
-        String login = LoginCadastro.getText();
-        String senha = SenhaCadastro.getText();
-        TipoDeUsuario tipo = TipoCadastro.getValue();
+    public void onCadastrarClick(ActionEvent event) throws IOException, ObjetoJaExisteException, ObjetoInvalidoException, CamposVaziosException {
 
-        if (nome.isEmpty() || login.isEmpty() || senha.isEmpty() || tipo == null) {
-            try {
-                throw new CamposVaziosException("Nenhum campo pode estar vazio");
-            } catch (CamposVaziosException e) {
-                ExcecaoVazio.setTextFill(Color.RED);
-                ExcecaoVazio.setText(e.getMessage());
-                return;
-            }
-        } else {
-            Usuario novoUsuario = new Usuario(nome, login, senha, tipo);
+        try {
+            // Cadastrar novo usuario
+            ControladorUsuario controladorUsuario = ControladorUsuario.getInstancia();
+            String nome = NomeCadastro.getText();
+            String login = LoginCadastro.getText();
+            String senha = SenhaCadastro.getText();
+            TipoDeUsuario tipo = TipoCadastro.getValue();
 
-            // Chamar o método cadastrarUsuario do ControladorUsuario para adicionar o usuário ao RepositorioUsuario
-            try {
-                ControladorUsuario.getInstancia().cadastrarUsuario(novoUsuario);
-                // Cadastro bem-sucedido, você pode mostrar uma mensagem ou realizar outras ações
-            } catch (ObjetoJaExisteException e) {
-                // Usuário já existe, você pode mostrar uma mensagem de erro ou tratar de outra forma
-            } catch (ObjetoInvalidoException e) {
-                // Dados inválidos, você pode mostrar uma mensagem de erro ou tratar de outra forma
+            // Verifica se os Campos da Interface estão vazios
+            if (nome.isEmpty() || login.isEmpty() || senha.isEmpty() || tipo == null) {
+                try {
+                    throw new CamposVaziosException("Nenhum campo pode estar vazio");
+                } catch (CamposVaziosException e) {
+                    ExcecaoVazio.setTextFill(Color.RED);
+                    ExcecaoVazio.setText(e.getMessage());
+                    return;
+                }
             }
 
-            // Limpar mensagens de erro anteriores (caso tenham sido exibidas)
+            Usuario usuario = new Usuario(nome, login, senha, tipo);
+            controladorUsuario.cadastrarUsuario(usuario);
+
+            // Confirmar Cadastro
             ExcecaoVazio1.setTextFill(Color.PURPLE);
             ExcecaoVazio1.setText("Conta criada com sucesso");
+
+        } catch (ObjetoJaExisteException e) {
+            try {
+                throw new CamposVaziosException("Usuário já existe");
+            } catch (CamposVaziosException f) {
+                ExcecaoVazio3.setTextFill(Color.RED);
+                ExcecaoVazio3.setText(f.getMessage());
+                return;
+            }
+        } catch (ObjetoInvalidoException e) {
+            try {
+                throw new CamposVaziosException("Usuário ou senha inválidos");
+            } catch (CamposVaziosException f) {
+                ExcecaoVazio2.setTextFill(Color.RED);
+                ExcecaoVazio2.setText(f.getMessage());
+                return;
+            }
         }
     }
 

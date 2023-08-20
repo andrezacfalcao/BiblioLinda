@@ -1,5 +1,10 @@
 package br.ufrpe.bibliolinda.gui;
 
+import br.ufrpe.bibliolinda.beans.TipoDeUsuario;
+import br.ufrpe.bibliolinda.beans.Usuario;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
+import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
+import br.ufrpe.bibliolinda.negocio.ControladorUsuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,7 +23,11 @@ public class HelloApplication extends Application {
         stage.show();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ObjetoJaExisteException, ObjetoInvalidoException {
+        Usuario teste = new Usuario("abc", "abc", "abc", TipoDeUsuario.ADMIN);
+        ControladorUsuario controladorUsuario = ControladorUsuario.getInstancia();
+        controladorUsuario.cadastrarUsuario(teste);
         launch();
     }
+
 }
