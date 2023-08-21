@@ -21,7 +21,7 @@ public class ControladorPagamento {
         this.repositorioPagamento = new RepositorioPagamento();
     }
 
-    public ControladorPagamento getInstancia() {
+    public static ControladorPagamento getInstancia() {
         if (instancia == null)
             instancia = new ControladorPagamento();
         return instancia;

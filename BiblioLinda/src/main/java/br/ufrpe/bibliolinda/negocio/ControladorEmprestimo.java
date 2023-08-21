@@ -27,7 +27,7 @@ public class ControladorEmprestimo {
         repositorioLivro = RepositorioLivro.getInstancia();
     }
 
-    public ControladorEmprestimo getInstancia() {
+    public static ControladorEmprestimo getInstancia() {
         if (instancia == null)
             instancia = new ControladorEmprestimo();
         return instancia;

@@ -20,7 +20,7 @@
         <AnchorPane layoutX="313.0" layoutY="-35.0" prefHeight="200.0" prefWidth="487.0" style="-fx-background-color: purple;" />
         <AnchorPane layoutX="-5.0" layoutY="165.0" prefHeight="436.0" prefWidth="509.0" style="-fx-background-color: white;">
             <children>
-                <AnchorPane fx:id="MultasPendentes" layoutX="5.0" prefHeight="436.0" prefWidth="800.0">
+                <AnchorPane layoutX="5.0" prefHeight="436.0" prefWidth="800.0">
                     <children>
                         <Label layoutX="42.0" layoutY="14.0" text="Solicitar Empréstimo">
                             <font>
@@ -47,15 +47,7 @@
                         <Font name="System Italic" size="25.0" />
                      </font>
                   </Label>
-                  <Button fx:id="CancelarEmprestimo" layoutX="101.0" layoutY="245.0" mnemonicParsing="false" onAction="#onCancelarEmprestimoClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Cancelar Empréstimo" textFill="WHITE">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="ConfirmarEmprestimo" layoutX="374.0" layoutY="245.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Confirmar Empréstimo" textFill="WHITE">
+                  <Button fx:id="VoltarTeladeBusca" layoutX="42.0" layoutY="245.0" mnemonicParsing="false" onAction="#onVoltarTeladeBuscaClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Voltar para Tela de Busca" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -68,6 +60,32 @@
                         <Font name="System Italic" size="25.0" />
                      </font>
                   </Label>
+                  <Label fx:id="MultasPendentes" layoutX="42.0" layoutY="330.0" prefHeight="35.0" prefWidth="352.0" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="VoltarTelaInicial" layoutX="492.0" layoutY="245.0" mnemonicParsing="false" onAction="#onVoltarTelaInicialClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Voltar para Tela Inicial" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Label fx:id="EmprestimoSolicitado" layoutX="42.0" layoutY="330.0" prefHeight="35.0" prefWidth="283.0" textAlignment="CENTER">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="ConfirmarEmprestimo" layoutX="267.0" layoutY="245.0" mnemonicParsing="false" onAction="#onConfirmarEmprestimoClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Confirmar Empréstimo" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                     </children>
                 </AnchorPane>
             </children>

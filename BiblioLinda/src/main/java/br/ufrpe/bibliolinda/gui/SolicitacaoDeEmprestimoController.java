@@ -5,12 +5,11 @@ import br.ufrpe.bibliolinda.beans.Livro;
 import br.ufrpe.bibliolinda.beans.PagamentoMulta;
 import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.exception.CamposVaziosException;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
 import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
-import br.ufrpe.bibliolinda.negocio.ControladorSessao;
 import br.ufrpe.bibliolinda.negocio.ControladorEmprestimo;
 import br.ufrpe.bibliolinda.negocio.ControladorPagamento;
-import br.ufrpe.bibliolinda.negocio.ControladorUsuario;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,24 +29,46 @@ public class SolicitacaoDeEmprestimoController {
 
     ControladorPagamento controladorPagamento = ControladorPagamento.getInstancia();
     ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
+    private Usuario usuarioSelecionado;
+    private Livro livroSelecionado;
 
     @FXML
     private Label LivroSelecionado;
     @FXML
+    private Label EmprestimoSolicitado;
+    @FXML
     private Label LivroJaEmprestado; // Você já possui um livro empréstado no momento
     @FXML
-    private Button CancelarEmprestimo;
+    private Button VoltarTeladeBusca;
     @FXML
     private Button ConfirmarEmprestimo;
+    @FXML
+    private Button VoltarTelaInicial;
     @FXML
     private String livroSelecionadoNome;
     @FXML
     private Label MultasPendentes;
 
     @FXML
-    void onCancelarEmprestimoClick(ActionEvent event) {
+    void onVoltarTeladeBuscaClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-buscar-livros.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    void onVoltarTelaInicialClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -65,50 +86,52 @@ public class SolicitacaoDeEmprestimoController {
         LivroSelecionado.setText(nomeLivro);
     }
 
-    @FXML
-    public void onSolicitarEmprestimoClick(Usuario usuario, Livro livro) {
-        try {
-            // Verificar se o usuário possui multas pendentes
-            List<PagamentoMulta> multasPendentes = ControladorPagamento.getInstancia().listarPagamentosPorCliente(usuario);
-
-            if (!multasPendentes.isEmpty()) {
-                try {
-                    throw new CamposVaziosException("Você possui multas pendentes no momento");
-                } catch (CamposVaziosException e) {
-                    MultasPendentes.setTextFill(Color.RED);
-                    MultasPendentes.setText(e.getMessage());
-                    return;
-                }
-                return;
-            }
-
-            // Verificar se o usuário já possui um empréstimo em andamento
-            List<Emprestimo> emprestimosAtivos = ControladorEmprestimo.getInstancia().obterEmprestimosAtivos();
-
-            for (Emprestimo emprestimo : emprestimosAtivos) {
-                if (emprestimo.getUsuario().equals(usuario)) {
-                    try {
-                        throw new CamposVaziosException("Você já possui um livro empréstado no momento");
-                    } catch (CamposVaziosException e) {
-                        LivroJaEmprestado.setTextFill(Color.RED);
-                        LivroJaEmprestado.setText(e.getMessage());
-                        return;
-                    }
-                    return;
-                }
-            }
-
-            // O usuário não possui multas pendentes e não tem empréstimo em andamento
-            Emprestimo novoEmprestimo = new Emprestimo(usuario, livro, LocalDate.now());
-
-            // Adicionar o novo empréstimo ao sistema
-            ControladorEmprestimo.getInstancia().adicionarEmprestimo(novoEmprestimo);
-
-            // Exibir mensagem de sucesso na interface ou tomar outra ação apropriada
-            // Exemplo: exibirMensagemSucesso("Empréstimo realizado com sucesso!");
-        } catch (ObjetoJaExisteException | ParametroInvalidoException e) {
-        }
-    }
+    //VER ISSO HOJE AINDA ANTES DA AULA
+//    @FXML
+//    public void onConfirmarEmprestimoClick(ActionEvent event) {
+//        try {
+//            // Verificar se o usuário possui multas pendentes
+//            List<PagamentoMulta> multasPendentes = ControladorPagamento.getInstancia().listarPagamentosPorCliente(usuarioSelecionado);
+//
+//            if (!multasPendentes.isEmpty()) {
+//                try {
+//                    throw new CamposVaziosException("Você possui multas pendentes no momento");
+//                } catch (CamposVaziosException e) {
+//                    MultasPendentes.setTextFill(Color.RED);
+//                    MultasPendentes.setText(e.getMessage());
+//                    return;
+//                }
+//            }
+//
+//            // Verificar se o usuário já possui um empréstimo em andamento
+//            List<Emprestimo> emprestimosAtivos = ControladorEmprestimo.getInstancia().obterEmprestimosAtivos();
+//
+//            for (Emprestimo emprestimo : emprestimosAtivos) {
+//                if (emprestimo.getUsuario().equals(usuarioSelecionado)) {
+//                    try {
+//                        throw new CamposVaziosException("Você já possui um livro empréstado no momento");
+//                    } catch (CamposVaziosException e) {
+//                        LivroJaEmprestado.setTextFill(Color.RED);
+//                        LivroJaEmprestado.setText(e.getMessage());
+//                        return;
+//                    }
+//                }
+//            }
+//
+//            // O usuário não possui multas pendentes e não tem empréstimo em andamento
+//            Emprestimo novoEmprestimo = new Emprestimo(usuarioSelecionado, livroSelecionado, LocalDate.now());
+//
+//            // Adicionar o novo empréstimo ao sistema
+//            ControladorEmprestimo.getInstancia().adicionarEmprestimo(novoEmprestimo);
+//
+//            EmprestimoSolicitado.setTextFill(Color.PURPLE);
+//            EmprestimoSolicitado.setText("Empréstimo solicitado com sucesso");
+//        } catch (ObjetoJaExisteException | ParametroInvalidoException e) {
+//            System.out.println("Erro");
+//        } catch (ObjetoInvalidoException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
 
 
 }

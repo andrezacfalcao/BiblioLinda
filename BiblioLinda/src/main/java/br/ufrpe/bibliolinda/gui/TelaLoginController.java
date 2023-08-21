@@ -28,19 +28,14 @@ public class TelaLoginController {
     ControladorUsuario controladorUsuario = ControladorUsuario.getInstancia();
     @FXML
     private Button EntrarLogin;
-
     @FXML
     private Button levarTelaCadastro;
-
     @FXML
     private Label ExcecaoUoSIncorretos;
-
     @FXML
     private TextField LoginLogin;
-
     @FXML
     private PasswordField SenhaLogin;
-
     ControladorSessao sessao = ControladorSessao.getInstancia();
 
 
@@ -179,5 +174,23 @@ public class TelaLoginController {
                 e.printStackTrace();
             }
         }
+
+    @FXML
+    private Button ListarEmprestimos;
+    @FXML
+    void onListarEmprestimosClick (ActionEvent event){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_emprestimos_ativos.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     }
 
