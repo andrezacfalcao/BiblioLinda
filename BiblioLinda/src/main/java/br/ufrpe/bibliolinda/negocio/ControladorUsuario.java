@@ -30,7 +30,7 @@ public class ControladorUsuario {
         for (Usuario usuario : usuarios) {
             if (usuario.getLogin().equals(login)) {
                 if (usuario.getSenha().equals(senha)) {
-                    //ControladorSessao.getInstancia().abrirSessao(usuario);
+                    ControladorSessao.getInstancia().abrirSessao(usuario);
                     return true;
                 }
                 else {

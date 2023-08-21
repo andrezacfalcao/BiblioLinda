@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Atualização da tela de login">
+    <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Criação e desenvolvimento da tela de Buscar Livros">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/CadastroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/CadastroController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-principal-CLIENTE.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-principal-CLIENTE.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorUsuario.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +91,7 @@
       <workItem from="1692298593834" duration="7394000" />
       <workItem from="1692394179853" duration="295000" />
       <workItem from="1692498302229" duration="87000" />
-      <workItem from="1692498982524" duration="8121000" />
+      <workItem from="1692498982524" duration="10549000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração do projeto">
       <option name="closed" value="true" />
@@ -150,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692502301018</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Criação e desenvolvimento da tela de Buscar Livros">
+      <option name="closed" value="true" />
+      <created>1692507845372</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1692507845372</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -176,7 +183,8 @@
     <MESSAGE value="Update da tela de cadastro + criação das telas principais do CLIENTE e ADMIN" />
     <MESSAGE value="Update do cadastro (agora realizado com sucesso) e inicio de redirecionamento dos usuarios para suas respectivas telas principais." />
     <MESSAGE value="Atualização da tela de login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Atualização da tela de login" />
+    <MESSAGE value="Criação e desenvolvimento da tela de Buscar Livros" />
+    <option name="LAST_COMMIT_MESSAGE" value="Criação e desenvolvimento da tela de Buscar Livros" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

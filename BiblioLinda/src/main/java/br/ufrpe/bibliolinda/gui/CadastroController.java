@@ -89,8 +89,8 @@ public class CadastroController {
 
         } catch (ObjetoJaExisteException e) {
             try {
-                throw new CamposVaziosException("Usuário já existe");
-            } catch (CamposVaziosException f) {
+                throw new ObjetoJaExisteException("Usuário já existe");
+            } catch (ObjetoJaExisteException f) {
                 ExcecaoVazio3.setTextFill(Color.RED);
                 ExcecaoVazio3.setText(f.getMessage());
                 return;
