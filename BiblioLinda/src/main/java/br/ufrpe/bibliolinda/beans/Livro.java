@@ -1,6 +1,5 @@
 package br.ufrpe.bibliolinda.beans;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
 public class Livro {
@@ -10,12 +9,12 @@ public class Livro {
     private int anoDeLancamento;
     private int totalDeCopias;
 
-    public Livro(String nomeLivro, Categoria categoriaLivro, String nomeAutor, int anoDeLancamento, int numeroTotalDeCopias) {
+    public Livro(String nomeLivro, Categoria categoriaLivro, String nomeAutor, int anoDeLancamento, int totalDeCopias) {
         this.nomeLivro = nomeLivro;
         this.categoriaLivro = categoriaLivro;
         this.nomeAutor = nomeAutor;
         this.anoDeLancamento = anoDeLancamento;
-        this.totalDeCopias = numeroTotalDeCopias;
+        this.totalDeCopias = totalDeCopias;
     }
 
     public String getNomeLivro() {
@@ -39,10 +38,10 @@ public class Livro {
     public void setAnoDeLancamento(int anoDeLancamento) {
         this.anoDeLancamento = anoDeLancamento;
     }
-    public int getNumeroDeCopias(){
+    public int getTotalDeCopias(){
         return totalDeCopias;
     }
-    public void setNumeroDeCopias(int numeroDeCopias){
+    public void setTotalDeCopias(int numeroDeCopias){
         this.totalDeCopias = numeroDeCopias;
     }
 

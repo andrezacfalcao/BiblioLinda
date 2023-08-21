@@ -12,4 +12,6 @@ module br.ufrpe.bibliolinda {
     opens br.ufrpe.bibliolinda.gui to javafx.fxml;
     exports br.ufrpe.bibliolinda.exception;
     opens br.ufrpe.bibliolinda.exception to javafx.fxml;
+    opens br.ufrpe.bibliolinda.beans to javafx.base;
+
 }

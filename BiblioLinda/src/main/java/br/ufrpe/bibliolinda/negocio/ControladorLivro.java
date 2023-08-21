@@ -35,7 +35,7 @@ public class ControladorLivro {
 
     public void adicionarLivro(Livro livro) throws ObjetoInvalidoException, ObjetoJaExisteException {
         if(!repositorioLivro.listarLivros().contains(livro) && livro != null){
-            if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null && !livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
+            if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null && !livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getTotalDeCopias() != 0){
                 repositorioLivro.adicionarLivro(livro);
             }
             else{
@@ -57,7 +57,7 @@ public class ControladorLivro {
     public void editarLivro(Livro livro, Livro novoLivro) throws ObjetoInvalidoException, ObjetoJaExisteException, ParametroInvalidoException {
         if(livro != null && novoLivro != null) {
             if(livrosDisponiveis().contains(livro)) {
-                if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null &!livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getNumeroDeCopias() != 0){
+                if(!livro.getNomeLivro().isEmpty() && livro.getCategoriaLivro() != null &!livro.getNomeAutor().isEmpty() &&  livro.getAnoDeLancamento() != 0 && livro.getTotalDeCopias() != 0){
                     repositorioLivro.editarLivro(livro, novoLivro);
                 }
                 else {
@@ -120,7 +120,7 @@ public class ControladorLivro {
         int total = 0;
 
         for (Livro livro : repositorioLivro.listarLivros())
-            total += livro.getNumeroDeCopias();
+            total += livro.getTotalDeCopias();
 
         return total;
     }
@@ -131,7 +131,7 @@ public class ControladorLivro {
         for (Livro livro : listarLivros()) {
             int livrosEmprestados = contarCopiasEmprestadas(livro);
 
-            if (livro.getNumeroDeCopias() > livrosEmprestados)
+            if (livro.getTotalDeCopias() > livrosEmprestados)
                 livrosDisponiveis.add(livro);
         }
 
@@ -155,35 +155,35 @@ public class ControladorLivro {
     }
 
 
-    public static void main(String[] args) throws ObjetoJaExisteException {
-
-        // Teste do método para listar livros disponíveis
-
-        Livro livro1 = new Livro("Dom Casmurro", Categoria.FICCAO, "Machado de Assis", 1899, 1);
-        Livro livro2 = new Livro("1984", Categoria.FICCAO, "George Orwell", 1949, 1);
-        Livro livro3 = new Livro("A Origem das Espécies", Categoria.FICCAO, "Charles Darwin", 1859, 1);
-        Livro livro4 = new Livro("O Poder do Hábito", Categoria.FICCAO, "Charles Duhigg", 2012, 2);
-
-        RepositorioLivro.getInstancia().adicionarLivro(livro1);
-        RepositorioLivro.getInstancia().adicionarLivro(livro2);
-        RepositorioLivro.getInstancia().adicionarLivro(livro3);
-        RepositorioLivro.getInstancia().adicionarLivro(livro4);
-
-        Emprestimo emprestimo1 = new Emprestimo(null, livro1, null);
-        Emprestimo emprestimo2 = new Emprestimo(null, livro3, null);
-
-        RepositorioEmprestimo.getInstancia().adicionarEmprestimo(emprestimo1);
-        RepositorioEmprestimo.getInstancia().adicionarEmprestimo(emprestimo2);
-
-        ControladorLivro controlador = ControladorLivro.getInstancia();
-
-        // Deve imprimir apenas o livro2 e o livro4
-        try {
-            for (Livro livro : controlador.livrosDisponiveis())
-                System.out.println(livro.getNomeLivro());
-        } catch (ParametroInvalidoException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    public static void main(String[] args) throws ObjetoJaExisteException {
+//
+//        // Teste do método para listar livros disponíveis
+//
+//        Livro livro1 = new Livro("Dom Casmurro", Categoria.FICCAO, "Machado de Assis", 1899, 1);
+//        Livro livro2 = new Livro("1984", Categoria.FICCAO, "George Orwell", 1949, 1);
+//        Livro livro3 = new Livro("A Origem das Espécies", Categoria.FICCAO, "Charles Darwin", 1859, 1);
+//        Livro livro4 = new Livro("O Poder do Hábito", Categoria.FICCAO, "Charles Duhigg", 2012, 2);
+//
+//        RepositorioLivro.getInstancia().adicionarLivro(livro1);
+//        RepositorioLivro.getInstancia().adicionarLivro(livro2);
+//        RepositorioLivro.getInstancia().adicionarLivro(livro3);
+//        RepositorioLivro.getInstancia().adicionarLivro(livro4);
+//
+//        Emprestimo emprestimo1 = new Emprestimo(null, livro1, null);
+//        Emprestimo emprestimo2 = new Emprestimo(null, livro3, null);
+//
+//        RepositorioEmprestimo.getInstancia().adicionarEmprestimo(emprestimo1);
+//        RepositorioEmprestimo.getInstancia().adicionarEmprestimo(emprestimo2);
+//
+//        ControladorLivro controlador = ControladorLivro.getInstancia();
+//
+//        // Deve imprimir apenas o livro2 e o livro4
+//        try {
+//            for (Livro livro : controlador.livrosDisponiveis())
+//                System.out.println(livro.getNomeLivro());
+//        } catch (ParametroInvalidoException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 }
