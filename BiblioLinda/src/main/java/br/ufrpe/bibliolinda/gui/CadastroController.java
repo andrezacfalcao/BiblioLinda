@@ -23,9 +23,24 @@ public class CadastroController {
 
     @FXML
     private Button cadastrar;
-
     @FXML
     private Button levarTelaLogin;
+    @FXML
+    private Label ExcecaoVazio;
+    @FXML
+    private Label ExcecaoVazio1;
+    @FXML
+    private Label ExcecaoVazio2;
+    @FXML
+    private Label ExcecaoVazio3;
+    @FXML
+    private TextField LoginCadastro;
+    @FXML
+    private TextField NomeCadastro;
+    @FXML
+    private PasswordField SenhaCadastro;
+    @FXML
+    ComboBox<TipoDeUsuario> TipoCadastro = new ComboBox<>();
 
     @FXML
     private void limparMensagemErro() {
@@ -34,30 +49,6 @@ public class CadastroController {
         ExcecaoVazio2.setText("");
         ExcecaoVazio3.setText("");
     }
-
-    @FXML
-    private Label ExcecaoVazio;
-
-    @FXML
-    private Label ExcecaoVazio1;
-
-    @FXML
-    private Label ExcecaoVazio2;
-
-    @FXML
-    private Label ExcecaoVazio3;
-
-    @FXML
-    private TextField LoginCadastro;
-
-    @FXML
-    private TextField NomeCadastro;
-
-    @FXML
-    private PasswordField SenhaCadastro;
-
-    @FXML
-    ComboBox<TipoDeUsuario> TipoCadastro = new ComboBox<>();
 
     public void onCadastrarClick(ActionEvent event) throws IOException, ObjetoJaExisteException, ObjetoInvalidoException, CamposVaziosException {
 
