@@ -34,7 +34,7 @@ public class ControladorSessao {
         return livroTemp;
     }
 
-    public void setFilmeTemp(Livro livro) {
+    public void setLivroTemp(Livro livro) {
         this.livroTemp = livro;
     }
 

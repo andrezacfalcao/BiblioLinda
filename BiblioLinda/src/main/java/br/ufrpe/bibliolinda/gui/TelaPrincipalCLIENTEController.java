@@ -36,4 +36,23 @@ public class TelaPrincipalCLIENTEController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private Button ListarEmprestimos;
+
+    @FXML
+    void onListarEmprestimosClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_emprestimos_ativos.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

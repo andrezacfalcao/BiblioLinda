@@ -5,6 +5,7 @@ import br.ufrpe.bibliolinda.beans.Livro;
 import br.ufrpe.bibliolinda.exception.CamposVaziosException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 import br.ufrpe.bibliolinda.negocio.ControladorLivro;
+import br.ufrpe.bibliolinda.negocio.ControladorSessao;
 import br.ufrpe.bibliolinda.negocio.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +24,6 @@ import java.io.IOException;
 import java.util.List;
 
 public class TelaBuscarLivrosController {
-
     @FXML
     private TableView<Livro> livrosDisponiveis;
     @FXML
@@ -46,6 +46,7 @@ public class TelaBuscarLivrosController {
     private Label ExcecaoNenhumLivroSelecionado;
     @FXML
     private final ObservableList<Livro> items = FXCollections.observableArrayList();
+    ControladorSessao sessao = ControladorSessao.getInstancia();
 
     public void initialize() throws ParametroInvalidoException {
         ControladorLivro controladorLivro = ControladorLivro.getInstancia();
@@ -103,12 +104,10 @@ public class TelaBuscarLivrosController {
         Livro livroSelecionado = livrosDisponiveis.getSelectionModel().getSelectedItem();
 
         if (livroSelecionado != null) {
+            sessao.setLivroTemp(livroSelecionado);
             try {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("solicitacao-de-emprestimo.fxml"));
                 Parent secondScreenParent = loader.load();
-
-                SolicitacaoDeEmprestimoController solicitacaoController = loader.getController();
-                solicitacaoController.setLivroSelecionado(livroSelecionado.getNomeLivro());
 
                 Scene secondScreenScene = new Scene(secondScreenParent);
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

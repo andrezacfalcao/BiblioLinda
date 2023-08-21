@@ -2,14 +2,13 @@
 
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.EmprestimosAtivosController">
+<VBox xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.EmprestimosAtivosController">
     <TableView fx:id="tableView">
         <columns>
-            <TableColumn text="Usuário" fx:id="usuarioColumn"/>
-            <TableColumn text="Livro" fx:id="livroColumn"/>
+            <TableColumn fx:id="usuarioColumn" text="Usuário" />
+            <TableColumn fx:id="livroColumn" text="Livro" />
         </columns>
     </TableView>
 </VBox>

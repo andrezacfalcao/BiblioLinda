@@ -102,83 +102,84 @@ public class TelaLoginController {
         }
     }
 
-        @FXML
-        void onLevarTelaCadastroClick (ActionEvent event){
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("cadastro-view.fxml"));
-                Parent secondScreenParent = loader.load();
+    @FXML
+    void onLevarTelaCadastroClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("cadastro-view.fxml"));
+            Parent secondScreenParent = loader.load();
 
-                Scene secondScreenScene = new Scene(secondScreenParent);
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                window.setScene(secondScreenScene);
-                window.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
-        @FXML
-        private Button EntrarCliente;
+    @FXML
+    private Button EntrarCliente;
 
-        @FXML
-        void onEntrarClienteClick (ActionEvent event){
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
-                Parent secondScreenParent = loader.load();
+    @FXML
+    void onEntrarClienteClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
+            Parent secondScreenParent = loader.load();
 
-                Scene secondScreenScene = new Scene(secondScreenParent);
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                window.setScene(secondScreenScene);
-                window.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
-        @FXML
-        private Button EntrarAdmin;
+    @FXML
+    private Button EntrarAdmin;
 
-        @FXML
-        void onEntrarAdminClick (ActionEvent event){
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-ADMIN.fxml"));
-                Parent secondScreenParent = loader.load();
+    @FXML
+    void onEntrarAdminClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-ADMIN.fxml"));
+            Parent secondScreenParent = loader.load();
 
-                Scene secondScreenScene = new Scene(secondScreenParent);
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                window.setScene(secondScreenScene);
-                window.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
-        @FXML
-        private Button ListarUsuarios;
+    @FXML
+    private Button ListarUsuarios;
 
-        @FXML
-        void onListarUsuariosClick (ActionEvent event){
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("teste-lista-cadastro.fxml"));
-                Parent secondScreenParent = loader.load();
+    @FXML
+    void onListarUsuariosClick(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("teste-lista-cadastro.fxml"));
+            Parent secondScreenParent = loader.load();
 
-                Scene secondScreenScene = new Scene(secondScreenParent);
-                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-                window.setScene(secondScreenScene);
-                window.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 
     @FXML
     private Button ListarEmprestimos;
+
     @FXML
-    void onListarEmprestimosClick (ActionEvent event){
+    void onListarEmprestimosClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_emprestimos_ativos.fxml"));
             Parent secondScreenParent = loader.load();
@@ -192,5 +193,5 @@ public class TelaLoginController {
             e.printStackTrace();
         }
     }
-    }
+}
 

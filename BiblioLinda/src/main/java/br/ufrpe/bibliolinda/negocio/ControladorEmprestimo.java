@@ -39,7 +39,7 @@ public class ControladorEmprestimo {
 
     public void adicionarEmprestimo(Emprestimo emprestimo) throws ObjetoJaExisteException, ParametroInvalidoException {
         if(!repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
-            if(emprestimo.getUsuario() != null && emprestimo.getLivro() != null && emprestimo.getDataEmprestimo() != null && emprestimo.getDataDevolucao() != null){
+            if(emprestimo.getUsuario() != null && emprestimo.getLivro() != null && emprestimo.getDataEmprestimo() != null){
                 for(Emprestimo emprestimo1 : obterEmprestimosAtivos()){
                     if(!emprestimo1.getUsuario().equals(emprestimo.getUsuario())){
                         if(checarLivroDisponivel(emprestimo1.getLivro())){

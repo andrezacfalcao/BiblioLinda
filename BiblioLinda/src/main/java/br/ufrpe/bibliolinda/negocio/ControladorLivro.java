@@ -153,37 +153,4 @@ public class ControladorLivro {
         }
 
     }
-
-
-//    public static void main(String[] args) throws ObjetoJaExisteException {
-//
-//        // Teste do método para listar livros disponíveis
-//
-//        Livro livro1 = new Livro("Dom Casmurro", Categoria.FICCAO, "Machado de Assis", 1899, 1);
-//        Livro livro2 = new Livro("1984", Categoria.FICCAO, "George Orwell", 1949, 1);
-//        Livro livro3 = new Livro("A Origem das Espécies", Categoria.FICCAO, "Charles Darwin", 1859, 1);
-//        Livro livro4 = new Livro("O Poder do Hábito", Categoria.FICCAO, "Charles Duhigg", 2012, 2);
-//
-//        RepositorioLivro.getInstancia().adicionarLivro(livro1);
-//        RepositorioLivro.getInstancia().adicionarLivro(livro2);
-//        RepositorioLivro.getInstancia().adicionarLivro(livro3);
-//        RepositorioLivro.getInstancia().adicionarLivro(livro4);
-//
-//        Emprestimo emprestimo1 = new Emprestimo(null, livro1, null);
-//        Emprestimo emprestimo2 = new Emprestimo(null, livro3, null);
-//
-//        RepositorioEmprestimo.getInstancia().adicionarEmprestimo(emprestimo1);
-//        RepositorioEmprestimo.getInstancia().adicionarEmprestimo(emprestimo2);
-//
-//        ControladorLivro controlador = ControladorLivro.getInstancia();
-//
-//        // Deve imprimir apenas o livro2 e o livro4
-//        try {
-//            for (Livro livro : controlador.livrosDisponiveis())
-//                System.out.println(livro.getNomeLivro());
-//        } catch (ParametroInvalidoException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
 }

@@ -54,5 +54,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button fx:id="ListarEmprestimos" layoutX="324.0" layoutY="561.0" mnemonicParsing="false" onAction="#onListarEmprestimosClick" text="ListarEmprestimos" />
     </children>
 </AnchorPane>
