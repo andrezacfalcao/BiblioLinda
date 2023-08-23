@@ -38,10 +38,15 @@ public class ControladorEmprestimo {
     }
 
     public void adicionarEmprestimo(Emprestimo emprestimo) throws ObjetoJaExisteException, ParametroInvalidoException {
+        //checando se o emprestimo existe e se ele não é nulo
         if(!repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
+            //checa se o usuário, livro e a data não são nulos
             if(emprestimo.getUsuario() != null && emprestimo.getLivro() != null && emprestimo.getDataEmprestimo() != null){
-                for(Emprestimo emprestimo1 : obterEmprestimosAtivos()){
+                for(Emprestimo emprestimo1 : obterEmprestimosAtivos()){  // nao entrou aqui
+                    //System.out.println("oi");
+                    // checa se o usuário não tem empréstimo ativo
                     if(!emprestimo1.getUsuario().equals(emprestimo.getUsuario())){
+                        //checa se o livro está disponível
                         if(checarLivroDisponivel(emprestimo1.getLivro())){
                             repositorioEmprestimo.adicionarEmprestimo(emprestimo1);
                         }
@@ -95,9 +100,9 @@ public class ControladorEmprestimo {
         LocalDate hoje = LocalDate.now();
 
         for(Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()){
-            if(emprestimo.getDataEmprestimo().plusDays(31).isAfter(hoje)){
+            //if(emprestimo.getDataEmprestimo().plusDays(31).isAfter(hoje)){
                 emprestimosAtivos.add(emprestimo);
-            }
+            //}
         }
         return emprestimosAtivos;
     }

@@ -20,7 +20,10 @@
                 </Label>
             </children>
         </AnchorPane>
-      <AnchorPane layoutX="313.0" layoutY="-35.0" prefHeight="200.0" prefWidth="487.0" style="-fx-background-color: purple;" />
+      <AnchorPane layoutX="313.0" layoutY="-35.0" prefHeight="200.0" prefWidth="487.0" style="-fx-background-color: purple;">
+         <children>
+            <AnchorPane fx:id="capas" layoutX="372.0" layoutY="34.0" prefHeight="166.0" prefWidth="115.0" />
+         </children></AnchorPane>
       <AnchorPane layoutX="-5.0" layoutY="165.0" prefHeight="436.0" prefWidth="509.0" style="-fx-background-color: white;">
          <children>
             <AnchorPane layoutX="5.0" prefHeight="436.0" prefWidth="800.0">

@@ -1,12 +1,28 @@
 package br.ufrpe.bibliolinda.beans;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 public class Emprestimo {
     private Usuario usuario;
     private Livro livro;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
+
+    private boolean emprestimoAtivoBoo;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Emprestimo that = (Emprestimo) o;
+        return Objects.equals(usuario, that.usuario) && Objects.equals(livro, that.livro) && Objects.equals(dataEmprestimo, that.dataEmprestimo) && Objects.equals(dataDevolucao, that.dataDevolucao);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(usuario, livro, dataEmprestimo, dataDevolucao);
+    }
 
     public Emprestimo(Usuario usuario, Livro livro, LocalDate dataEmprestimo) {
         this.usuario = usuario;

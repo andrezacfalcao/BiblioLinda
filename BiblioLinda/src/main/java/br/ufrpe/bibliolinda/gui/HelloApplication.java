@@ -52,7 +52,10 @@ public class HelloApplication extends Application {
 
         controladorEmprestimo.adicionarEmprestimo(emprestimo1);
 
+
+
         launch();
     }
+
 
 }

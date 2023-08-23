@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -44,6 +45,8 @@ public class TelaBuscarLivrosController {
     private Button SolicitarEmprestimoButton;
     @FXML
     private Label ExcecaoNenhumLivroSelecionado;
+    @FXML
+    private AnchorPane capas;
     @FXML
     private final ObservableList<Livro> items = FXCollections.observableArrayList();
     ControladorSessao sessao = ControladorSessao.getInstancia();

@@ -20,7 +20,8 @@ public class TelaPrincipalCLIENTEController {
     private Button HistoricoLeitura;
     @FXML
     private Button Pendencias;
-
+    @FXML
+    private Button voltarTelaInicioCliente;
     @FXML
     void onBuscarLivrosClick(ActionEvent event) {
         try {
@@ -54,5 +55,22 @@ public class TelaPrincipalCLIENTEController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    void onvoltarTelaInicioClienteClick (ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

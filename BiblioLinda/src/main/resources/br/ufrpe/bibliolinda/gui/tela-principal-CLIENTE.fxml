@@ -54,6 +54,14 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="ListarEmprestimos" layoutX="324.0" layoutY="561.0" mnemonicParsing="false" onAction="#onListarEmprestimosClick" text="ListarEmprestimos" />
+      <Button fx:id="ListarEmprestimos" layoutX="666.0" layoutY="21.0" mnemonicParsing="false" onAction="#onListarEmprestimosClick" text="ListarEmprestimos" />
+      <Button fx:id="voltarTelaInicioCliente" layoutX="335.0" layoutY="534.0" mnemonicParsing="false" onAction="#onvoltarTelaInicioClienteClick" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
     </children>
 </AnchorPane>

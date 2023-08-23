@@ -25,6 +25,7 @@ public class CadastroController {
     private Button cadastrar;
     @FXML
     private Button levarTelaLogin;
+
     @FXML
     private Label ExcecaoVazio;
     @FXML
@@ -121,4 +122,6 @@ public class CadastroController {
             e.printStackTrace();
         }
     }
+
+
 }

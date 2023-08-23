@@ -11,7 +11,7 @@ public class RepositorioEmprestimo {
 
     private static RepositorioEmprestimo instancia;
 
-    private final List<Emprestimo> listaDeEmprestimos;
+    private static List<Emprestimo> listaDeEmprestimos;
 
     //construtor
     private RepositorioEmprestimo() {
@@ -51,5 +51,12 @@ public class RepositorioEmprestimo {
         } else {
             throw new ObjetoInvalidoException(emprestimo);
         }
+    }
+
+    @Override
+    public String toString() {
+        return "RepositorioEmprestimo{" +
+                "listaDeEmprestimos=" + listaDeEmprestimos +
+                '}';
     }
 }
