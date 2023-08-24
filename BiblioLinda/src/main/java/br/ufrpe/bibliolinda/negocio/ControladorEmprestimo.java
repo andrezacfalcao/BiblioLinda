@@ -15,10 +15,7 @@ import java.util.List;
 
 public class ControladorEmprestimo {
 
-    //Questionar se vai ser um controlador só para emprestimo e pagamento
-
     private static ControladorEmprestimo instancia;
-
     private final RepositorioEmprestimo repositorioEmprestimo;
     private final RepositorioLivro repositorioLivro;
 
@@ -55,6 +52,7 @@ public class ControladorEmprestimo {
     }
 
     public void removerEmprestimo(Emprestimo emprestimo) throws ObjetoInvalidoException {
+        //verifica se existe o emprestimo forneido, na lista de emprestimos e se ele não é nulo
         if(repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
             repositorioEmprestimo.removerEmprestimo(emprestimo);
         }
@@ -161,6 +159,8 @@ public class ControladorEmprestimo {
         throw new ParametroInvalidoException("O livro não pode ser nulo!");
     }
 
+
+    //pode remover???????????
     public boolean checarUsuarioJaEstaComLivro(Usuario usuario, Livro livro) throws ParametroInvalidoException {
         if (usuario != null && livro != null) {
             for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {

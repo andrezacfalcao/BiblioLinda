@@ -79,4 +79,10 @@ public class Emprestimo {
     public void setDataLimite(LocalDate dataLimite) {
         this.dataLimite = dataLimite;
     }
+
+    @Override
+    public String toString() {
+        return
+                "Usuário: " + usuario +" Livro: "+ livro;
+    }
 }

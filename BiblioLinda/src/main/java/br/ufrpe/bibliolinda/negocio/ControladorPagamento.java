@@ -67,7 +67,7 @@ public class ControladorPagamento {
         List<PagamentoMulta> resultado = new ArrayList<>();
 
         if (usuario != null)
-            for (PagamentoMulta pagamento : repositorioPagamento.listarPagamentos())
+            for (PagamentoMulta pagamento : listarPagamentos())
                 if (pagamento.getEmprestimo().getUsuario().equals(usuario))
                     resultado.add(pagamento);
         else
@@ -79,7 +79,7 @@ public class ControladorPagamento {
     public List<PagamentoMulta> listarPagamentosEmAtraso() {
         List<PagamentoMulta> resultado = new ArrayList<>();
 
-        for (PagamentoMulta pagamento : repositorioPagamento.listarPagamentos())
+        for (PagamentoMulta pagamento : listarPagamentos())
             if (!pagamento.getStatusPagamento())
                 resultado.add(pagamento);
 
@@ -90,7 +90,7 @@ public class ControladorPagamento {
         List<PagamentoMulta> resultado = new ArrayList<>();
 
         if (inicio != null && fim != null)
-            for (PagamentoMulta pagamento : repositorioPagamento.listarPagamentos())
+            for (PagamentoMulta pagamento : listarPagamentos())
                 if (pagamento.getDataDePagamento().isAfter(inicio) && pagamento.getDataDePagamento().isBefore(fim))
                     resultado.add(pagamento);
         else
@@ -102,7 +102,7 @@ public class ControladorPagamento {
     public List<PagamentoMulta> listarPagamentosAcimaDeValor(float valor) {
         List<PagamentoMulta> resultado = new ArrayList<>();
 
-        for (PagamentoMulta pagamento : repositorioPagamento.listarPagamentos())
+        for (PagamentoMulta pagamento : listarPagamentos())
             if (pagamento.getMulta() >= valor)
                 resultado.add(pagamento);
 
@@ -111,7 +111,7 @@ public class ControladorPagamento {
 
     public float calcularValorTotalDePagamentos() {
         float total = 0;
-        List<PagamentoMulta> pagamentos = repositorioPagamento.listarPagamentos();
+        List<PagamentoMulta> pagamentos = listarPagamentos();
 
         if (pagamentos != null) {
             for (PagamentoMulta pagamento : pagamentos)
@@ -122,7 +122,7 @@ public class ControladorPagamento {
     }
 
     public int calcularNumeroTotalDePagamentos() {
-        return repositorioPagamento.listarPagamentos().size();
+        return listarPagamentos().size();
     }
 
     public String gerarRelatorioDePagamentos(LocalDate inicio, LocalDate fim) throws ParametroInvalidoException {
@@ -148,6 +148,7 @@ public class ControladorPagamento {
 
         for (PagamentoMulta pag : pagamentos){
             if(pag.equals(pagamento)){
+                //usar o getDataLimite?????????????????????????????????????????????????????????????????????????
                 LocalDate dataPagamento = pag.getEmprestimo().getDataEmprestimo().plusDays(31);
                 if (dataPagamento.isBefore(LocalDate.now())){
                     multa = 10;

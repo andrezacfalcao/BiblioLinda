@@ -42,7 +42,9 @@ public class PagamentoMulta {
         return dataDePagamento;
     }
 
-    public boolean isStatusPagamento() {
+    public boolean setStatusPagamento() {
         return false;
     }
+
+
 }
