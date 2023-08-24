@@ -42,15 +42,10 @@ public class ControladorEmprestimo {
         if(!repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
             //checa se o usuário, livro e a data não são nulos
             if(emprestimo.getUsuario() != null && emprestimo.getLivro() != null && emprestimo.getDataEmprestimo() != null){
-                for(Emprestimo emprestimo1 : obterEmprestimosAtivos()){  // nao entrou aqui
-                    //System.out.println("oi");
-                    // checa se o usuário não tem empréstimo ativo
-                    if(!emprestimo1.getUsuario().equals(emprestimo.getUsuario())){
-                        //checa se o livro está disponível
-                        if(checarLivroDisponivel(emprestimo1.getLivro())){
-                            repositorioEmprestimo.adicionarEmprestimo(emprestimo1);
-                        }
-                    }
+                // if(!emprestimo1.getUsuario().equals(emprestimo.getUsuario())){
+                //checa se o livro está disponível
+                if(checarLivroDisponivel(emprestimo.getLivro())){
+                    repositorioEmprestimo.adicionarEmprestimo(emprestimo);
                 }
             }
             else{
@@ -97,12 +92,11 @@ public class ControladorEmprestimo {
 
     public List<Emprestimo> obterEmprestimosAtivos(){
         List<Emprestimo> emprestimosAtivos = new ArrayList<>();
-        LocalDate hoje = LocalDate.now();
 
         for(Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()){
-            //if(emprestimo.getDataEmprestimo().plusDays(31).isAfter(hoje)){
+            if(emprestimo.getEmprestimoAtivoBoo()) {
                 emprestimosAtivos.add(emprestimo);
-            //}
+            }
         }
         return emprestimosAtivos;
     }
