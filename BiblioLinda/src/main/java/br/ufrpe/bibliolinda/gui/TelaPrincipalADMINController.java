@@ -38,4 +38,55 @@ public class TelaPrincipalADMINController {
         }
 
     }
+
+    @FXML
+    void onGerenciarEmprestimosClick (ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    void onGerenciarLivrosClick (ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    void onGerenciarUsuariosClick (ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

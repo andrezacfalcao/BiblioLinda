@@ -6,14 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Tela de busca de livros disponiveis na parte do cliente funcionando!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Emprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Emprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Livro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/dados/RepositorioEmprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/EmprestimosAtivosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/EmprestimosAtivosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorLivro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaPrincipalADMINController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaPrincipalADMINController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +17,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -102,6 +95,8 @@
       <workItem from="1692670027606" duration="252000" />
       <workItem from="1692728669152" duration="198000" />
       <workItem from="1692804978536" duration="132000" />
+      <workItem from="1692847574878" duration="1185000" />
+      <workItem from="1692876662016" duration="1531000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração do projeto">
       <option name="closed" value="true" />
