@@ -7,6 +7,9 @@
     <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Tela de busca de livros disponiveis na parte do cliente funcionando!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaPrincipalADMINController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaPrincipalADMINController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-ADMIN-GerenciarEmprestimos.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-ADMIN-GerenciarEmprestimos.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-ADMIN-GerenciarLivros.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-ADMIN-GerenciarLivros.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-principal-ADMIN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-principal-ADMIN.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -39,7 +42,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/victo/OneDrive/Área de Trabalho/É ESSA DAQUI AGORA/BiblioLinda&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/andre/OneDrive/Área de Trabalho/É ESSA PASTA AGORA/BiblioLinda&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -94,9 +97,10 @@
       <workItem from="1692622950004" duration="16342000" />
       <workItem from="1692670027606" duration="252000" />
       <workItem from="1692728669152" duration="198000" />
-      <workItem from="1692804978536" duration="132000" />
-      <workItem from="1692847574878" duration="1185000" />
-      <workItem from="1692876662016" duration="1531000" />
+      <workItem from="1692812745277" duration="1055000" />
+      <workItem from="1692830753237" duration="3284000" />
+      <workItem from="1692905380460" duration="215000" />
+      <workItem from="1692905615214" duration="1489000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração do projeto">
       <option name="closed" value="true" />
@@ -208,13 +212,6 @@
     <MESSAGE value="Tela de login funcional e ajuste na tela de cadastro." />
     <MESSAGE value="Tela de busca de livros disponiveis na parte do cliente funcionando!" />
     <option name="LAST_COMMIT_MESSAGE" value="Tela de busca de livros disponiveis na parte do cliente funcionando!" />
-  </component>
-  <component name="XDebuggerManager">
-    <pin-to-top-manager>
-      <pinned-members>
-        <PinnedItemInfo parentTag="br.ufrpe.bibliolinda.beans.Emprestimo" memberName="dataEmprestimo" />
-      </pinned-members>
-    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

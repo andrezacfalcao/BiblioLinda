@@ -17,7 +17,7 @@
                 </Label>
             </children>
         </AnchorPane>
-      <Button fx:id="GerenciarLivros" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar livros" textFill="WHITE">
+      <Button fx:id="GerenciarLivros" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" onAction="#onGerenciarLivrosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar livros" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -38,7 +38,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="GerenciarEmprestimos" layoutX="451.0" layoutY="356.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar empréstimos" textFill="WHITE">
+      <Button fx:id="GerenciarEmprestimos" layoutX="451.0" layoutY="356.0" mnemonicParsing="false" onAction="#onGerenciarEmprestimosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar empréstimos" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

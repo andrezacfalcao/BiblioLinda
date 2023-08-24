@@ -23,7 +23,7 @@
             <children>
                 <AnchorPane layoutX="5.0" prefHeight="436.0" prefWidth="800.0">
                     <children>
-                        <Label layoutX="41.0" layoutY="15.0" text="Buscar Livros">
+                        <Label layoutX="41.0" layoutY="15.0" text="Gerenciar Livros">
                             <font>
                                 <Font name="System Bold" size="34.0" />
                             </font>

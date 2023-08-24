@@ -21,6 +21,7 @@ public class TelaPrincipalADMINController {
     private Button GerenciarUsuarios;
     @FXML
     private Button VoltarTelaInicial;
+    @FXML
 
     @FXML
     void onVoltarTelaInicialClick (ActionEvent event) {
@@ -42,7 +43,7 @@ public class TelaPrincipalADMINController {
     @FXML
     void onGerenciarEmprestimosClick (ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-GerenciarEmprestimos.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -59,7 +60,7 @@ public class TelaPrincipalADMINController {
     @FXML
     void onGerenciarLivrosClick (ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-GerenciarLivros.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);
