@@ -50,6 +50,11 @@ public class Livro {
     }
 
     @Override
+    public String toString() {
+        return nomeLivro;
+    }
+
+    @Override
     public boolean equals(Object o) {
         return o instanceof Livro && ((Livro) o).getNomeLivro().equals(this.nomeLivro);
     }

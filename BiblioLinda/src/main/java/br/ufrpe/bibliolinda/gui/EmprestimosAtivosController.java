@@ -26,7 +26,7 @@ public class EmprestimosAtivosController {
 
     public void initialize() {
         ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
-        List<Emprestimo> emprestimosAtivos = controladorEmprestimo.listarEmprestimos();
+        List<Emprestimo> emprestimosAtivos = controladorEmprestimo.obterEmprestimosAtivos();
         items.addAll(emprestimosAtivos);
 
         // Configura as colunas para receber os dados

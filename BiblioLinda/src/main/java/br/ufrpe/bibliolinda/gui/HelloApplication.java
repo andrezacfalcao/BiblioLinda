@@ -1,6 +1,7 @@
 package br.ufrpe.bibliolinda.gui;
 
 import br.ufrpe.bibliolinda.beans.*;
+import br.ufrpe.bibliolinda.dados.RepositorioEmprestimo;
 import br.ufrpe.bibliolinda.dados.RepositorioLivro;
 import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
 import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
@@ -47,11 +48,6 @@ public class HelloApplication extends Application {
         controladorLivro.adicionarLivro(livro2);
         controladorLivro.adicionarLivro(livro3);
         controladorLivro.adicionarLivro(livro4);
-
-        Emprestimo emprestimo1 = new Emprestimo(cliente, livro1, LocalDate.now());
-
-        controladorEmprestimo.adicionarEmprestimo(emprestimo1);
-
 
 
         launch();

@@ -11,7 +11,7 @@ public class RepositorioEmprestimo {
 
     private static RepositorioEmprestimo instancia;
 
-    private static List<Emprestimo> listaDeEmprestimos;
+    private List<Emprestimo> listaDeEmprestimos;
 
     //construtor
     private RepositorioEmprestimo() {

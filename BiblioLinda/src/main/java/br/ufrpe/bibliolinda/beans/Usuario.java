@@ -60,6 +60,11 @@ public class Usuario {
     }
 
     @Override
+    public String toString() {
+        return nome;
+    }
+
+    @Override
     public boolean equals(Object o) {
         return o instanceof Usuario && ((Usuario) o).getId() == this.id && ((Usuario) o).getLogin().equals(this.getLogin());
     }

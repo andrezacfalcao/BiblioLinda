@@ -143,7 +143,7 @@ public class ControladorLivro {
         int copiasEmprestadas = 0;
         if (livro != null) {
             for (Emprestimo emprestimo : RepositorioEmprestimo.getInstancia().listarEmprestimos()) {
-                if (emprestimo.getLivro().equals(livro) && emprestimo.getDataDevolucao().isAfter(LocalDate.now())) {
+                if (emprestimo.getLivro().equals(livro) && emprestimo.getEmprestimoAtivoBoo()) {
                     copiasEmprestadas++;
                 }
             }

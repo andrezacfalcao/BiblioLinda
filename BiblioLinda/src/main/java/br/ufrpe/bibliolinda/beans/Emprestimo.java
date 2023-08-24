@@ -8,7 +8,7 @@ public class Emprestimo {
     private Livro livro;
     private LocalDate dataEmprestimo;
     private LocalDate dataDevolucao;
-
+    private LocalDate dataLimite;
     private boolean emprestimoAtivoBoo;
 
     @Override
@@ -16,18 +16,20 @@ public class Emprestimo {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Emprestimo that = (Emprestimo) o;
-        return Objects.equals(usuario, that.usuario) && Objects.equals(livro, that.livro) && Objects.equals(dataEmprestimo, that.dataEmprestimo) && Objects.equals(dataDevolucao, that.dataDevolucao);
+        return Objects.equals(usuario, that.usuario) && Objects.equals(livro, that.livro) && Objects.equals(dataEmprestimo, that.dataEmprestimo) && Objects.equals(dataDevolucao, that.dataDevolucao) && Objects.equals(dataLimite, that.dataLimite) && Objects.equals(emprestimoAtivoBoo, that.emprestimoAtivoBoo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(usuario, livro, dataEmprestimo, dataDevolucao);
+        return Objects.hash(usuario, livro, dataEmprestimo, dataDevolucao, dataLimite, emprestimoAtivoBoo);
     }
 
     public Emprestimo(Usuario usuario, Livro livro, LocalDate dataEmprestimo) {
         this.usuario = usuario;
         this.livro = livro;
         this.dataEmprestimo = dataEmprestimo;
+        this.dataLimite = dataEmprestimo.plusDays(30);
+        this.emprestimoAtivoBoo = true;
     }
 
     public Usuario getUsuario() {
@@ -60,5 +62,21 @@ public class Emprestimo {
 
     public void setData_devolucao(LocalDate dataDevolucao) {
         this.dataDevolucao = dataDevolucao;
+    }
+
+    public boolean getEmprestimoAtivoBoo() {
+        return emprestimoAtivoBoo;
+    }
+
+    public void setEmprestimoAtivoBoo(boolean emprestimoAtivoBoo) {
+        this.emprestimoAtivoBoo = emprestimoAtivoBoo;
+    }
+
+    public LocalDate getDataLimite() {
+        return dataLimite;
+    }
+
+    public void setDataLimite(LocalDate dataLimite) {
+        this.dataLimite = dataLimite;
     }
 }
