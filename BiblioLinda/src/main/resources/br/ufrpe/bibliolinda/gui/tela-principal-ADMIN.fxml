@@ -17,7 +17,7 @@
                 </Label>
             </children>
         </AnchorPane>
-      <Button fx:id="GerenciarLivros" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" onAction="#onGerenciarLivrosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar livros" textFill="WHITE">
+      <Button fx:id="gerenciarLivros" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" onAction="#onGerenciarLivrosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar livros" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -30,7 +30,7 @@
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
-      <Button fx:id="GerenciarUsuarios" layoutX="451.0" layoutY="306.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar usuários" textFill="WHITE">
+      <Button fx:id="gerenciarUsuarios" layoutX="451.0" layoutY="306.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar usuários" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -38,7 +38,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="GerenciarEmprestimos" layoutX="451.0" layoutY="356.0" mnemonicParsing="false" onAction="#onGerenciarEmprestimosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar empréstimos" textFill="WHITE">
+      <Button fx:id="gerenciarEmprestimos" layoutX="451.0" layoutY="356.0" mnemonicParsing="false" onAction="#onGerenciarEmprestimosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar empréstimos" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -46,7 +46,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="VoltarTelaInicial" layoutX="335.0" layoutY="534.0" mnemonicParsing="false" onAction="#onVoltarTelaInicialClick" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
+      <Button fx:id="voltarTelaInicial" layoutX="335.0" layoutY="534.0" mnemonicParsing="false" onAction="#onVoltarTelaInicialClick" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

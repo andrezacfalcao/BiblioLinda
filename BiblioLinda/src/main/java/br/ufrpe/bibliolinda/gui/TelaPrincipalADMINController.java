@@ -14,14 +14,13 @@ import java.io.IOException;
 public class TelaPrincipalADMINController {
 
     @FXML
-    private Button GerenciarEmprestimos;
+    private Button gerenciarEmprestimos;
     @FXML
-    private Button GerenciarLivros;
+    private Button gerenciarLivros;
     @FXML
-    private Button GerenciarUsuarios;
+    private Button gerenciarUsuarios;
     @FXML
-    private Button VoltarTelaInicial;
-    @FXML
+    private Button voltarTelaInicial;
 
     @FXML
     void onVoltarTelaInicialClick (ActionEvent event) {
