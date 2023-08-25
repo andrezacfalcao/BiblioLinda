@@ -2,6 +2,7 @@ package br.ufrpe.bibliolinda.negocio;
 
 import br.ufrpe.bibliolinda.beans.Emprestimo;
 import br.ufrpe.bibliolinda.beans.Livro;
+import br.ufrpe.bibliolinda.beans.PagamentoMulta;
 import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.dados.RepositorioEmprestimo;
 import br.ufrpe.bibliolinda.dados.RepositorioLivro;
@@ -18,10 +19,12 @@ public class ControladorEmprestimo {
     private static ControladorEmprestimo instancia;
     private final RepositorioEmprestimo repositorioEmprestimo;
     private final RepositorioLivro repositorioLivro;
+    private final ControladorPagamento controladorPagamento;
 
     private ControladorEmprestimo() {
         repositorioEmprestimo = RepositorioEmprestimo.getInstancia();
         repositorioLivro = RepositorioLivro.getInstancia();
+        controladorPagamento = ControladorPagamento.getInstancia();
     }
 
     public static ControladorEmprestimo getInstancia() {
@@ -171,5 +174,19 @@ public class ControladorEmprestimo {
         } else
             throw new ParametroInvalidoException("Os parâmetros fornecidos são inválidos!");
         return false;
+    }
+
+    public void devolverLivro(Emprestimo emprestimo) throws ObjetoInvalidoException, ParametroInvalidoException {
+        if (emprestimo != null && emprestimo.getEmprestimoAtivoBoo()) {
+            for (PagamentoMulta p : controladorPagamento.listarPagamentos()) {
+                if (p.getMulta() == 0 || p.getEmprestimo().getDataLimite().isAfter(LocalDate.now())) {
+                    emprestimo.setData_devolucao(LocalDate.now());
+                    emprestimo.setEmprestimoAtivoBoo(false);
+                } else {
+                    controladorPagamento.pagarMulta(p, p.getMulta());
+                }
+            }
+        } else
+            throw new ObjetoInvalidoException(emprestimo);
     }
 }
