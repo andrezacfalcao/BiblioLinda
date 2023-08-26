@@ -11,6 +11,7 @@ public class Emprestimo {
     private LocalDate dataLimite;
     private boolean emprestimoAtivoBoo;
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -79,6 +80,9 @@ public class Emprestimo {
     public void setDataLimite(LocalDate dataLimite) {
         this.dataLimite = dataLimite;
     }
+
+
+
 
     @Override
     public String toString() {

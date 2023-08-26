@@ -49,6 +49,10 @@ public class HelloApplication extends Application {
         controladorLivro.adicionarLivro(livro3);
         controladorLivro.adicionarLivro(livro4);
 
+        LocalDate dataEmprestimo = LocalDate.of(2023, 7, 6);
+        Emprestimo emprestimo1 = new Emprestimo(cliente,livro1,dataEmprestimo);
+        controladorEmprestimo.adicionarEmprestimo(emprestimo1);
+
 
         launch();
     }

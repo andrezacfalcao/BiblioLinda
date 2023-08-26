@@ -37,13 +37,22 @@
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                  <TableView fx:id="tableView" layoutX="41.0" layoutY="71.0" prefHeight="246.0" prefWidth="288.0">
+                  <TableView fx:id="tableView" layoutX="41.0" layoutY="71.0" prefHeight="246.0" prefWidth="423.0">
                      <columns>
                         <TableColumn fx:id="usuarioColumn" prefWidth="135.0" text="Usuário" />
                         <TableColumn fx:id="livroColumn" prefWidth="152.0" text="Livro" />
+                        <TableColumn fx:id="multaColumn" prefWidth="152.0" text="Multa" />
                      </columns>
                   </TableView>
                   <Button fx:id="voltarTelaInicioCliente" layoutX="39.0" layoutY="348.0" mnemonicParsing="false" onAction="#onvoltarTelaInicioClienteClick" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="devolverLivro" layoutX="153.0" layoutY="348.0" mnemonicParsing="false" onAction="#onDevolverLivroClick" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: purple;" text="Devolver Livro" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>

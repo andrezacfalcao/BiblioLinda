@@ -1,5 +1,6 @@
 package br.ufrpe.bibliolinda.negocio;
 
+import br.ufrpe.bibliolinda.beans.Emprestimo;
 import br.ufrpe.bibliolinda.beans.PagamentoMulta;
 import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.dados.RepositorioPagamento;
@@ -142,7 +143,7 @@ public class ControladorPagamento {
     }
 
 
-    public void calcularMulta (PagamentoMulta pagamento){
+   /* public void calcularMulta (PagamentoMulta pagamento){
         List<PagamentoMulta> pagamentos = repositorioPagamento.listarPagamentos();
         float multa = 0;
 
@@ -159,7 +160,26 @@ public class ControladorPagamento {
                 pag.setMulta(multa);
             }
         }
+    }*/
+
+    public void calcularMulta(Emprestimo emprestimo){
+        List<PagamentoMulta> pagamentos = repositorioPagamento.listarPagamentos();
+
+        for (PagamentoMulta pag : pagamentos){
+            if(pag.getEmprestimo().equals(emprestimo)){
+                LocalDate dataPagamento = pag.getEmprestimo().getDataEmprestimo().plusDays(31);
+                if (dataPagamento.isBefore(LocalDate.now())){
+                    float multa = 10;
+                    if (dataPagamento.plusDays(7).isBefore(LocalDate.now())){
+                        multa += 5;
+                    }
+                    pag.setMulta(multa); // Define a multa no pagamento
+                }
+            }
+        }
     }
+
+
 
     public boolean pagarMulta(PagamentoMulta pag, float valor) throws ParametroInvalidoException {
         if(pag != null && valor != 0){
