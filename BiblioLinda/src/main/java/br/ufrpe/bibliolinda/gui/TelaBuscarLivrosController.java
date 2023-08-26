@@ -48,6 +48,8 @@ public class TelaBuscarLivrosController {
     @FXML
     private AnchorPane capas;
     @FXML
+    private Button voltarTelaInicioCliente;
+    @FXML
     private final ObservableList<Livro> items = FXCollections.observableArrayList();
     ControladorSessao sessao = ControladorSessao.getInstancia();
 
@@ -130,7 +132,23 @@ public class TelaBuscarLivrosController {
             }
         }
     }
+    @FXML
+    void onvoltarTelaInicioClienteClick (ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
+            Parent secondScreenParent = loader.load();
 
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
 }
+
+
+

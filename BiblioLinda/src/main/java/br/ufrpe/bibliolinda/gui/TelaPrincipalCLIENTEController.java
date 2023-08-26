@@ -25,7 +25,7 @@ public class TelaPrincipalCLIENTEController {
     @FXML
     void onBuscarLivrosClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-buscar-livros.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-buscar-livros.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -39,12 +39,9 @@ public class TelaPrincipalCLIENTEController {
     }
 
     @FXML
-    private Button ListarEmprestimos;
-
-    @FXML
-    void onListarEmprestimosClick(ActionEvent event) {
+    void onEmprestimosAtivosClick (ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_emprestimos_ativos.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-listar-emprestimos.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -55,7 +52,9 @@ public class TelaPrincipalCLIENTEController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
+
 
     @FXML
     void onvoltarTelaInicioClienteClick (ActionEvent event) {

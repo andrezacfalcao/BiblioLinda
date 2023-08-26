@@ -33,10 +33,10 @@ public class HelloApplication extends Application {
         ControladorLivro controladorLivro = ControladorLivro.getInstancia();
         ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
 
-        Usuario admin = new Usuario("admin", "admin", "admin", TipoDeUsuario.ADMIN);
+        Usuario admin = new Usuario("admin", "a", "a", TipoDeUsuario.ADMIN);
         controladorUsuario.cadastrarUsuario(admin);
 
-        Usuario cliente = new Usuario("cliente", "cliente", "cliente", TipoDeUsuario.CLIENTE);
+        Usuario cliente = new Usuario("cliente", "c", "c", TipoDeUsuario.CLIENTE);
         controladorUsuario.cadastrarUsuario(cliente);
 
         Livro livro1 = new Livro("Dom Casmurro", Categoria.FICCAO, "Machado de Assis", 1899, 1);

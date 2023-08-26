@@ -54,7 +54,7 @@ public class SolicitacaoDeEmprestimoController {
     @FXML
     void onVoltarTeladeBuscaClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-buscar-livros.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-buscar-livros.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);

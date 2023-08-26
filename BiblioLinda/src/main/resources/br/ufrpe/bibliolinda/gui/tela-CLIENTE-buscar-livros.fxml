@@ -64,6 +64,14 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
+                  <Button fx:id="voltarTelaInicioCliente" layoutX="14.0" layoutY="395.0" mnemonicParsing="false" onAction="#onvoltarTelaInicioClienteClick" prefHeight="19.0" prefWidth="75.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </AnchorPane>
          </children>
