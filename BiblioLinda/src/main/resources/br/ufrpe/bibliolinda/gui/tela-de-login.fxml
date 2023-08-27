@@ -24,7 +24,7 @@
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
-      <Button fx:id="EntrarLogin" layoutX="451.0" layoutY="336.0" mnemonicParsing="false" onAction="#onEntrarLoginClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Entrar" textFill="WHITE">
+      <Button fx:id="entrarLogin" layoutX="451.0" layoutY="336.0" mnemonicParsing="false" onAction="#onEntrarLoginClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Entrar" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -40,9 +40,9 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <TextField fx:id="LoginLogin" focusTraversable="false" layoutX="451.0" layoutY="256.0" prefHeight="25.0" prefWidth="215.0" promptText="Login" />
-      <PasswordField fx:id="SenhaLogin" layoutX="451.0" layoutY="296.0" prefHeight="25.0" prefWidth="215.0" promptText="Senha" />
-      <Label fx:id="ExcecaoUoSIncorretos" layoutX="436.0" layoutY="440.0" prefHeight="35.0" prefWidth="225.0" textAlignment="CENTER">
+      <TextField fx:id="loginLogin" focusTraversable="false" layoutX="451.0" layoutY="256.0" prefHeight="25.0" prefWidth="215.0" promptText="Login" />
+      <PasswordField fx:id="senhaLogin" layoutX="451.0" layoutY="296.0" prefHeight="25.0" prefWidth="215.0" promptText="Senha" />
+      <Label fx:id="excecaoUoSIncorretos" layoutX="436.0" layoutY="440.0" prefHeight="35.0" prefWidth="225.0" textAlignment="CENTER">
          <font>
             <Font size="18.0" />
          </font>

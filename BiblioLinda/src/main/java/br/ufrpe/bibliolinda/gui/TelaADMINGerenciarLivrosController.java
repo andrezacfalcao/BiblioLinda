@@ -37,14 +37,15 @@ public class TelaADMINGerenciarLivrosController {
     @FXML
     private Button buscarDoGerenciarLivros;
     @FXML
-    private Button BuscarLivrosdaTavleViewButton;
+    private Button buscarLivrosdaTableViewButton;
     @FXML
-    private TextField BuscarLivrosdaTavleViewTextField;
+    private TextField buscarLivrosdaTableViewTextField;
     @FXML
-    private Label ExcecaoNenhumLivroSelecionado;
+    private Label excecaoNenhumLivroSelecionado;
 
     @FXML
     private final ObservableList<Livro> items = FXCollections.observableArrayList();
+
     @FXML
     void onVoltarTelaInicialAdminClick (ActionEvent event) {
         try {
@@ -61,6 +62,7 @@ public class TelaADMINGerenciarLivrosController {
         }
 
     }
+
     public void initialize() throws ParametroInvalidoException {
         ControladorLivro controladorLivro = ControladorLivro.getInstancia();
         List<Livro> livrosDisp = controladorLivro.livrosDisponiveis();
@@ -75,8 +77,7 @@ public class TelaADMINGerenciarLivrosController {
         livrosDisponiveis.setItems(items);
 
         livrosDisponiveis.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            ExcecaoNenhumLivroSelecionado.setText("");
+            excecaoNenhumLivroSelecionado.setText("");
         });
     }
-
 }

@@ -35,7 +35,6 @@ public class TelaHistoricoLeituraClienteController {
     private TableColumn<Emprestimo, String> dataEmprestimoColumn;
     @FXML
     private Button voltarTelaInicioCliente;
-
     private ObservableList<Emprestimo> emprestimos = FXCollections.observableArrayList();
 
     public void initialize() {
@@ -81,6 +80,5 @@ public class TelaHistoricoLeituraClienteController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

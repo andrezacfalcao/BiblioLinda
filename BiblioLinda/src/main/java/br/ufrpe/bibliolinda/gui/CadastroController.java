@@ -25,30 +25,29 @@ public class CadastroController {
     private Button cadastrar;
     @FXML
     private Button levarTelaLogin;
-
     @FXML
-    private Label ExcecaoVazio;
+    private Label excecaoVazio;
     @FXML
-    private Label ExcecaoVazio1;
+    private Label excecaoVazio1;
     @FXML
-    private Label ExcecaoVazio2;
+    private Label excecaoVazio2;
     @FXML
-    private Label ExcecaoVazio3;
+    private Label excecaoVazio3;
     @FXML
-    private TextField LoginCadastro;
+    private TextField loginCadastro;
     @FXML
-    private TextField NomeCadastro;
+    private TextField nomeCadastro;
     @FXML
-    private PasswordField SenhaCadastro;
+    private PasswordField senhaCadastro;
     @FXML
-    ComboBox<TipoDeUsuario> TipoCadastro = new ComboBox<>();
+    ComboBox<TipoDeUsuario> tipoCadastro = new ComboBox<>();
 
     @FXML
     private void limparMensagemErro() {
-        ExcecaoVazio1.setText("");
-        ExcecaoVazio.setText("");
-        ExcecaoVazio2.setText("");
-        ExcecaoVazio3.setText("");
+        excecaoVazio1.setText("");
+        excecaoVazio.setText("");
+        excecaoVazio2.setText("");
+        excecaoVazio3.setText("");
     }
 
     public void onCadastrarClick(ActionEvent event) throws IOException, ObjetoJaExisteException, ObjetoInvalidoException, CamposVaziosException {
@@ -56,18 +55,18 @@ public class CadastroController {
         try {
             // Cadastrar novo usuario
             ControladorUsuario controladorUsuario = ControladorUsuario.getInstancia();
-            String nome = NomeCadastro.getText();
-            String login = LoginCadastro.getText();
-            String senha = SenhaCadastro.getText();
-            TipoDeUsuario tipo = TipoCadastro.getValue();
+            String nome = nomeCadastro.getText();
+            String login = loginCadastro.getText();
+            String senha = senhaCadastro.getText();
+            TipoDeUsuario tipo = tipoCadastro.getValue();
 
             // Verifica se os Campos da Interface estão vazios
             if (nome.isEmpty() || login.isEmpty() || senha.isEmpty() || tipo == null) {
                 try {
                     throw new CamposVaziosException("Nenhum campo pode estar vazio");
                 } catch (CamposVaziosException e) {
-                    ExcecaoVazio.setTextFill(Color.RED);
-                    ExcecaoVazio.setText(e.getMessage());
+                    excecaoVazio.setTextFill(Color.RED);
+                    excecaoVazio.setText(e.getMessage());
                     return;
                 }
             }
@@ -76,23 +75,23 @@ public class CadastroController {
             controladorUsuario.cadastrarUsuario(usuario);
 
             // Confirmar Cadastro
-            ExcecaoVazio1.setTextFill(Color.PURPLE);
-            ExcecaoVazio1.setText("Conta criada com sucesso");
+            excecaoVazio1.setTextFill(Color.PURPLE);
+            excecaoVazio1.setText("Conta criada com sucesso");
 
         } catch (ObjetoJaExisteException e) {
             try {
                 throw new ObjetoJaExisteException("Usuário já existe");
             } catch (ObjetoJaExisteException f) {
-                ExcecaoVazio3.setTextFill(Color.RED);
-                ExcecaoVazio3.setText(f.getMessage());
+                excecaoVazio3.setTextFill(Color.RED);
+                excecaoVazio3.setText(f.getMessage());
                 return;
             }
         } catch (ObjetoInvalidoException e) {
             try {
                 throw new CamposVaziosException("Usuário ou senha inválidos");
             } catch (CamposVaziosException f) {
-                ExcecaoVazio2.setTextFill(Color.RED);
-                ExcecaoVazio2.setText(f.getMessage());
+                excecaoVazio2.setTextFill(Color.RED);
+                excecaoVazio2.setText(f.getMessage());
                 return;
             }
         }
@@ -100,11 +99,11 @@ public class CadastroController {
 
     @FXML
     private void initialize() {
-        NomeCadastro.setOnMouseClicked(event -> limparMensagemErro());
-        LoginCadastro.setOnMouseClicked(event -> limparMensagemErro());
-        SenhaCadastro.setOnMouseClicked(event -> limparMensagemErro());
-        TipoCadastro.setOnMouseClicked(event -> limparMensagemErro());
-        TipoCadastro.getItems().addAll(Arrays.asList(TipoDeUsuario.ADMIN, TipoDeUsuario.CLIENTE));
+        nomeCadastro.setOnMouseClicked(event -> limparMensagemErro());
+        loginCadastro.setOnMouseClicked(event -> limparMensagemErro());
+        senhaCadastro.setOnMouseClicked(event -> limparMensagemErro());
+        tipoCadastro.setOnMouseClicked(event -> limparMensagemErro());
+        tipoCadastro.getItems().addAll(Arrays.asList(TipoDeUsuario.ADMIN, TipoDeUsuario.CLIENTE));
     }
 
     @FXML

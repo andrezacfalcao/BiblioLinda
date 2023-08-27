@@ -6,7 +6,6 @@ import br.ufrpe.bibliolinda.exception.CamposVaziosException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 import br.ufrpe.bibliolinda.negocio.ControladorLivro;
 import br.ufrpe.bibliolinda.negocio.ControladorSessao;
-import br.ufrpe.bibliolinda.negocio.ControladorUsuario;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,15 +37,15 @@ public class TelaBuscarLivrosController {
     @FXML
     private TableColumn<Livro, Integer> colCopias;
     @FXML
-    private Button BuscarLivrosdaTavleViewButton;
+    private Button buscarLivrosdaTableViewButton;
     @FXML
-    private TextField BuscarLivrosdaTavleViewTextField;
+    private TextField buscarLivrosdaTableViewTextField;
     @FXML
-    private Button SolicitarEmprestimoButton;
+    private Button solicitarEmprestimoButton;
     @FXML
-    private Label ExcecaoNenhumLivroSelecionado;
-    @FXML
-    private AnchorPane capas;
+    private Label excecaoNenhumLivroSelecionado;
+    //@FXML
+    //private AnchorPane capas;
     @FXML
     private Button voltarTelaInicioCliente;
     @FXML
@@ -67,13 +66,13 @@ public class TelaBuscarLivrosController {
         livrosDisponiveis.setItems(items);
 
         livrosDisponiveis.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            ExcecaoNenhumLivroSelecionado.setText("");
+            excecaoNenhumLivroSelecionado.setText("");
         });
     }
 
     @FXML
     private void OnBuscarLivrosdaTavleViewButtonClick() {
-        String termoBusca = BuscarLivrosdaTavleViewTextField.getText().toLowerCase();
+        String termoBusca = buscarLivrosdaTableViewTextField.getText().toLowerCase();
 
         ObservableList<Livro> livrosEncontrados = FXCollections.observableArrayList();
 
@@ -92,13 +91,13 @@ public class TelaBuscarLivrosController {
         Livro livroSelecionado = livrosDisponiveis.getSelectionModel().getSelectedItem();
 
         if (livroSelecionado != null) {
-            ExcecaoNenhumLivroSelecionado.setText(""); // Limpa a mensagem de erro
+            excecaoNenhumLivroSelecionado.setText(""); // Limpa a mensagem de erro
         } else {
             try {
                 throw new CamposVaziosException("Nenhum livro foi selecionado para solicitar empréstimo");
             } catch (CamposVaziosException e) {
-                ExcecaoNenhumLivroSelecionado.setTextFill(Color.RED);
-                ExcecaoNenhumLivroSelecionado.setText(e.getMessage());
+                excecaoNenhumLivroSelecionado.setTextFill(Color.RED);
+                excecaoNenhumLivroSelecionado.setText(e.getMessage());
                 return;
             }
         }
@@ -126,12 +125,13 @@ public class TelaBuscarLivrosController {
             try {
                 throw new CamposVaziosException("Nenhum livro foi selecionado para solicitar empréstimo");
             } catch (CamposVaziosException e) {
-                ExcecaoNenhumLivroSelecionado.setTextFill(Color.RED);
-                ExcecaoNenhumLivroSelecionado.setText(e.getMessage());
+                excecaoNenhumLivroSelecionado.setTextFill(Color.RED);
+                excecaoNenhumLivroSelecionado.setText(e.getMessage());
                 return;
             }
         }
     }
+
     @FXML
     void onvoltarTelaInicioClienteClick (ActionEvent event) {
         try {

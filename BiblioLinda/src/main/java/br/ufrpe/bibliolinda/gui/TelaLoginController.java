@@ -1,7 +1,5 @@
 package br.ufrpe.bibliolinda.gui;
 
-import br.ufrpe.bibliolinda.beans.TipoDeUsuario;
-import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.exception.CamposVaziosException;
 import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
 import br.ufrpe.bibliolinda.exception.SenhaIncorretaException;
@@ -27,17 +25,16 @@ public class TelaLoginController {
 
     ControladorUsuario controladorUsuario = ControladorUsuario.getInstancia();
     @FXML
-    private Button EntrarLogin;
+    private Button entrarLogin;
     @FXML
     private Button levarTelaCadastro;
     @FXML
-    private Label ExcecaoUoSIncorretos;
+    private Label excecaoUoSIncorretos;
     @FXML
-    private TextField LoginLogin;
+    private TextField loginLogin;
     @FXML
-    private PasswordField SenhaLogin;
+    private PasswordField senhaLogin;
     ControladorSessao sessao = ControladorSessao.getInstancia();
-
 
     //@FXML
     //void onEntrarLoginClick (ActionEvent event) throws SenhaIncorretaException, ObjetoInvalidoException {
@@ -52,8 +49,8 @@ public class TelaLoginController {
         try {
             ControladorUsuario controladorUsuario = ControladorUsuario.getInstancia();
 
-            String login = LoginLogin.getText();
-            String senha = SenhaLogin.getText();
+            String login = loginLogin.getText();
+            String senha = senhaLogin.getText();
             if (login.isEmpty() || senha.isEmpty()) {
                 throw new CamposVaziosException("Nenhum campo pode estar vazio");
             }
@@ -93,12 +90,12 @@ public class TelaLoginController {
                     throw new ObjetoInvalidoException("Usuário ou senha incorretos");
                 }
             } catch (SenhaIncorretaException | ObjetoInvalidoException e) {
-                ExcecaoUoSIncorretos.setTextFill(Color.RED);
-                ExcecaoUoSIncorretos.setText("Usuário ou senha incorretos");
+                excecaoUoSIncorretos.setTextFill(Color.RED);
+                excecaoUoSIncorretos.setText("Usuário ou senha incorretos");
             }
         } catch (CamposVaziosException e) {
-            ExcecaoUoSIncorretos.setTextFill(Color.RED);
-            ExcecaoUoSIncorretos.setText("Usuário ou senha incorretos");
+            excecaoUoSIncorretos.setTextFill(Color.RED);
+            excecaoUoSIncorretos.setText("Usuário ou senha incorretos");
         }
     }
 

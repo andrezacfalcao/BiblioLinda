@@ -60,4 +60,25 @@ public class EmprestimosAtivosController {
         }
     }
 
+//    @FXML
+//    private void ondevolverLivroClicked() {
+//        Emprestimo emprestimoSelecionado = tableView.getSelectionModel().getSelectedItem();
+//        if (emprestimoSelecionado != null) {
+//            try {
+//                ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
+//                controladorEmprestimo.devolverLivro(emprestimoSelecionado);
+//
+//                Livro livroDevolvido = emprestimoSelecionado.getLivro(); // Supondo que você tenha uma referência ao livro emprestado
+//                livroDevolvido.aumentarCopiasDisponiveis(); // Método para incrementar as cópias disponíveis
+//                livroDevolvido.setEmprestado(false); // Definir como não emprestado
+//
+//                // Remove o empréstimo da lista observável para refletir a devolução
+//                items.remove(emprestimoSelecionado);
+//            } catch (ObjetoInvalidoException | ParametroInvalidoException e) {
+//                e.printStackTrace(); // Trate o erro de acordo com suas necessidades
+//            }
+//        }
+//    }
+
+
 }

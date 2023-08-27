@@ -17,7 +17,7 @@
                 </Label>
             </children>
         </AnchorPane>
-      <Button fx:id="BuscarLivros" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" onAction="#onBuscarLivrosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Buscar livros" textFill="WHITE">
+      <Button fx:id="buscarLivros" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" onAction="#onBuscarLivrosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Buscar livros" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -30,7 +30,7 @@
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
-      <Button fx:id="EmprestimosAtivos" layoutX="451.0" layoutY="306.0" mnemonicParsing="false" onAction="#onEmprestimosAtivosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Empréstimos ativos" textFill="WHITE">
+      <Button fx:id="emprestimosAtivos" layoutX="451.0" layoutY="306.0" mnemonicParsing="false" onAction="#onEmprestimosAtivosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Empréstimos ativos" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -38,7 +38,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="HistoricoLeitura" layoutX="451.0" layoutY="356.0" mnemonicParsing="false" onAction="#onHistoricoLeituraClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Histórico de leitura" textFill="WHITE">
+      <Button fx:id="historicoLeitura" layoutX="451.0" layoutY="356.0" mnemonicParsing="false" onAction="#onHistoricoLeituraClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Histórico de leitura" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

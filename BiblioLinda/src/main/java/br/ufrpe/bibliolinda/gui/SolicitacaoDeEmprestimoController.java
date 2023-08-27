@@ -1,15 +1,9 @@
 package br.ufrpe.bibliolinda.gui;
 
 import br.ufrpe.bibliolinda.beans.Emprestimo;
-import br.ufrpe.bibliolinda.beans.Livro;
-import br.ufrpe.bibliolinda.beans.PagamentoMulta;
-import br.ufrpe.bibliolinda.beans.Usuario;
-import br.ufrpe.bibliolinda.exception.CamposVaziosException;
-import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
 import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 import br.ufrpe.bibliolinda.negocio.ControladorEmprestimo;
-import br.ufrpe.bibliolinda.negocio.ControladorLivro;
 import br.ufrpe.bibliolinda.negocio.ControladorPagamento;
 import br.ufrpe.bibliolinda.negocio.ControladorSessao;
 import javafx.event.ActionEvent;
@@ -20,7 +14,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -35,21 +28,21 @@ public class SolicitacaoDeEmprestimoController {
     ControladorSessao sessao = ControladorSessao.getInstancia();
 
     @FXML
-    private Label LivroSelecionado;
+    private Label livroSelecionado;
     @FXML
-    private Label EmprestimoSolicitado;
+    private Label emprestimoSolicitado;
     @FXML
-    private Label LivroJaEmprestado; // Você já possui um livro empréstado no momento
+    private Label livroJaEmprestado; // Você já possui um livro empréstado no momento
     @FXML
-    private Button VoltarTeladeBusca;
+    private Button voltarTeladeBusca;
     @FXML
-    private Button ConfirmarEmprestimo;
+    private Button confirmarEmprestimo;
     @FXML
-    private Button VoltarTelaInicial;
+    private Button voltarTelaInicial;
     @FXML
     private String livroSelecionadoNome;
     @FXML
-    private Label MultasPendentes;
+    private Label multasPendentes;
 
     @FXML
     void onVoltarTeladeBuscaClick(ActionEvent event) {
@@ -85,7 +78,7 @@ public class SolicitacaoDeEmprestimoController {
 
     public void setLivroSelecionado() {
         livroSelecionadoNome = sessao.getLivroTemp().getNomeLivro();
-        LivroSelecionado.setText(livroSelecionadoNome);
+        livroSelecionado.setText(livroSelecionadoNome);
     }
 
     //VER ISSO HOJE AINDA ANTES DA AULA
@@ -110,8 +103,8 @@ public class SolicitacaoDeEmprestimoController {
 
             for (Emprestimo emprestimo : emprestimosAtivos) {
                 if (emprestimo.getUsuario().equals(sessao.getUsuarioOnline())) {
-                    LivroJaEmprestado.setTextFill(Color.RED);
-                    LivroJaEmprestado.setText("Você já possui um livro empréstado no momento");
+                    livroJaEmprestado.setTextFill(Color.RED);
+                    livroJaEmprestado.setText("Você já possui um livro empréstado no momento");
                     return;
                 }
             }
@@ -122,8 +115,8 @@ public class SolicitacaoDeEmprestimoController {
             // Adicionar o novo empréstimo ao sistema
             controladorEmprestimo.adicionarEmprestimo(novoEmprestimo);
 
-            EmprestimoSolicitado.setTextFill(Color.PURPLE);
-            EmprestimoSolicitado.setText("Empréstimo solicitado com sucesso");
+            emprestimoSolicitado.setTextFill(Color.PURPLE);
+            emprestimoSolicitado.setText("Empréstimo solicitado com sucesso");
         } catch (ObjetoJaExisteException | ParametroInvalidoException e) {
             System.out.println("Erro");
         }

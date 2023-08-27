@@ -45,11 +45,8 @@ public class TelaClienteListarEmprestimosController {
     private Button devolverLivro;
     ControladorPagamento controladorPagamento = ControladorPagamento.getInstancia();
     ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
-
     @FXML
     private final ObservableList<Emprestimo> items = FXCollections.observableArrayList();
-
-    
 
     public void atualizarDados() {
         try {
@@ -78,7 +75,6 @@ public class TelaClienteListarEmprestimosController {
 
             tableView.setItems(items);
         }
-
     }
 
     @FXML
@@ -120,7 +116,6 @@ public class TelaClienteListarEmprestimosController {
             }
         }
     }
-
 
     //@FXML
    /* private void ondevolverLivroClicked() {

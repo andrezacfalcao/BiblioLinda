@@ -13,11 +13,11 @@ import java.io.IOException;
 
 public class TelaPrincipalCLIENTEController {
     @FXML
-    private Button BuscarLivros;
+    private Button buscarLivros;
     @FXML
-    private Button EmprestimosAtivos;
+    private Button emprestimosAtivos;
     @FXML
-    private Button HistoricoLeitura;
+    private Button historicoLeitura;
     @FXML
     private Button voltarTelaInicioCliente;
 
@@ -53,6 +53,7 @@ public class TelaPrincipalCLIENTEController {
         }
 
     }
+
     @FXML
     void onHistoricoLeituraClick (ActionEvent event) {
         try {
@@ -67,7 +68,6 @@ public class TelaPrincipalCLIENTEController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
@@ -84,6 +84,5 @@ public class TelaPrincipalCLIENTEController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }
