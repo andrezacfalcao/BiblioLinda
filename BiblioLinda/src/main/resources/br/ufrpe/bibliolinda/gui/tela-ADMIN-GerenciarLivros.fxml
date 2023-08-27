@@ -42,8 +42,8 @@
                                 <TableColumn fx:id="colCopias" prefWidth="75.0" text="Cópias" />
                             </columns>
                         </TableView>
-                        <TextField fx:id="buscarLivrosdaTableViewTextField" focusTraversable="false" layoutX="486.0" layoutY="27.0" prefHeight="25.0" prefWidth="215.0" promptText="Buscar por Nome, Autor ou Categoria" />
-                        <Button fx:id="buscarDoGerenciarLivros" layoutX="711.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: purple;" text="Buscar" textFill="WHITE">
+                        <TextField fx:id="livroTextField" focusTraversable="false" layoutX="486.0" layoutY="27.0" prefHeight="25.0" prefWidth="215.0" promptText="Buscar por Nome, Autor ou Categoria" />
+                        <Button fx:id="buscarDoGerenciarLivros" layoutX="711.0" layoutY="24.0" mnemonicParsing="false" onAction="#onBuscarDoGerenciarLivrosClick" prefHeight="25.0" prefWidth="75.0" style="-fx-background-color: purple;" text="Buscar" textFill="WHITE">
                             <font>
                                 <Font size="15.0" />
                             </font>
@@ -68,14 +68,6 @@
                      </cursor>
                   </Button>
                   <Button fx:id="adicionarLivro" layoutX="265.0" layoutY="391.0" mnemonicParsing="false" onAction="#onadicionarLivroClick" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: purple;" text="Adicionar Livro" textFill="WHITE">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <Button fx:id="editarLivro" layoutX="416.0" layoutY="391.0" mnemonicParsing="false" onAction="#onEditarLivroClick" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: purple;" text="Editar Livro" textFill="WHITE">
                      <font>
                         <Font size="15.0" />
                      </font>

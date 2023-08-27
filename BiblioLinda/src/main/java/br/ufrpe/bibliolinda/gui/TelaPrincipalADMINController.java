@@ -75,13 +75,12 @@ public class TelaPrincipalADMINController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
     void onGerenciarUsuariosClick (ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-GerenciarUsuarios.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);

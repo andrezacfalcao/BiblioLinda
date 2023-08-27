@@ -5,14 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Tela de busca de livros disponiveis na parte do cliente funcionando!">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Livro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Livro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/PagamentoMulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/PagamentoMulta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/Usuario.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/EmprestimosAtivosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/EmprestimosAtivosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaClienteListarEmprestimosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaClienteListarEmprestimosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorEmprestimo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorPagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/negocio/ControladorPagamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaADMINEditarLivroController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaADMINGerenciarLivrosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaADMINGerenciarLivrosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaADMINGerenciarUsuariosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaADMINGerenciarUsuariosController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaPrincipalADMINController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaPrincipalADMINController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-ADMIN-EditarLivros.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-ADMIN-GerenciarLivros.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-ADMIN-GerenciarLivros.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-ADMIN-GerenciarUsuarios.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-ADMIN-GerenciarUsuarios.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-principal-ADMIN.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/br/ufrpe/bibliolinda/gui/tela-principal-ADMIN.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +48,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/victo/OneDrive/Área de Trabalho/AAAAAAAAAAKKKII/BiblioLinda",
+    "last_opened_file_path": "C:/Users/andre/OneDrive/Área de Trabalho/AAAAAAAAAAAAAAKKII/BiblioLinda",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -105,6 +108,7 @@
       <workItem from="1692905380460" duration="215000" />
       <workItem from="1692905615214" duration="14226000" />
       <workItem from="1693141394455" duration="4967000" />
+      <workItem from="1693174582966" duration="4295000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração do projeto">
       <option name="closed" value="true" />

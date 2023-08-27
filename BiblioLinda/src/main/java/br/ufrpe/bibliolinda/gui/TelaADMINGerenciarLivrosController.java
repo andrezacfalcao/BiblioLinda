@@ -38,9 +38,7 @@ public class TelaADMINGerenciarLivrosController {
     @FXML
     private Button buscarDoGerenciarLivros;
     @FXML
-    private Button buscarLivrosdaTableViewButton;
-    @FXML
-    private TextField buscarLivrosdaTableViewTextField;
+    private TextField livroTextField;
     @FXML
     private Label excecaoNenhumLivroSelecionado;
     @FXML
@@ -50,8 +48,6 @@ public class TelaADMINGerenciarLivrosController {
     @FXML
     private Button editarLivro;
     private Livro livroSelecionado;
-
-
 
     @FXML
     private final ObservableList<Livro> items = FXCollections.observableArrayList();
@@ -72,6 +68,23 @@ public class TelaADMINGerenciarLivrosController {
         }
 
     }
+
+    @FXML
+    private void onBuscarDoGerenciarLivrosClick() {
+        String termoBusca = livroTextField.getText().toLowerCase();
+
+        ObservableList<Livro> livrosEncontrados = FXCollections.observableArrayList();
+
+        for (Livro livro : items) {
+            if (livro.getNomeLivro().toLowerCase().contains(termoBusca) ||
+                    livro.getNomeAutor().toLowerCase().contains(termoBusca) ||
+                    livro.getCategoriaLivro().toString().toLowerCase().contains(termoBusca)) {
+                livrosEncontrados.add(livro);
+            }
+        }
+        livrosDisponiveis.setItems(livrosEncontrados);
+    }
+
     @FXML
     void onRemoverLivroClick(ActionEvent event) {
         ControladorLivro controladorLivro = ControladorLivro.getInstancia();
