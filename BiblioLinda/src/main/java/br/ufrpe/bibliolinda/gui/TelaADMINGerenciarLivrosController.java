@@ -2,6 +2,7 @@ package br.ufrpe.bibliolinda.gui;
 
 import br.ufrpe.bibliolinda.beans.Categoria;
 import br.ufrpe.bibliolinda.beans.Livro;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 import br.ufrpe.bibliolinda.negocio.ControladorLivro;
 import javafx.collections.FXCollections;
@@ -42,6 +43,15 @@ public class TelaADMINGerenciarLivrosController {
     private TextField buscarLivrosdaTableViewTextField;
     @FXML
     private Label excecaoNenhumLivroSelecionado;
+    @FXML
+    private Button removerLivro;
+    @FXML
+    private Button adicionarLivro;
+    @FXML
+    private Button editarLivro;
+    private Livro livroSelecionado;
+
+
 
     @FXML
     private final ObservableList<Livro> items = FXCollections.observableArrayList();
@@ -62,10 +72,40 @@ public class TelaADMINGerenciarLivrosController {
         }
 
     }
+    @FXML
+    void onRemoverLivroClick(ActionEvent event) {
+        ControladorLivro controladorLivro = ControladorLivro.getInstancia();
+        Livro livroSelecionado = livrosDisponiveis.getSelectionModel().getSelectedItem();
+
+        if (livroSelecionado != null) {
+            //ControladorLivro controladorLivro = ControladorLivro.getInstancia();
+
+            try {
+                controladorLivro.removerLivro(livroSelecionado);
+                // Atualize a TableView ou realize outras ações necessárias após a remoção
+            } catch (ObjetoInvalidoException | ParametroInvalidoException e) {
+                e.printStackTrace(); // Trate o erro de acordo com suas necessidades
+            }
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-GerenciarLivros.fxml"));
+                Parent secondScreenParent = loader.load();
+
+                Scene secondScreenScene = new Scene(secondScreenParent);
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(secondScreenScene);
+                window.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
 
     public void initialize() throws ParametroInvalidoException {
         ControladorLivro controladorLivro = ControladorLivro.getInstancia();
-        List<Livro> livrosDisp = controladorLivro.livrosDisponiveis();
+        List<Livro> livrosDisp = controladorLivro.listarLivros();
         items.addAll(livrosDisp);
 
         colNome.setCellValueFactory(new PropertyValueFactory<>("nomeLivro"));
@@ -79,5 +119,39 @@ public class TelaADMINGerenciarLivrosController {
         livrosDisponiveis.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             excecaoNenhumLivroSelecionado.setText("");
         });
+    }
+
+    @FXML
+    void onadicionarLivroClick (ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-adicionar-livros.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @FXML
+    void onEditarLivroClick (ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-EditarLivros.fxml"));
+            Parent secondScreenParent = loader.load();
+
+            Scene secondScreenScene = new Scene(secondScreenParent);
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(secondScreenScene);
+            window.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

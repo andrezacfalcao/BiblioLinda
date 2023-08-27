@@ -59,6 +59,30 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
+                  <Button fx:id="removerLivro" layoutX="113.0" layoutY="391.0" mnemonicParsing="false" onAction="#onRemoverLivroClick" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: purple;" text="Remover Livro" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="adicionarLivro" layoutX="265.0" layoutY="391.0" mnemonicParsing="false" onAction="#onadicionarLivroClick" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: purple;" text="Adicionar Livro" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="editarLivro" layoutX="416.0" layoutY="391.0" mnemonicParsing="false" onAction="#onEditarLivroClick" prefHeight="31.0" prefWidth="141.0" style="-fx-background-color: purple;" text="Editar Livro" textFill="WHITE">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                     </children>
                 </AnchorPane>
             </children>

@@ -40,6 +40,8 @@ public class HelloApplication extends Application {
 
         Usuario cliente = new Usuario("cliente", "c", "c", TipoDeUsuario.CLIENTE);
         controladorUsuario.cadastrarUsuario(cliente);
+        Usuario deza = new Usuario("deza", "d", "d", TipoDeUsuario.CLIENTE);
+        controladorUsuario.cadastrarUsuario(deza);
 
         Livro livro1 = new Livro("Dom Casmurro", Categoria.FICCAO, "Machado de Assis", 1899, 1);
         Livro livro2 = new Livro("1984", Categoria.HISTORIA, "George Orwell", 1949, 1);
@@ -52,11 +54,17 @@ public class HelloApplication extends Application {
         controladorLivro.adicionarLivro(livro4);
 
         LocalDate dataEmprestimo = LocalDate.of(2023, 7, 6);
+        LocalDate dataEmprestimo2 = LocalDate.of(2023, 4, 9);
         Emprestimo emprestimo1 = new Emprestimo(cliente,livro1,dataEmprestimo);
+        Emprestimo emprestimo2 = new Emprestimo(deza,livro2,dataEmprestimo2);
         controladorEmprestimo.adicionarEmprestimo(emprestimo1);
+        controladorEmprestimo.adicionarEmprestimo(emprestimo2);
 
         PagamentoMulta pag1 = new PagamentoMulta(emprestimo1);
         controladorPagamento.adicionarPagamento(pag1);
+
+        PagamentoMulta pag2 = new PagamentoMulta(emprestimo2);
+        controladorPagamento.adicionarPagamento(pag2);
 
 
         launch();

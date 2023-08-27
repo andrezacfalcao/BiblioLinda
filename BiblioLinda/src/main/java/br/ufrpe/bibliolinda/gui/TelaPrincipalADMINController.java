@@ -1,5 +1,6 @@
 package br.ufrpe.bibliolinda.gui;
 
+import br.ufrpe.bibliolinda.negocio.ControladorSessao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,8 @@ import java.io.IOException;
 
 public class TelaPrincipalADMINController {
 
+    ControladorSessao sessao = ControladorSessao.getInstancia();
+
     @FXML
     private Button gerenciarEmprestimos;
     @FXML
@@ -25,6 +28,8 @@ public class TelaPrincipalADMINController {
     @FXML
     void onVoltarTelaInicialClick (ActionEvent event) {
         try {
+            sessao.encerrarSessao();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
             Parent secondScreenParent = loader.load();
 
