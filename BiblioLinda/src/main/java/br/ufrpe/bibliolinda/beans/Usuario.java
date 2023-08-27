@@ -8,7 +8,10 @@ public class Usuario {
     private String senha;
     private TipoDeUsuario tipo;
     private int id;
+
     private static int contador = 1;
+    private int quantidadeEmprestimos;
+
 
     public Usuario(String nome, String login, String senha, TipoDeUsuario tipo) {
         this.nome = nome;
@@ -17,6 +20,13 @@ public class Usuario {
         this.tipo = tipo;
         this.id = contador++;
 
+    }
+    public int getQuantidadeEmprestimos() {
+        return quantidadeEmprestimos;
+    }
+
+    public void setQuantidadeEmprestimos(int quantidadeEmprestimos) {
+        this.quantidadeEmprestimos = quantidadeEmprestimos;
     }
 
     public String getNome() {

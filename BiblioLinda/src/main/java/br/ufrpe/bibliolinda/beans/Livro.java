@@ -8,6 +8,8 @@ public class Livro {
     private String nomeAutor;
     private int anoDeLancamento;
     private int totalDeCopias;
+    private int quantidadeEmprestimos;
+
 
     public Livro(String nomeLivro, Categoria categoriaLivro, String nomeAutor, int anoDeLancamento, int totalDeCopias) {
         this.nomeLivro = nomeLivro;
@@ -15,6 +17,14 @@ public class Livro {
         this.nomeAutor = nomeAutor;
         this.anoDeLancamento = anoDeLancamento;
         this.totalDeCopias = totalDeCopias;
+    }
+
+    public int getQuantidadeEmprestimos() {
+        return quantidadeEmprestimos;
+    }
+
+    public void setQuantidadeEmprestimos(int quantidadeEmprestimos) {
+        this.quantidadeEmprestimos = quantidadeEmprestimos;
     }
 
     public String getNomeLivro() {

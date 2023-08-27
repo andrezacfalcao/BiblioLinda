@@ -67,13 +67,17 @@ public class ControladorPagamento {
     public List<PagamentoMulta> listarPagamentosPorCliente(Usuario usuario) throws ObjetoInvalidoException {
         List<PagamentoMulta> resultado = new ArrayList<>();
 
-        if (usuario != null)
-            for (PagamentoMulta pagamento : listarPagamentos())
-                if (pagamento.getEmprestimo().getUsuario().equals(usuario))
+        if (usuario != null) {
+            for (PagamentoMulta pagamento : listarPagamentos()) {
+                if (pagamento.getEmprestimo().getUsuario().equals(usuario)) {
                     resultado.add(pagamento);
-        else
-            throw new ObjetoInvalidoException();
-
+                }
+            }
+        }
+        else{
+            System.out.println("erro objetc");
+                throw new ObjetoInvalidoException();
+        }
         return resultado;
     }
 
@@ -163,6 +167,7 @@ public class ControladorPagamento {
 
     public void pagarMulta(PagamentoMulta pag, float valor) throws ParametroInvalidoException {
         if(pag != null){
+            System.out.println(pag.toString());
             for(PagamentoMulta pagMulta: listarPagamentos()){
                 if(pagMulta.equals(pag)){
                     if(valor == 0){

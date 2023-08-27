@@ -39,16 +39,15 @@ public class ControladorEmprestimo {
 
     public void adicionarEmprestimo(Emprestimo emprestimo) throws ObjetoJaExisteException, ParametroInvalidoException {
         //checando se o emprestimo existe e se ele não é nulo
-        if(!repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
+        if (!repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null) {
             //checa se o usuário, livro e a data não são nulos
-            if(emprestimo.getUsuario() != null && emprestimo.getLivro() != null && emprestimo.getDataEmprestimo() != null){
+            if (emprestimo.getUsuario() != null && emprestimo.getLivro() != null && emprestimo.getDataEmprestimo() != null) {
                 // if(!emprestimo1.getUsuario().equals(emprestimo.getUsuario())){
                 //checa se o livro está disponível
-                if(checarLivroDisponivel(emprestimo.getLivro())){
+                if (checarLivroDisponivel(emprestimo.getLivro())) {
                     repositorioEmprestimo.adicionarEmprestimo(emprestimo);
                 }
-            }
-            else{
+            } else {
                 throw new ParametroInvalidoException(emprestimo);
             }
         }
@@ -56,18 +55,17 @@ public class ControladorEmprestimo {
 
     public void removerEmprestimo(Emprestimo emprestimo) throws ObjetoInvalidoException {
         //verifica se existe o emprestimo forneido, na lista de emprestimos e se ele não é nulo
-        if(repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
+        if (repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null) {
             repositorioEmprestimo.removerEmprestimo(emprestimo);
-        }
-        else{
+        } else {
             // a excessão será lançada aqui caso objeto não esteja disponível ou ele for nulo
             throw new IllegalArgumentException();
         }
     }
 
     public void editarEmprestimo(Emprestimo emprestimo, Emprestimo novoEmprestimo) throws ObjetoInvalidoException, ParametroInvalidoException {
-        if(repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null){
-            if(novoEmprestimo.getUsuario() != null && novoEmprestimo.getLivro() != null && novoEmprestimo.getDataEmprestimo() != null && novoEmprestimo.getDataDevolucao() != null ){
+        if (repositorioEmprestimo.listarEmprestimos().contains(emprestimo) && emprestimo != null) {
+            if (novoEmprestimo.getUsuario() != null && novoEmprestimo.getLivro() != null && novoEmprestimo.getDataEmprestimo() != null && novoEmprestimo.getDataDevolucao() != null) {
                 repositorioEmprestimo.editarEmprestimo(emprestimo, novoEmprestimo);
             } else {
                 throw new ParametroInvalidoException("O empréstimo fornecido é inválido!");
@@ -91,11 +89,11 @@ public class ControladorEmprestimo {
         }
     }
 
-    public List<Emprestimo> obterEmprestimosAtivos(){
+    public List<Emprestimo> obterEmprestimosAtivos() {
         List<Emprestimo> emprestimosAtivos = new ArrayList<>();
 
-        for(Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()){
-            if(emprestimo.getEmprestimoAtivoBoo()) {
+        for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {
+            if (emprestimo.getEmprestimoAtivoBoo()) {
                 emprestimosAtivos.add(emprestimo);
             }
         }
@@ -119,19 +117,18 @@ public class ControladorEmprestimo {
 
     public Emprestimo obterEmprestimoIdCliente(int id) throws ParametroInvalidoException {
         if (id != 0) {
-            for ( Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {
+            for (Emprestimo emprestimo : repositorioEmprestimo.listarEmprestimos()) {
                 if (emprestimo.getUsuario().getId() == id) {
                     return emprestimo;
                 }
             }
-        }
-        else {
+        } else {
             throw new ParametroInvalidoException("O ID fornecido deve ser diferente de 0!");
         }
         return null; // Não sei pq, mas tava dando erro :(
     }
 
-    public void removerEmprestimoPorId (int id) throws ParametroInvalidoException {
+    public void removerEmprestimoPorId(int id) throws ParametroInvalidoException {
         if (id != 0)
             repositorioEmprestimo.listarEmprestimos().removeIf(emprestimo -> emprestimo.getUsuario().getId() == id);
         else
@@ -149,12 +146,12 @@ public class ControladorEmprestimo {
                     resultado.add(emprestimo);
             }
             return resultado;
-        } else{
+        } else {
             throw new ParametroInvalidoException("As datas fornecidas são inválidas!");
         }
     }
 
-    public boolean checarLivroDisponivel (Livro livro) throws ParametroInvalidoException {
+    public boolean checarLivroDisponivel(Livro livro) throws ParametroInvalidoException {
         List<Livro> livrosDisp = ControladorLivro.getInstancia().livrosDisponiveis();
         if (livro != null) {
             return livrosDisp.contains(livro); // Livro está disponível
@@ -178,18 +175,12 @@ public class ControladorEmprestimo {
 
     public boolean devolverLivro(Emprestimo emprestimo) throws ObjetoInvalidoException, ParametroInvalidoException {
         if (emprestimo != null && emprestimo.getEmprestimoAtivoBoo()) {
-            for (PagamentoMulta p : controladorPagamento.listarPagamentos()) {
-                if (p.getMulta() == 0) {
-                    p.setStatusPagamento(true);
-                    // Não está desativando o emprestimo
-                    p.getEmprestimo().setEmprestimoAtivoBoo(false);
-                    return true;
-                } else {
-                    // Chama excessão de multa (clicar no botão pra pagar)
-                }
-            }
-        } else
+            emprestimo.getUsuario().setQuantidadeEmprestimos(emprestimo.getUsuario().getQuantidadeEmprestimos() - 1);
+            emprestimo.getLivro().setQuantidadeEmprestimos(emprestimo.getLivro().getQuantidadeEmprestimos() - 1);
+            emprestimo.setEmprestimoAtivoBoo(false);
+            return true;
+        } else {
             throw new ObjetoInvalidoException(emprestimo);
-        return false;
+        }
     }
 }

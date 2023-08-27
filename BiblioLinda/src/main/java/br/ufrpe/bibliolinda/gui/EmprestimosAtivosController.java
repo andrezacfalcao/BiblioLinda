@@ -54,7 +54,7 @@ public class EmprestimosAtivosController {
             try {
                 ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
                 controladorEmprestimo.devolverLivro(emprestimoSelecionado);
-
+                System.out.println("Devolvi o livro");
                 // Remove o empréstimo da lista observável para refletir a devolução
 
                 items.remove(emprestimoSelecionado);

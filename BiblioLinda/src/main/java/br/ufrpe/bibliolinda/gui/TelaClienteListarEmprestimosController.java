@@ -125,6 +125,9 @@ public class TelaClienteListarEmprestimosController {
         ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
         Usuario usuarioLogado = controladorSessao.getUsuarioOnline();
         List<PagamentoMulta> pagamentosUsuario = controladorPagamento.listarPagamentosPorCliente(usuarioLogado);
+        if(pagamentoSelecionado.getMulta() == 0){
+            pagamentoSelecionado.setStatusPagamento(true);
+        }
         if (pagamentoSelecionado != null) {
             try {
                 Emprestimo emprestimo = pagamentoSelecionado.getEmprestimo();

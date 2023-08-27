@@ -6,6 +6,17 @@ public class PagamentoMulta {
     private Emprestimo emprestimo;
     private float multa;
     private boolean statusPagamento;
+
+    @Override
+    public String toString() {
+        return "PagamentoMulta{" +
+                "emprestimo=" + emprestimo +
+                ", multa=" + multa +
+                ", statusPagamento=" + statusPagamento +
+                ", dataDePagamento=" + dataDePagamento +
+                '}';
+    }
+
     private LocalDate dataDePagamento;
 
     public PagamentoMulta(Emprestimo emprestimo) {
