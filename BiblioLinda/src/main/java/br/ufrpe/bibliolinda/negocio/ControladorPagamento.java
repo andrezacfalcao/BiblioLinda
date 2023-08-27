@@ -1,6 +1,5 @@
 package br.ufrpe.bibliolinda.negocio;
 
-import br.ufrpe.bibliolinda.beans.Emprestimo;
 import br.ufrpe.bibliolinda.beans.PagamentoMulta;
 import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.dados.RepositorioPagamento;
@@ -33,12 +32,13 @@ public class ControladorPagamento {
     }
 
     public void adicionarPagamento(PagamentoMulta pagamento) throws ObjetoJaExisteException, ObjetoInvalidoException {
-        if (!listarPagamentos().contains(pagamento))
-            if (pagamento != null && pagamento.getEmprestimo() != null
-                    && pagamento.getMulta() != 0 && pagamento.getDataDePagamento() != null)
+        if (!listarPagamentos().contains(pagamento)) {
+            if (pagamento != null && pagamento.getEmprestimo() != null) {
                 repositorioPagamento.adicionarPagamento(pagamento);
-            else
+            } else {
                 throw new ObjetoInvalidoException();
+            }
+        }
     }
 
     public void removerPagamento(PagamentoMulta pagamento) throws ObjetoInvalidoException, ParametroInvalidoException {
@@ -143,13 +143,12 @@ public class ControladorPagamento {
     }
 
 
-   /* public void calcularMulta (PagamentoMulta pagamento){
+   public void calcularMulta (PagamentoMulta pagamento){
         List<PagamentoMulta> pagamentos = repositorioPagamento.listarPagamentos();
         float multa = 0;
 
         for (PagamentoMulta pag : pagamentos){
             if(pag.equals(pagamento)){
-                //usar o getDataLimite?????????????????????????????????????????????????????????????????????????
                 LocalDate dataPagamento = pag.getEmprestimo().getDataEmprestimo().plusDays(31);
                 if (dataPagamento.isBefore(LocalDate.now())){
                     multa = 10;
@@ -160,43 +159,26 @@ public class ControladorPagamento {
                 pag.setMulta(multa);
             }
         }
-    }*/
-
-    public void calcularMulta(Emprestimo emprestimo){
-        List<PagamentoMulta> pagamentos = repositorioPagamento.listarPagamentos();
-
-        for (PagamentoMulta pag : pagamentos){
-            if(pag.getEmprestimo().equals(emprestimo)){
-                LocalDate dataPagamento = pag.getEmprestimo().getDataEmprestimo().plusDays(31);
-                if (dataPagamento.isBefore(LocalDate.now())){
-                    float multa = 10;
-                    if (dataPagamento.plusDays(7).isBefore(LocalDate.now())){
-                        multa += 5;
-                    }
-                    pag.setMulta(multa); // Define a multa no pagamento
-                }
-            }
-        }
     }
 
-
-
-    public boolean pagarMulta(PagamentoMulta pag, float valor) throws ParametroInvalidoException {
-        if(pag != null && valor != 0){
-            for(PagamentoMulta pagMulta: listarPagamentosEmAtraso()){
+    public void pagarMulta(PagamentoMulta pag, float valor) throws ParametroInvalidoException {
+        if(pag != null){
+            for(PagamentoMulta pagMulta: listarPagamentos()){
                 if(pagMulta.equals(pag)){
-                    if(pagMulta.getMulta() == valor){
+                    if(valor == 0){
+                        pagMulta.setStatusPagamento(true);
+                        return;
+                    }
+                    else if(pagMulta.getMulta() == valor){
                         pagMulta.setMulta(0);
                         pagMulta.setStatusPagamento(true);
-                        return true;
+                        return;
                     }
                 }
             }
         } else {
-
             throw new ParametroInvalidoException();
         }
-        return false;
 
     }
 

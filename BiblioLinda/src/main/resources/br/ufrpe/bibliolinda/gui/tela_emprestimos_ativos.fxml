@@ -4,11 +4,12 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.EmprestimosAtivosController">
+<VBox prefHeight="473.0" prefWidth="553.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.EmprestimosAtivosController">
     <TableView fx:id="tableView">
         <columns>
-            <TableColumn fx:id="usuarioColumn" text="Usuário" />
-            <TableColumn fx:id="livroColumn" text="Livro" />
+            <TableColumn fx:id="usuarioColumn" prefWidth="131.0" text="Usuário" />
+            <TableColumn fx:id="livroColumn" prefWidth="85.0" text="Livro" />
+         <TableColumn fx:id="emprestadoColumn" minWidth="0.0" prefWidth="132.0" text="Status do Emprestimo" />
         </columns>
     </TableView>
 </VBox>

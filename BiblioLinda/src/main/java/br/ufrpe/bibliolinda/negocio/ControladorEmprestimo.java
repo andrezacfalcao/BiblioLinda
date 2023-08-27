@@ -176,17 +176,20 @@ public class ControladorEmprestimo {
         return false;
     }
 
-    public void devolverLivro(Emprestimo emprestimo) throws ObjetoInvalidoException, ParametroInvalidoException {
+    public boolean devolverLivro(Emprestimo emprestimo) throws ObjetoInvalidoException, ParametroInvalidoException {
         if (emprestimo != null && emprestimo.getEmprestimoAtivoBoo()) {
             for (PagamentoMulta p : controladorPagamento.listarPagamentos()) {
-                if (p.getMulta() == 0 || p.getEmprestimo().getDataLimite().isAfter(LocalDate.now())) {
-                    emprestimo.setData_devolucao(LocalDate.now());
-                    emprestimo.setEmprestimoAtivoBoo(false);
+                if (p.getMulta() == 0) {
+                    p.setStatusPagamento(true);
+                    // Não está desativando o emprestimo
+                    p.getEmprestimo().setEmprestimoAtivoBoo(false);
+                    return true;
                 } else {
-                    controladorPagamento.pagarMulta(p, p.getMulta());
+                    // Chama excessão de multa (clicar no botão pra pagar)
                 }
             }
         } else
             throw new ObjetoInvalidoException(emprestimo);
+        return false;
     }
 }

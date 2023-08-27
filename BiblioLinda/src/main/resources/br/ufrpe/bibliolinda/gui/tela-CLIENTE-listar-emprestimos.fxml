@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.TelaClienteListarEmprestimosController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.TelaClienteListarEmprestimosController">
     <children>
         <AnchorPane layoutX="-12.0" prefHeight="600.0" prefWidth="325.0" style="-fx-background-color: purple;">
             <children>
@@ -37,11 +37,12 @@
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                  <TableView fx:id="tableView" layoutX="41.0" layoutY="71.0" prefHeight="246.0" prefWidth="423.0">
+                  <TableView fx:id="tableView" layoutX="41.0" layoutY="71.0" prefHeight="246.0" prefWidth="650.0">
                      <columns>
-                        <TableColumn fx:id="usuarioColumn" prefWidth="135.0" text="Usuário" />
-                        <TableColumn fx:id="livroColumn" prefWidth="152.0" text="Livro" />
-                        <TableColumn fx:id="multaColumn" prefWidth="152.0" text="Multa" />
+                        <TableColumn fx:id="emprestimoColumn" prefWidth="307.0" text="Empréstimo" />
+                        <TableColumn fx:id="multaColumn" prefWidth="82.0" text="Multa" />
+                        <TableColumn fx:id="pagoColumn" prefWidth="123.0" text="Status do Pagamento" />
+                        <TableColumn fx:id="dataColumn" prefWidth="137.0" text="Data do Pagamento" />
                      </columns>
                   </TableView>
                   <Button fx:id="voltarTelaInicioCliente" layoutX="39.0" layoutY="348.0" mnemonicParsing="false" onAction="#onvoltarTelaInicioClienteClick" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
@@ -53,6 +54,14 @@
                      </cursor>
                   </Button>
                   <Button fx:id="devolverLivro" layoutX="153.0" layoutY="348.0" mnemonicParsing="false" onAction="#onDevolverLivroClick" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: purple;" text="Devolver Livro" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="pagarMulta" layoutX="327.0" layoutY="348.0" mnemonicParsing="false" onAction="#onPagarMultaClick" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: purple;" text="Pagar Multa" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>

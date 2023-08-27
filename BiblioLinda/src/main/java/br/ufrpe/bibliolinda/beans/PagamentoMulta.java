@@ -42,9 +42,7 @@ public class PagamentoMulta {
         return dataDePagamento;
     }
 
-    public boolean setStatusPagamento() {
-        return false;
+    public void setDataDePagamento(LocalDate dataDePagamento) {
+        this.dataDePagamento = dataDePagamento;
     }
-
-
 }

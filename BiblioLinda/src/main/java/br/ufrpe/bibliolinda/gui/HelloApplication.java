@@ -8,6 +8,7 @@ import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 import br.ufrpe.bibliolinda.negocio.ControladorEmprestimo;
 import br.ufrpe.bibliolinda.negocio.ControladorLivro;
+import br.ufrpe.bibliolinda.negocio.ControladorPagamento;
 import br.ufrpe.bibliolinda.negocio.ControladorUsuario;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +33,7 @@ public class HelloApplication extends Application {
         ControladorUsuario controladorUsuario = ControladorUsuario.getInstancia();
         ControladorLivro controladorLivro = ControladorLivro.getInstancia();
         ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
+        ControladorPagamento controladorPagamento = ControladorPagamento.getInstancia();
 
         Usuario admin = new Usuario("admin", "a", "a", TipoDeUsuario.ADMIN);
         controladorUsuario.cadastrarUsuario(admin);
@@ -52,6 +54,9 @@ public class HelloApplication extends Application {
         LocalDate dataEmprestimo = LocalDate.of(2023, 7, 6);
         Emprestimo emprestimo1 = new Emprestimo(cliente,livro1,dataEmprestimo);
         controladorEmprestimo.adicionarEmprestimo(emprestimo1);
+
+        PagamentoMulta pag1 = new PagamentoMulta(emprestimo1);
+        controladorPagamento.adicionarPagamento(pag1);
 
 
         launch();

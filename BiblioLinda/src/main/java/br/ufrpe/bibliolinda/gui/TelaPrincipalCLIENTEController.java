@@ -1,5 +1,6 @@
 package br.ufrpe.bibliolinda.gui;
 
+import br.ufrpe.bibliolinda.negocio.ControladorSessao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,8 @@ public class TelaPrincipalCLIENTEController {
     private Button historicoLeitura;
     @FXML
     private Button voltarTelaInicioCliente;
+
+    ControladorSessao sessao = ControladorSessao.getInstancia();
 
     @FXML
     void onBuscarLivrosClick(ActionEvent event) {
@@ -73,6 +76,8 @@ public class TelaPrincipalCLIENTEController {
     @FXML
     void onvoltarTelaInicioClienteClick (ActionEvent event) {
         try {
+            sessao.encerrarSessao();
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
             Parent secondScreenParent = loader.load();
 

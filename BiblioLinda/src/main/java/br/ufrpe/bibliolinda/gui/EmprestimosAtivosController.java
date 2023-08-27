@@ -26,6 +26,8 @@ public class EmprestimosAtivosController {
     @FXML
     private TableColumn<Emprestimo, String> livroColumn;
     @FXML
+    private TableColumn<Emprestimo, String> emprestadoColumn;
+    @FXML
     private final ObservableList<Emprestimo> items = FXCollections.observableArrayList();
     @FXML
     private Button devolverLivro;
@@ -38,6 +40,8 @@ public class EmprestimosAtivosController {
         // Configura as colunas para receber os dados
         usuarioColumn.setCellValueFactory(new PropertyValueFactory<>("usuario"));
         livroColumn.setCellValueFactory(new PropertyValueFactory<>("livro"));
+        emprestadoColumn.setCellValueFactory(new PropertyValueFactory<>("emprestimoAtivoBoo"));
+
 
         // Preenche a TableView com os empréstimos ativos
         tableView.setItems(items);

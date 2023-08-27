@@ -1,6 +1,9 @@
 package br.ufrpe.bibliolinda.gui;
 
 import br.ufrpe.bibliolinda.beans.Emprestimo;
+import br.ufrpe.bibliolinda.beans.PagamentoMulta;
+import br.ufrpe.bibliolinda.exception.CamposVaziosException;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
 import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 import br.ufrpe.bibliolinda.negocio.ControladorEmprestimo;
@@ -85,15 +88,15 @@ public class SolicitacaoDeEmprestimoController {
     @FXML
     public void onConfirmarEmprestimoClick(ActionEvent event) {
         try {
-            // Verificar se o usuário possui multas pendentes
-            //List<PagamentoMulta> multasPendentes = ControladorPagamento.getInstancia().listarPagamentosPorCliente(usuarioSelecionado);
-
-//            if (!multasPendentes.isEmpty()) {
+//            // Verificar se o usuário possui multas pendentes
+//            List<PagamentoMulta> multasAtivas = ControladorPagamento.getInstancia().listarPagamentosPorCliente(sessao.getUsuarioOnline());
+//
+//            if (!multasAtivas.isEmpty()) {
 //                try {
 //                    throw new CamposVaziosException("Você possui multas pendentes no momento");
 //                } catch (CamposVaziosException e) {
-//                    MultasPendentes.setTextFill(Color.RED);
-//                    MultasPendentes.setText(e.getMessage());
+//                    multasPendentes.setTextFill(Color.RED);
+//                    multasPendentes.setText(e.getMessage());
 //                    return;
 //                }
 //            }
@@ -111,14 +114,18 @@ public class SolicitacaoDeEmprestimoController {
 
             // O usuário não possui multas pendentes e não tem empréstimo em andamento
             Emprestimo novoEmprestimo = new Emprestimo(sessao.getUsuarioOnline(), sessao.getLivroTemp(), LocalDate.now());
+            PagamentoMulta pagamento = new PagamentoMulta(novoEmprestimo);
 
             // Adicionar o novo empréstimo ao sistema
             controladorEmprestimo.adicionarEmprestimo(novoEmprestimo);
+            controladorPagamento.adicionarPagamento(pagamento);
 
             emprestimoSolicitado.setTextFill(Color.PURPLE);
             emprestimoSolicitado.setText("Empréstimo solicitado com sucesso");
         } catch (ObjetoJaExisteException | ParametroInvalidoException e) {
             System.out.println("Erro");
+        } catch (ObjetoInvalidoException e) {
+            throw new RuntimeException(e);
         }
     }
 
