@@ -173,6 +173,7 @@ public class ControladorPagamento {
                     }
                 }
                 pag.setMulta(multa);
+                pag.setValorMultaParaCalcularTotal(multa);
             }
         }
     }

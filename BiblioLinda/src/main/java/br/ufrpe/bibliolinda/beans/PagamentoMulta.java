@@ -7,7 +7,7 @@ public class PagamentoMulta {
     private float multa;
     private boolean statusPagamento;
     private LocalDate dataDePagamento;
-
+    private float valorMultaParaCalcularTotal;
 
     @Override
     public String toString() {
@@ -22,6 +22,7 @@ public class PagamentoMulta {
     public PagamentoMulta(Emprestimo emprestimo) {
         this.emprestimo = emprestimo;
         this.multa = 0;
+        this.valorMultaParaCalcularTotal = 0;
         this.statusPagamento = false;
     }
 
@@ -55,5 +56,13 @@ public class PagamentoMulta {
 
     public void setDataDePagamento(LocalDate dataDePagamento) {
         this.dataDePagamento = dataDePagamento;
+    }
+
+    public float getValorMultaParaCalcularTotal() {
+        return valorMultaParaCalcularTotal;
+    }
+
+    public void setValorMultaParaCalcularTotal(float valorMultaParaCalcularTotal) {
+        this.valorMultaParaCalcularTotal = valorMultaParaCalcularTotal;
     }
 }

@@ -91,7 +91,7 @@ public class TelaADMINGerenciarEmprestimosController {
 
             float totalMultaPeriodo = 0;
             for (PagamentoMulta pag : pagamentosNoPeriodo) {
-                totalMultaPeriodo += pag.getMulta();
+                totalMultaPeriodo += pag.getValorMultaParaCalcularTotal();
             }
 
             String formattedTotalMulta = String.format("%.2f", totalMultaPeriodo); // Formata o valor com 2 casas decimais
