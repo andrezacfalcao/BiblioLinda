@@ -33,13 +33,12 @@
                             <Font name="System Bold" size="34.0" />
                         </font>
                     </Label>
-                  <TableView fx:id="livrosDisponiveis" layoutX="7.0" layoutY="65.0" prefHeight="324.0" prefWidth="786.0">
+                  <TableView fx:id="livrosDisponiveis" layoutX="7.0" layoutY="65.0" prefHeight="324.0" prefWidth="711.0">
                     <columns>
                       <TableColumn fx:id="colNome" prefWidth="211.0" text="Nome" />
                       <TableColumn fx:id="colCategoria" prefWidth="211.0" text="Categoria" />
                         <TableColumn fx:id="colAutor" prefWidth="212.0" text="Autor" />
                         <TableColumn fx:id="colAno" prefWidth="75.0" text="Ano" />
-                        <TableColumn fx:id="colCopias" prefWidth="75.0" text="Cópias" />
                     </columns>
                   </TableView>
                   <TextField fx:id="buscarLivrosdaTableViewTextField" focusTraversable="false" layoutX="486.0" layoutY="27.0" prefHeight="25.0" prefWidth="215.0" promptText="Buscar por Nome, Autor ou Categoria" />

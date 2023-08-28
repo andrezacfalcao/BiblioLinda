@@ -99,7 +99,7 @@ public class TelaADMINAdiconarLivroController {
 
         catch (ObjetoJaExisteException e) {
             try {
-                throw new ObjetoJaExisteException("Usuário já existe");
+                throw new ObjetoJaExisteException("Livro já existe");
             } catch (ObjetoJaExisteException f) {
                 excecaoVazio3.setTextFill(Color.RED);
                 excecaoVazio3.setText(f.getMessage());
@@ -107,7 +107,7 @@ public class TelaADMINAdiconarLivroController {
             }
         } catch (ObjetoInvalidoException e) {
             try {
-                throw new CamposVaziosException("Usuário ou senha inválidos");
+                throw new CamposVaziosException("Preencha corretamente");
             } catch (CamposVaziosException f) {
                 excecaoVazio2.setTextFill(Color.RED);
                 excecaoVazio2.setText(f.getMessage());
@@ -118,28 +118,10 @@ public class TelaADMINAdiconarLivroController {
 
    @FXML
     private void initialize() {
-        //nomeCadastro.setOnMouseClicked(event -> limparMensagemErro());
-        //loginCadastro.setOnMouseClicked(event -> limparMensagemErro());
-       // senhaCadastro.setOnMouseClicked(event -> limparMensagemErro());
-       // categoria.setOnMouseClicked(event -> limparMensagemErro());
         categoria.getItems().addAll(Arrays.asList(Categoria.values()));
     }
 
-  /*  @FXML
-    void onAdicionarClick(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-login.fxml"));
-            Parent secondScreenParent = loader.load();
 
-            Scene secondScreenScene = new Scene(secondScreenParent);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(secondScreenScene);
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }*/
 
 
 }

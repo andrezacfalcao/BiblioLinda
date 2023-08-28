@@ -115,80 +115,14 @@ public class TelaDeLoginController {
         }
     }
 
-    @FXML
-    private Button EntrarCliente;
 
-    @FXML
-    void onEntrarClienteClick(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-principal.fxml"));
-            Parent secondScreenParent = loader.load();
 
-            Scene secondScreenScene = new Scene(secondScreenParent);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(secondScreenScene);
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
-    @FXML
-    private Button EntrarAdmin;
 
-    @FXML
-    void onEntrarAdminClick(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-principal.fxml"));
-            Parent secondScreenParent = loader.load();
 
-            Scene secondScreenScene = new Scene(secondScreenParent);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(secondScreenScene);
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
-    @FXML
-    private Button ListarUsuarios;
 
-    @FXML
-    void onListarUsuariosClick(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("teste-lista-cadastro.fxml"));
-            Parent secondScreenParent = loader.load();
-
-            Scene secondScreenScene = new Scene(secondScreenParent);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(secondScreenScene);
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private Button ListarEmprestimos;
-
-    @FXML
-    void onListarEmprestimosClick(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("teste-tela_emprestimos_ativos.fxml"));
-            Parent secondScreenParent = loader.load();
-
-            Scene secondScreenScene = new Scene(secondScreenParent);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(secondScreenScene);
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-}
 

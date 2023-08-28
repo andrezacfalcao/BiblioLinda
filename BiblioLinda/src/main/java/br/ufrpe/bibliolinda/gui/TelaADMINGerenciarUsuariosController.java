@@ -44,8 +44,7 @@ public class TelaADMINGerenciarUsuariosController {
     private Label excecaoNenhumLivroSelecionado;
     @FXML
     private Button removerUsuario;
-    @FXML
-    private Button adicionarUsuario;
+
 
     @FXML
     private final ObservableList<Usuario> items = FXCollections.observableArrayList();
@@ -133,20 +132,5 @@ public class TelaADMINGerenciarUsuariosController {
         });
     }
 
-    @FXML
-    void onadicionarUsuarioClick(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-GerenciarUsuarios.fxml"));
-            Parent secondScreenParent = loader.load();
 
-            Scene secondScreenScene = new Scene(secondScreenParent);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(secondScreenScene);
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
 }

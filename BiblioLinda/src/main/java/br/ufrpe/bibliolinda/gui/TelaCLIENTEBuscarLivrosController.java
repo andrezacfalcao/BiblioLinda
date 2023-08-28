@@ -33,8 +33,7 @@ public class TelaCLIENTEBuscarLivrosController {
     private TableColumn<Livro, String> colAutor;
     @FXML
     private TableColumn<Livro, Integer> colAno;
-    @FXML
-    private TableColumn<Livro, Integer> colCopias;
+
     @FXML
     private Button buscarLivrosdaTableViewButton;
     @FXML
@@ -43,8 +42,7 @@ public class TelaCLIENTEBuscarLivrosController {
     private Button solicitarEmprestimoButton;
     @FXML
     private Label excecaoNenhumLivroSelecionado;
-    //@FXML
-    //private AnchorPane capas;
+
     @FXML
     private Button voltarTelaInicioCliente;
     @FXML
@@ -60,7 +58,7 @@ public class TelaCLIENTEBuscarLivrosController {
         colCategoria.setCellValueFactory(new PropertyValueFactory<>("categoriaLivro"));
         colAutor.setCellValueFactory(new PropertyValueFactory<>("nomeAutor"));
         colAno.setCellValueFactory(new PropertyValueFactory<>("anoDeLancamento"));
-        colCopias.setCellValueFactory(new PropertyValueFactory<>("totalDeCopias"));
+
 
         livrosDisponiveis.setItems(items);
 
@@ -132,7 +130,7 @@ public class TelaCLIENTEBuscarLivrosController {
     }
 
     @FXML
-    void onvoltarTelaInicioClienteClick (ActionEvent event) {
+    void onvoltarTelaInicioClienteClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-principal.fxml"));
             Parent secondScreenParent = loader.load();
