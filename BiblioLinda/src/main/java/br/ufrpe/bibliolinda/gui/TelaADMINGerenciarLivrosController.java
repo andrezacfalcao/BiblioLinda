@@ -55,7 +55,7 @@ public class TelaADMINGerenciarLivrosController {
     @FXML
     void onVoltarTelaInicialAdminClick (ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-ADMIN.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-principal.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);

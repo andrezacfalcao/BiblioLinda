@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TelaPrincipalCLIENTEController {
+public class TelaCLIENTEPrincipalController {
     @FXML
     private Button buscarLivros;
     @FXML

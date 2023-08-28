@@ -1,14 +1,11 @@
 package br.ufrpe.bibliolinda.gui;
 
 import br.ufrpe.bibliolinda.beans.Emprestimo;
-import br.ufrpe.bibliolinda.beans.Livro;
 import br.ufrpe.bibliolinda.beans.PagamentoMulta;
 import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
-import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 import br.ufrpe.bibliolinda.negocio.ControladorEmprestimo;
-import br.ufrpe.bibliolinda.negocio.ControladorLivro;
 import br.ufrpe.bibliolinda.negocio.ControladorPagamento;
 import br.ufrpe.bibliolinda.negocio.ControladorSessao;
 import javafx.collections.FXCollections;
@@ -23,14 +20,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.List;
 
-public class TelaClienteListarEmprestimosController {
+public class TelaCLIENTEListarEmprestimosController {
 
     @FXML
     private TableView<PagamentoMulta> tableView;
@@ -107,7 +102,7 @@ public class TelaClienteListarEmprestimosController {
     @FXML
     void onvoltarTelaInicioClienteClick (ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-principal.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);

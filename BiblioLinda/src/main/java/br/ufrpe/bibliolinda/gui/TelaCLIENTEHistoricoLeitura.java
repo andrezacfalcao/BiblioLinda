@@ -100,7 +100,7 @@ public class TelaCLIENTEHistoricoLeitura {
     @FXML
     void onvoltarTelaInicioClienteClick (ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-principal.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);

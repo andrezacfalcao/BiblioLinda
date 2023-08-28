@@ -16,14 +16,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.List;
 
-public class TelaBuscarLivrosController {
+public class TelaCLIENTEBuscarLivrosController {
     @FXML
     private TableView<Livro> livrosDisponiveis;
     @FXML
@@ -110,7 +109,7 @@ public class TelaBuscarLivrosController {
         if (livroSelecionado != null) {
             sessao.setLivroTemp(livroSelecionado);
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("solicitacao-de-emprestimo.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-solicitacao-de-emprestimo.fxml"));
                 Parent secondScreenParent = loader.load();
 
                 Scene secondScreenScene = new Scene(secondScreenParent);
@@ -135,7 +134,7 @@ public class TelaBuscarLivrosController {
     @FXML
     void onvoltarTelaInicioClienteClick (ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-principal.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);

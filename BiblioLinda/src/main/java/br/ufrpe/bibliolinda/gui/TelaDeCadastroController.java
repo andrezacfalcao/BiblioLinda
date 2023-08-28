@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Arrays;
 
-public class CadastroController {
+public class TelaDeCadastroController {
 
     @FXML
     private Button cadastrar;

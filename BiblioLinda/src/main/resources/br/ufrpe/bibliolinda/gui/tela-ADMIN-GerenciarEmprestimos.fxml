@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -25,7 +26,7 @@
             </children></AnchorPane>
         <AnchorPane layoutX="-5.0" layoutY="165.0" prefHeight="436.0" prefWidth="509.0" style="-fx-background-color: white;">
             <children>
-                <AnchorPane layoutX="5.0" prefHeight="436.0" prefWidth="800.0">
+                <AnchorPane layoutX="5.0" prefHeight="436.0" prefWidth="745.0">
                     <children>
                         <Label layoutX="41.0" layoutY="15.0" text="Gerenciar Empréstimos">
                             <font>
@@ -37,12 +38,11 @@
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <TableView fx:id="tableView" layoutX="41.0" layoutY="71.0" prefHeight="287.0" prefWidth="650.0">
+                        <TableView fx:id="tableView" layoutX="41.0" layoutY="71.0" prefHeight="287.0" prefWidth="487.0">
                             <columns>
-                                <TableColumn fx:id="emprestimoColumn" prefWidth="307.0" text="Empréstimo" />
-                                <TableColumn fx:id="multaColumn" prefWidth="82.0" text="Multa" />
-                                <TableColumn fx:id="pagoColumn" prefWidth="123.0" text="Status do Pagamento" />
-                                <TableColumn fx:id="dataColumn" prefWidth="137.0" text="Data do Pagamento" />
+                                <TableColumn fx:id="emprestimoColumn" prefWidth="192.0" text="Empréstimo" />
+                                <TableColumn fx:id="multaColumn" prefWidth="152.0" text="Multa" />
+                                <TableColumn fx:id="pagoColumn" prefWidth="139.0" text="Status do Pagamento" />
                             </columns>
                         </TableView>
                         <Button fx:id="voltarTelaInicioCliente" layoutX="41.0" layoutY="378.0" mnemonicParsing="false" onAction="#onvoltarTelaInicioClienteClick" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
@@ -61,6 +61,26 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
+                  <Label layoutX="544.0" layoutY="72.0" prefHeight="25.0" prefWidth="132.0" text="Total de multa = ">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalMulta" layoutX="676.0" layoutY="72.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="dataInicioField" layoutX="563.0" layoutY="346.0" promptText="Data Início" />
+                  <TextField fx:id="dataFimField" layoutX="563.0" layoutY="383.0" promptText="Data Fim" />
+                  <Button fx:id="buscarMulta" layoutX="309.0" layoutY="378.0" mnemonicParsing="false" onAction="#onTotalMultaClick" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: purple;" text="Buscar" textFill="WHITE">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                     </children>
                 </AnchorPane>
             </children>

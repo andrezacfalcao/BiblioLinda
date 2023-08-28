@@ -19,15 +19,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class TelaADMINGerenciarEmprestimosController {
@@ -41,13 +40,19 @@ public class TelaADMINGerenciarEmprestimosController {
     @FXML
     private TableColumn<PagamentoMulta, String> pagoColumn;
     @FXML
+    private Label totalMulta;
+    @FXML
     private TableColumn<PagamentoMulta, String> dataColumn;
     @FXML
     private Button voltarTelaInicioCliente;
     @FXML
-    private Button devolverLivro;
+    private TextField dataInicioField;
     @FXML
-    private Button pagarMulta;
+    private TextField dataFimField;
+    @FXML
+    private Button buscarMulta;
+    private final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
     ControladorPagamento controladorPagamento = ControladorPagamento.getInstancia();
     ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
     @FXML
@@ -76,6 +81,28 @@ public class TelaADMINGerenciarEmprestimosController {
         }
     }
 
+    @FXML
+    void onTotalMultaClick(ActionEvent event) {
+        LocalDate dataInicio = LocalDate.parse(dataInicioField.getText(), dateFormatter);
+        LocalDate dataFim = LocalDate.parse(dataFimField.getText(), dateFormatter);
+
+        try {
+            List<PagamentoMulta> pagamentosNoPeriodo = controladorPagamento.listarPagamentosEntrePeriodo(dataInicio, dataFim);
+
+            float totalMultaPeriodo = 0;
+            for (PagamentoMulta pag : pagamentosNoPeriodo) {
+                totalMultaPeriodo += pag.getMulta();
+            }
+
+            totalMulta.setText("" + totalMultaPeriodo);
+
+        } catch (ParametroInvalidoException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    @FXML
     public void initialize() throws ParametroInvalidoException, ObjetoInvalidoException {
         ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
         ControladorSessao controladorSessao = ControladorSessao.getInstancia();
@@ -98,7 +125,7 @@ public class TelaADMINGerenciarEmprestimosController {
             emprestimoColumn.setCellValueFactory(new PropertyValueFactory<>("emprestimo"));
             multaColumn.setCellValueFactory(new PropertyValueFactory<>("multa"));
             pagoColumn.setCellValueFactory(new PropertyValueFactory<>("statusPagamento"));
-            dataColumn.setCellValueFactory(new PropertyValueFactory<>("dataDePagamento"));
+            //dataColumn.setCellValueFactory(new PropertyValueFactory<>("dataDePagamento"));
 
             tableView.setItems(items);
         }
@@ -107,7 +134,7 @@ public class TelaADMINGerenciarEmprestimosController {
     @FXML
     void onvoltarTelaInicioClienteClick (ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-ADMIN.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-principal.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -118,7 +145,6 @@ public class TelaADMINGerenciarEmprestimosController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML

@@ -91,18 +91,30 @@ public class ControladorPagamento {
         return resultado;
     }
 
-    public List<PagamentoMulta> listarPagamentosEntrePeriodo(LocalDate inicio, LocalDate fim) throws ParametroInvalidoException {
-        List<PagamentoMulta> resultado = new ArrayList<>();
+//    public List<PagamentoMulta> listarPagamentosEntrePeriodo(LocalDate inicio, LocalDate fim) throws ParametroInvalidoException {
+//        List<PagamentoMulta> resultado = new ArrayList<>();
+//
+//        if (inicio != null && fim != null)
+//            for (PagamentoMulta pagamento : listarPagamentos())
+//                if (pagamento.getDataDePagamento().isAfter(inicio) && pagamento.getDataDePagamento().isBefore(fim))
+//                    resultado.add(pagamento);
+//        else
+//            throw new ParametroInvalidoException("As datas fornecidas são inválidas!");
+//
+//        return resultado;
+//    }
 
-        if (inicio != null && fim != null)
-            for (PagamentoMulta pagamento : listarPagamentos())
-                if (pagamento.getDataDePagamento().isAfter(inicio) && pagamento.getDataDePagamento().isBefore(fim))
-                    resultado.add(pagamento);
-        else
-            throw new ParametroInvalidoException("As datas fornecidas são inválidas!");
-
-        return resultado;
+    public List<PagamentoMulta> listarPagamentosEntrePeriodo(LocalDate dataInicio, LocalDate dataFim) throws ParametroInvalidoException {
+        List<PagamentoMulta> pagamentosNoPeriodo = new ArrayList<>();
+        for (PagamentoMulta pag : listarPagamentos()) {
+            LocalDate dataPagamento = pag.getDataDePagamento();
+            if (dataPagamento != null && (dataPagamento.isEqual(dataInicio) || dataPagamento.isAfter(dataInicio)) && dataPagamento.isBefore(dataFim.plusDays(1))) {
+                pagamentosNoPeriodo.add(pag);
+            }
+        }
+        return pagamentosNoPeriodo;
     }
+
 
     public List<PagamentoMulta> listarPagamentosAcimaDeValor(float valor) {
         List<PagamentoMulta> resultado = new ArrayList<>();
@@ -170,6 +182,7 @@ public class ControladorPagamento {
             System.out.println(pag.toString());
             for(PagamentoMulta pagMulta: listarPagamentos()){
                 if(pagMulta.equals(pag)){
+                    pagMulta.setDataDePagamento(LocalDate.now());
                     if(valor == 0){
                         pagMulta.setStatusPagamento(true);
                         return;

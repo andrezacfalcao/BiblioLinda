@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.TelaPrincipalCLIENTEController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.bibliolinda.gui.TelaADMINPrincipalController">
     <children>
         <AnchorPane layoutX="-12.0" prefHeight="600.0" prefWidth="325.0" style="-fx-background-color: purple;">
             <children>
@@ -17,7 +17,7 @@
                 </Label>
             </children>
         </AnchorPane>
-      <Button fx:id="buscarLivros" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" onAction="#onBuscarLivrosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Buscar livros" textFill="WHITE">
+      <Button fx:id="gerenciarLivros" layoutX="451.0" layoutY="256.0" mnemonicParsing="false" onAction="#onGerenciarLivrosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar livros" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -25,12 +25,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="492.0" layoutY="206.0" text="CLIENTE">
+      <Label layoutX="414.0" layoutY="206.0" text="ADMINISTRADOR">
          <font>
             <Font name="System Bold" size="34.0" />
          </font>
       </Label>
-      <Button fx:id="emprestimosAtivos" layoutX="451.0" layoutY="306.0" mnemonicParsing="false" onAction="#onEmprestimosAtivosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Empréstimos ativos" textFill="WHITE">
+      <Button fx:id="gerenciarUsuarios" layoutX="451.0" layoutY="306.0" mnemonicParsing="false" onAction="#onGerenciarUsuariosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar usuários" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -38,7 +38,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="historicoLeitura" layoutX="451.0" layoutY="356.0" mnemonicParsing="false" onAction="#onHistoricoLeituraClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Histórico de leitura" textFill="WHITE">
+      <Button fx:id="gerenciarEmprestimos" layoutX="451.0" layoutY="356.0" mnemonicParsing="false" onAction="#onGerenciarEmprestimosClick" prefHeight="35.0" prefWidth="215.0" style="-fx-background-color: purple;" text="Gerenciar empréstimos" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -46,7 +46,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="voltarTelaInicioCliente" layoutX="335.0" layoutY="534.0" mnemonicParsing="false" onAction="#onvoltarTelaInicioClienteClick" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
+      <Button fx:id="voltarTelaInicial" layoutX="335.0" layoutY="534.0" mnemonicParsing="false" onAction="#onVoltarTelaInicialClick" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>

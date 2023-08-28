@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Objects;
 
-public class TelaLoginController {
+public class TelaDeLoginController {
 
     ControladorUsuario controladorUsuario = ControladorUsuario.getInstancia();
     @FXML
@@ -61,7 +61,7 @@ public class TelaLoginController {
 
                     if (Objects.equals(tipoUsuario, "ADMIN")) {
                         try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-ADMIN.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-principal.fxml"));
                             Parent secondScreenParent = loader.load();
 
                             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -74,7 +74,7 @@ public class TelaLoginController {
                         }
                     } else {
                         try {
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-principal.fxml"));
                             Parent secondScreenParent = loader.load();
 
                             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -102,7 +102,7 @@ public class TelaLoginController {
     @FXML
     void onLevarTelaCadastroClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("cadastro-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-de-cadastro.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -121,7 +121,7 @@ public class TelaLoginController {
     @FXML
     void onEntrarClienteClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-CLIENTE.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-CLIENTE-principal.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -140,7 +140,7 @@ public class TelaLoginController {
     @FXML
     void onEntrarAdminClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-ADMIN.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-principal.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);
@@ -178,7 +178,7 @@ public class TelaLoginController {
     @FXML
     void onListarEmprestimosClick(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("tela_emprestimos_ativos.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("teste-tela_emprestimos_ativos.fxml"));
             Parent secondScreenParent = loader.load();
 
             Scene secondScreenScene = new Scene(secondScreenParent);

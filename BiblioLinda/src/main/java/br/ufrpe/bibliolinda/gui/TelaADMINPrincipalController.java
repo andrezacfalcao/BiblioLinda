@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class TelaPrincipalADMINController {
+public class TelaADMINPrincipalController {
 
     ControladorSessao sessao = ControladorSessao.getInstancia();
 
@@ -26,7 +26,7 @@ public class TelaPrincipalADMINController {
     private Button voltarTelaInicial;
 
     @FXML
-    void onVoltarTelaInicialClick (ActionEvent event) {
+    void onVoltarTelaInicialClick(ActionEvent event) {
         try {
             sessao.encerrarSessao();
 
@@ -41,11 +41,10 @@ public class TelaPrincipalADMINController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     @FXML
-    void onGerenciarEmprestimosClick (ActionEvent event) {
+    void onGerenciarEmprestimosClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-GerenciarEmprestimos.fxml"));
             Parent secondScreenParent = loader.load();
@@ -62,7 +61,7 @@ public class TelaPrincipalADMINController {
     }
 
     @FXML
-    void onGerenciarLivrosClick (ActionEvent event) {
+    void onGerenciarLivrosClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-GerenciarLivros.fxml"));
             Parent secondScreenParent = loader.load();
@@ -78,7 +77,7 @@ public class TelaPrincipalADMINController {
     }
 
     @FXML
-    void onGerenciarUsuariosClick (ActionEvent event) {
+    void onGerenciarUsuariosClick(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-GerenciarUsuarios.fxml"));
             Parent secondScreenParent = loader.load();
