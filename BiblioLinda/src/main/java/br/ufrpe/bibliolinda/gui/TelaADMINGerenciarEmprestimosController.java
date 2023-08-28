@@ -1,13 +1,16 @@
 package br.ufrpe.bibliolinda.gui;
 
-import br.ufrpe.bibliolinda.beans.Categoria;
 import br.ufrpe.bibliolinda.beans.Emprestimo;
 import br.ufrpe.bibliolinda.beans.Livro;
+import br.ufrpe.bibliolinda.beans.PagamentoMulta;
 import br.ufrpe.bibliolinda.beans.Usuario;
+import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
+import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 import br.ufrpe.bibliolinda.negocio.ControladorEmprestimo;
 import br.ufrpe.bibliolinda.negocio.ControladorLivro;
-import javafx.beans.property.SimpleBooleanProperty;
+import br.ufrpe.bibliolinda.negocio.ControladorPagamento;
+import br.ufrpe.bibliolinda.negocio.ControladorSessao;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,8 +19,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,28 +31,81 @@ import java.time.LocalDate;
 import java.util.List;
 
 public class TelaADMINGerenciarEmprestimosController {
-    @FXML
-    private Button voltarTelaInicialAdmin1;
-    @FXML
-    private TableView<Emprestimo> emprestimos;
-    @FXML
-    private TableColumn<Emprestimo, Usuario> usuarioColumn;
-    @FXML
-    private TableColumn<Emprestimo, Livro> livroColumn;
-    @FXML
-    private TableColumn<Emprestimo, LocalDate> dataEmprestimoColumn;
-    @FXML
-    private TableColumn<Emprestimo, LocalDate> dataDevolucaoColumn;
-    @FXML
-    private TableColumn<Emprestimo, Boolean> emprestadoColumn;
-    @FXML
-    private TableColumn<Emprestimo, LocalDate> dataLimiteColumn;
 
     @FXML
-    private final ObservableList<Emprestimo> items = FXCollections.observableArrayList();
+    private TableView<PagamentoMulta> tableView;
+    @FXML
+    private TableColumn<PagamentoMulta, String> emprestimoColumn;
+    @FXML
+    private TableColumn<PagamentoMulta, Float> multaColumn;
+    @FXML
+    private TableColumn<PagamentoMulta, String> pagoColumn;
+    @FXML
+    private TableColumn<PagamentoMulta, String> dataColumn;
+    @FXML
+    private Button voltarTelaInicioCliente;
+    @FXML
+    private Button devolverLivro;
+    @FXML
+    private Button pagarMulta;
+    ControladorPagamento controladorPagamento = ControladorPagamento.getInstancia();
+    ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
+    @FXML
+    private final ObservableList<PagamentoMulta> items = FXCollections.observableArrayList();
+
+    public void atualizarDados(ActionEvent event) {
+        try {
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-ADMIN-GerenciarEmprestimos.fxml"));
+                Parent secondScreenParent = loader.load();
+
+                Scene secondScreenScene = new Scene(secondScreenParent);
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(secondScreenScene);
+                window.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            tableView.setItems(null);
+            items.removeAll();
+            initialize();
+        } catch (ParametroInvalidoException | ObjetoInvalidoException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void initialize() throws ParametroInvalidoException, ObjetoInvalidoException {
+        ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
+        ControladorSessao controladorSessao = ControladorSessao.getInstancia();
+        ControladorPagamento controladorPagamento = ControladorPagamento.getInstancia();
+        Usuario usuarioLogado = controladorSessao.getUsuarioOnline();
+
+        if (usuarioLogado != null) {
+            List<PagamentoMulta> pagamentosUsuario = controladorPagamento.listarPagamentos();
+
+            for (PagamentoMulta pag : pagamentosUsuario) {
+                Emprestimo emprestimo = pag.getEmprestimo();
+                if (emprestimo.getEmprestimoAtivoBoo()) { // Verifica se o empréstimo está ativo
+                    if (!pag.getStatusPagamento()) {
+                        controladorPagamento.calcularMulta(pag);
+                    }
+                    items.add(pag);
+                }
+            }
+
+            emprestimoColumn.setCellValueFactory(new PropertyValueFactory<>("emprestimo"));
+            multaColumn.setCellValueFactory(new PropertyValueFactory<>("multa"));
+            pagoColumn.setCellValueFactory(new PropertyValueFactory<>("statusPagamento"));
+            dataColumn.setCellValueFactory(new PropertyValueFactory<>("dataDePagamento"));
+
+            tableView.setItems(items);
+        }
+    }
 
     @FXML
-    void onvoltarTelaInicialAdmin1Click (ActionEvent event) {
+    void onvoltarTelaInicioClienteClick (ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("tela-principal-ADMIN.fxml"));
             Parent secondScreenParent = loader.load();
@@ -62,21 +121,50 @@ public class TelaADMINGerenciarEmprestimosController {
 
     }
 
-    public void initialize() throws ParametroInvalidoException {
+    @FXML
+    public void onDevolverLivroClick(ActionEvent event) throws ParametroInvalidoException, ObjetoInvalidoException {
+        PagamentoMulta pagamentoSelecionado = tableView.getSelectionModel().getSelectedItem();
+        ControladorSessao controladorSessao = ControladorSessao.getInstancia();
         ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
-        List<Emprestimo> emprestimoGeral = controladorEmprestimo.listarEmprestimos();
-        items.addAll(emprestimoGeral);
+        Usuario usuarioLogado = controladorSessao.getUsuarioOnline();
+        List<PagamentoMulta> pagamentosUsuario = controladorPagamento.listarPagamentosPorCliente(usuarioLogado);
+        if(pagamentoSelecionado.getMulta() == 0){
+            pagamentoSelecionado.setStatusPagamento(true);
+        }
+        if (pagamentoSelecionado != null) {
+            try {
+                Emprestimo emprestimo = pagamentoSelecionado.getEmprestimo();
 
-        // Configura as colunas para receber os dados
-        usuarioColumn.setCellValueFactory(new PropertyValueFactory<>("usuario"));
-        livroColumn.setCellValueFactory(new PropertyValueFactory<>("livro"));
-        emprestadoColumn.setCellValueFactory(new PropertyValueFactory<>("emprestimoAtivoBoo"));
-        dataDevolucaoColumn.setCellValueFactory(new PropertyValueFactory<>("dataDevolucao"));
-        dataEmprestimoColumn.setCellValueFactory(new PropertyValueFactory<>("dataEmprestimo"));
-        dataLimiteColumn.setCellValueFactory(new PropertyValueFactory<>("dataLimite"));
+                if(controladorEmprestimo.devolverLivro(emprestimo)){
+                    // Remova o empréstimo da lista observável para refletir a devolução
+                    pagamentosUsuario.remove(pagamentoSelecionado);
+                    items.remove(pagamentoSelecionado);
+                    atualizarDados(event);
+                }
 
-        emprestimos.setItems(items);
+            } catch (ObjetoInvalidoException | ParametroInvalidoException e) {
+                e.printStackTrace(); // Trate o erro de acordo com suas necessidades
+            }
+        }
     }
 
+    @FXML
+    public void onPagarMultaClick(ActionEvent event) throws ObjetoInvalidoException {
+        PagamentoMulta pagamentoSelecionado = tableView.getSelectionModel().getSelectedItem();
 
+        ControladorSessao controladorSessao = ControladorSessao.getInstancia();
+        ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
+        Usuario usuarioLogado = controladorSessao.getUsuarioOnline();
+
+        List<PagamentoMulta> pagamentosUsuario = controladorPagamento.listarPagamentosPorCliente(usuarioLogado);
+
+        if (pagamentoSelecionado != null) {
+            try {
+                controladorPagamento.pagarMulta(pagamentoSelecionado, pagamentoSelecionado.getMulta());
+                atualizarDados(event);
+            } catch (ParametroInvalidoException e) {
+                e.printStackTrace(); // Trate o erro de acordo com suas necessidades
+            }
+        }
+    }
 }
