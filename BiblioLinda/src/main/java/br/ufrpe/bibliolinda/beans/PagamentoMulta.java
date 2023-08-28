@@ -6,6 +6,8 @@ public class PagamentoMulta {
     private Emprestimo emprestimo;
     private float multa;
     private boolean statusPagamento;
+    private LocalDate dataDePagamento;
+
 
     @Override
     public String toString() {
@@ -16,8 +18,6 @@ public class PagamentoMulta {
                 ", dataDePagamento=" + dataDePagamento +
                 '}';
     }
-
-    private LocalDate dataDePagamento;
 
     public PagamentoMulta(Emprestimo emprestimo) {
         this.emprestimo = emprestimo;

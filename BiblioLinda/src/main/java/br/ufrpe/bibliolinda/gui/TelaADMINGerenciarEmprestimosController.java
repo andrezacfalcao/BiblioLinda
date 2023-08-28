@@ -103,6 +103,7 @@ public class TelaADMINGerenciarEmprestimosController {
     }
 
 
+
     @FXML
     public void initialize() throws ParametroInvalidoException, ObjetoInvalidoException {
         ControladorEmprestimo controladorEmprestimo = ControladorEmprestimo.getInstancia();
@@ -115,7 +116,7 @@ public class TelaADMINGerenciarEmprestimosController {
 
             for (PagamentoMulta pag : pagamentosUsuario) {
                 Emprestimo emprestimo = pag.getEmprestimo();
-                if (emprestimo.getEmprestimoAtivoBoo()) { // Verifica se o empréstimo está ativo
+                if (emprestimo.getEmprestimoAtivoBoo() || !emprestimo.getEmprestimoAtivoBoo()) { // Verifica se o empréstimo está ativo
                     if (!pag.getStatusPagamento()) {
                         controladorPagamento.calcularMulta(pag);
                     }
@@ -126,7 +127,7 @@ public class TelaADMINGerenciarEmprestimosController {
             emprestimoColumn.setCellValueFactory(new PropertyValueFactory<>("emprestimo"));
             multaColumn.setCellValueFactory(new PropertyValueFactory<>("multa"));
             pagoColumn.setCellValueFactory(new PropertyValueFactory<>("statusPagamento"));
-            //dataColumn.setCellValueFactory(new PropertyValueFactory<>("dataDePagamento"));
+            dataColumn.setCellValueFactory(new PropertyValueFactory<>("dataDePagamento"));
 
             tableView.setItems(items);
         }

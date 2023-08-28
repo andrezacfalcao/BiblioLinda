@@ -38,11 +38,12 @@
                                 <Font size="18.0" />
                             </font>
                         </Label>
-                        <TableView fx:id="tableView" layoutX="41.0" layoutY="71.0" prefHeight="287.0" prefWidth="487.0">
+                        <TableView fx:id="tableView" layoutX="41.0" layoutY="71.0" prefHeight="287.0" prefWidth="550.0">
                             <columns>
-                                <TableColumn fx:id="emprestimoColumn" prefWidth="192.0" text="Empréstimo" />
-                                <TableColumn fx:id="multaColumn" prefWidth="152.0" text="Multa" />
-                                <TableColumn fx:id="pagoColumn" prefWidth="139.0" text="Status do Pagamento" />
+                                <TableColumn fx:id="emprestimoColumn" prefWidth="232.0" text="Empréstimo" />
+                                <TableColumn fx:id="multaColumn" prefWidth="51.0" text="Multa" />
+                                <TableColumn fx:id="pagoColumn" prefWidth="130.0" text="Status do Pagamento" />
+                        <TableColumn fx:id="dataColumn" prefWidth="136.0" text="Data do Pagamento" />
                             </columns>
                         </TableView>
                         <Button fx:id="voltarTelaInicioCliente" layoutX="41.0" layoutY="378.0" mnemonicParsing="false" onAction="#onvoltarTelaInicioClienteClick" prefHeight="35.0" prefWidth="79.0" style="-fx-background-color: purple;" text="Voltar" textFill="WHITE">
@@ -61,19 +62,19 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
-                  <Label layoutX="544.0" layoutY="72.0" prefHeight="25.0" prefWidth="132.0" text="Total de multa = ">
+                  <Label layoutX="627.0" layoutY="114.0" prefHeight="25.0" prefWidth="132.0" text="Total de multa = ">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="totalMulta" layoutX="676.0" layoutY="72.0">
+                  <Label fx:id="totalMulta" layoutX="759.0" layoutY="114.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="dataInicioField" layoutX="563.0" layoutY="346.0" promptText="Data Início" />
-                  <TextField fx:id="dataFimField" layoutX="563.0" layoutY="383.0" promptText="Data Fim" />
-                  <Button fx:id="buscarMulta" layoutX="309.0" layoutY="378.0" mnemonicParsing="false" onAction="#onTotalMultaClick" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: purple;" text="Buscar" textFill="WHITE">
+                  <TextField fx:id="dataInicioField" layoutX="627.0" layoutY="160.0" promptText="Data Início" />
+                  <TextField fx:id="dataFimField" layoutX="627.0" layoutY="197.0" promptText="Data Fim" />
+                  <Button fx:id="buscarMulta" layoutX="628.0" layoutY="235.0" mnemonicParsing="false" onAction="#onTotalMultaClick" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: purple;" text="Buscar" textFill="WHITE">
                      <font>
                         <Font size="16.0" />
                      </font>

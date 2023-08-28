@@ -6,9 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a6504c6f-abc3-4893-a600-1c4689a78ace" name="Changes" comment="Tela de busca de livros disponiveis na parte do cliente funcionando!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/HelloApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/PagamentoMulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/beans/PagamentoMulta.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaADMINGerenciarEmprestimosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaADMINGerenciarEmprestimosController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaCLIENTEListarEmprestimosController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/ufrpe/bibliolinda/gui/TelaCLIENTEListarEmprestimosController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +102,7 @@
       <workItem from="1693141394455" duration="4967000" />
       <workItem from="1693174582966" duration="4439000" />
       <workItem from="1693179126477" duration="4081000" />
-      <workItem from="1693188500681" duration="12342000" />
+      <workItem from="1693188500681" duration="13411000" />
     </task>
     <task id="LOCAL-00001" summary="Alteração do projeto">
       <option name="closed" value="true" />
