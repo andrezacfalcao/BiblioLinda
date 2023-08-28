@@ -57,6 +57,7 @@ public class HelloApplication extends Application {
         LocalDate dataEmprestimo2 = LocalDate.of(2022, 5, 9);
         Emprestimo emprestimo1 = new Emprestimo(cliente,livro1,dataEmprestimo);
         Emprestimo emprestimo2 = new Emprestimo(deza,livro2,dataEmprestimo2);
+
         controladorEmprestimo.adicionarEmprestimo(emprestimo1);
         controladorEmprestimo.adicionarEmprestimo(emprestimo2);
 
@@ -65,7 +66,6 @@ public class HelloApplication extends Application {
 
         PagamentoMulta pag2 = new PagamentoMulta(emprestimo2);
         controladorPagamento.adicionarPagamento(pag2);
-
 
         launch();
     }

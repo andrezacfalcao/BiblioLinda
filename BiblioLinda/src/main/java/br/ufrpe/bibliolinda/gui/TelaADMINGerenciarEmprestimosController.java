@@ -94,7 +94,8 @@ public class TelaADMINGerenciarEmprestimosController {
                 totalMultaPeriodo += pag.getMulta();
             }
 
-            totalMulta.setText("" + totalMultaPeriodo);
+            String formattedTotalMulta = String.format("%.2f", totalMultaPeriodo); // Formata o valor com 2 casas decimais
+            totalMulta.setText("R$" + formattedTotalMulta);
 
         } catch (ParametroInvalidoException e) {
             e.printStackTrace();
