@@ -1,14 +1,12 @@
+
 package br.ufrpe.bibliolinda.gui;
 
 import br.ufrpe.bibliolinda.beans.Emprestimo;
-import br.ufrpe.bibliolinda.beans.Livro;
 import br.ufrpe.bibliolinda.beans.PagamentoMulta;
 import br.ufrpe.bibliolinda.beans.Usuario;
 import br.ufrpe.bibliolinda.exception.ObjetoInvalidoException;
-import br.ufrpe.bibliolinda.exception.ObjetoJaExisteException;
 import br.ufrpe.bibliolinda.exception.ParametroInvalidoException;
 import br.ufrpe.bibliolinda.negocio.ControladorEmprestimo;
-import br.ufrpe.bibliolinda.negocio.ControladorLivro;
 import br.ufrpe.bibliolinda.negocio.ControladorPagamento;
 import br.ufrpe.bibliolinda.negocio.ControladorSessao;
 import javafx.collections.FXCollections;
@@ -23,14 +21,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.util.List;
 
-public class TelaClienteListarEmprestimosController {
+public class TelaCLIENTEHistoricoLeitura {
 
     @FXML
     private TableView<PagamentoMulta> tableView;
@@ -86,19 +82,16 @@ public class TelaClienteListarEmprestimosController {
             List<PagamentoMulta> pagamentosUsuario = controladorPagamento.listarPagamentosPorCliente(usuarioLogado);
 
             for (PagamentoMulta pag : pagamentosUsuario) {
-                Emprestimo emprestimo = pag.getEmprestimo();
-                if (emprestimo.getEmprestimoAtivoBoo()) { // Verifica se o empréstimo está ativo
-                    if (!pag.getStatusPagamento()) {
-                        controladorPagamento.calcularMulta(pag);
-                    }
-                    items.add(pag);
+                if(!pag.getStatusPagamento()){
+                    controladorPagamento.calcularMulta(pag); // Calcula a multa para o empréstimo
                 }
+                items.add(pag);
             }
 
             emprestimoColumn.setCellValueFactory(new PropertyValueFactory<>("emprestimo"));
-            multaColumn.setCellValueFactory(new PropertyValueFactory<>("multa"));
-            pagoColumn.setCellValueFactory(new PropertyValueFactory<>("statusPagamento"));
-            dataColumn.setCellValueFactory(new PropertyValueFactory<>("dataDePagamento"));
+            //multaColumn.setCellValueFactory(new PropertyValueFactory<>("multa")); // Configura a coluna da multa
+            //pagoColumn.setCellValueFactory(new PropertyValueFactory<>("statusPagamento"));
+            //dataColumn.setCellValueFactory(new PropertyValueFactory<>("dataDePagamento"));
 
             tableView.setItems(items);
         }
